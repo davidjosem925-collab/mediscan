@@ -1,0 +1,385 @@
+{% extends "base.html" %}
+
+{% block title %}
+Turnos | Administración | Mediscan
+{% endblock %}
+
+{% block content %}
+
+<section class="page-section">
+
+    <div class="container admin-turnos-container">
+
+        <!-- ================================================== -->
+        <!-- VOLVER -->
+        <!-- ================================================== -->
+
+        <a
+            href="{{ url_for('admin_dashboard') }}"
+            class="back-link"
+        >
+            ← Volver al panel
+        </a>
+
+
+        <!-- ================================================== -->
+        <!-- ENCABEZADO -->
+        <!-- ================================================== -->
+
+        <div class="page-header">
+
+            <span class="section-label">
+                Administración
+            </span>
+
+            <h1>
+                Todos los turnos
+            </h1>
+
+            <p>
+                Consultá la agenda y el historial de turnos
+                registrados en Mediscan.
+            </p>
+
+        </div>
+
+
+        <!-- ================================================== -->
+        <!-- FILTROS -->
+        <!-- ================================================== -->
+
+        <section class="admin-filters">
+
+            <form
+                method="GET"
+                action="{{ url_for('admin_turnos') }}"
+                class="admin-filters-form"
+            >
+
+                <!-- FECHA -->
+
+                <div class="form-group">
+
+                    <label for="fecha">
+                        Fecha
+                    </label>
+
+                    <input
+                        type="date"
+                        id="fecha"
+                        name="fecha"
+                        value="{{ filtro_fecha }}"
+                    >
+
+                </div>
+
+
+                <!-- SEDE -->
+
+                <div class="form-group">
+
+                    <label for="sede_id">
+                        Sede
+                    </label>
+
+                    <select
+                        id="sede_id"
+                        name="sede_id"
+                    >
+
+                        <option value="">
+                            Todas las sedes
+                        </option>
+
+                        {% for sede in sedes %}
+
+                            <option
+                                value="{{ sede['id'] }}"
+                                {% if filtro_sede == sede['id']|string %}
+                                    selected
+                                {% endif %}
+                            >
+                                {{ sede["nombre"] }}
+                            </option>
+
+                        {% endfor %}
+
+                    </select>
+
+                </div>
+
+
+                <!-- ESTUDIO -->
+
+                <div class="form-group">
+
+                    <label for="estudio_id">
+                        Estudio
+                    </label>
+
+                    <select
+                        id="estudio_id"
+                        name="estudio_id"
+                    >
+
+                        <option value="">
+                            Todos los estudios
+                        </option>
+
+                        {% for estudio in estudios %}
+
+                            <option
+                                value="{{ estudio['id'] }}"
+                                {% if filtro_estudio == estudio['id']|string %}
+                                    selected
+                                {% endif %}
+                            >
+                                {{ estudio["nombre"] }}
+                            </option>
+
+                        {% endfor %}
+
+                    </select>
+
+                </div>
+
+
+                <!-- ESTADO -->
+
+                <div class="form-group">
+
+                    <label for="estado">
+                        Estado
+                    </label>
+
+                    <select
+                        id="estado"
+                        name="estado"
+                    >
+
+                        <option value="">
+                            Todos los estados
+                        </option>
+
+                        <option
+                            value="pendiente"
+                            {% if filtro_estado == "pendiente" %}
+                                selected
+                            {% endif %}
+                        >
+                            Pendiente
+                        </option>
+
+                        <option
+                            value="confirmado"
+                            {% if filtro_estado == "confirmado" %}
+                                selected
+                            {% endif %}
+                        >
+                            Confirmado
+                        </option>
+
+                        <option
+                            value="realizado"
+                            {% if filtro_estado == "realizado" %}
+                                selected
+                            {% endif %}
+                        >
+                            Realizado
+                        </option>
+
+                        <option
+                            value="no_asistio"
+                            {% if filtro_estado == "no_asistio" %}
+                                selected
+                            {% endif %}
+                        >
+                            No asistió
+                        </option>
+
+                        <option
+                            value="cancelado"
+                            {% if filtro_estado == "cancelado" %}
+                                selected
+                            {% endif %}
+                        >
+                            Cancelado
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- BOTONES DE FILTRO -->
+
+                <div class="admin-filter-actions">
+
+                    <button
+                        type="submit"
+                        class="btn-primary"
+                    >
+                        Aplicar filtros
+                    </button>
+
+                    <a
+                        href="{{ url_for('admin_turnos') }}"
+                        class="btn-secondary"
+                    >
+                        Limpiar
+                    </a>
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <!-- ================================================== -->
+        <!-- CANTIDAD DE TURNOS -->
+        <!-- ================================================== -->
+
+        <div class="admin-list-summary">
+
+            <strong>
+                {{ turnos|length }}
+            </strong>
+
+            <span>
+             {% if turnos|length == 1 %}
+             turno encontrado
+             {% else %}
+             turnos encontrados
+             {% endif %}
+            </span>
+
+        </div>
+
+
+        <!-- ================================================== -->
+        <!-- TABLA DE TURNOS -->
+        <!-- ================================================== -->
+
+        <section class="admin-section admin-turnos-table-section">
+
+            {% if turnos %}
+
+                <div class="admin-table-wrapper">
+
+                    <table class="admin-table">
+
+                        <thead>
+
+                            <tr>
+                                <th>Código</th>
+                                <th>Fecha</th>
+                                <th>Hora</th>
+                                <th>Paciente</th>
+                                <th>DNI</th>
+                                <th>Estudio</th>
+                                <th>Sede</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            {% for turno in turnos %}
+
+                                <tr>
+
+                                    <td>
+                                        <strong>
+                                            {{ turno["codigo"] }}
+                                        </strong>
+                                    </td>
+
+                                    <td>
+                                        {{ turno["fecha"] }}
+                                    </td>
+
+                                    <td>
+                                        {{ turno["hora"] }}
+                                    </td>
+
+                                    <td>
+                                        {{ turno["paciente_nombre"] }}
+                                        {{ turno["paciente_apellido"] }}
+                                    </td>
+
+                                    <td>
+                                        {{ turno["paciente_dni"] }}
+                                    </td>
+
+                                    <td>
+                                        {{ turno["estudio"] }}
+                                    </td>
+
+                                    <td>
+                                        {{ turno["sede"] }}
+                                    </td>
+
+                                    <td>
+
+                                        <span
+                                            class="
+                                                admin-status
+                                                admin-status-{{ turno['estado'] }}
+                                            "
+                                        >
+                                            {% if turno["estado"] == "no_asistio" %}
+                                            No asistió
+                                            {% else %}
+                                            {{ turno["estado"]|capitalize }}
+                                            {% endif %}
+                                        </span>
+
+                                    </td>
+
+                                    <td>
+
+                                        <a
+                                            href="{{ url_for(
+                                                'admin_detalle_turno',
+                                                turno_id=turno['id']
+                                            ) }}"
+                                            class="admin-action-link"
+                                        >
+                                            Ver detalle
+                                        </a>
+
+                                    </td>
+
+                                </tr>
+
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            {% else %}
+
+                <div class="admin-empty">
+
+                    <p>
+                        No se encontraron turnos con los filtros seleccionados.
+                    </p>
+
+                </div>
+
+            {% endif %}
+
+        </section>
+
+    </div>
+
+</section>
+
+{% endblock %}

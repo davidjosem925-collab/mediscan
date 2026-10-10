@@ -1,0 +1,187 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Estudios | Administración | Mediscan
+{% endblock %}
+
+
+{% block content %}
+
+<section class="page-section">
+
+    <div class="container admin-estudios-container">
+
+        <!-- VOLVER -->
+
+        <a
+            href="{{ url_for('admin_dashboard') }}"
+            class="back-link"
+        >
+            ← Volver al panel
+        </a>
+
+
+        <!-- ENCABEZADO -->
+
+        <div class="admin-page-header">
+
+        <div class="page-header">
+
+        <span class="section-label">
+            Administración
+        </span>
+
+        <h1>
+            Estudios
+        </h1>
+
+        <p>
+            Gestioná los estudios disponibles en Mediscan.
+        </p>
+
+        </div>
+
+
+        <a
+          href="{{ url_for('admin_nuevo_estudio') }}"
+          class="btn-primary"
+        >
+          + Nuevo estudio
+        </a>
+
+        </div>
+
+
+        <!-- RESUMEN -->
+
+        <div class="admin-list-summary">
+
+            <strong>
+                {{ estudios|length }}
+            </strong>
+
+            <span>
+                estudios registrados
+            </span>
+
+        </div>
+
+
+        <!-- LISTADO -->
+
+        <section class="admin-section">
+
+            {% if estudios %}
+
+                <div class="admin-table-wrapper">
+
+                    <table class="admin-table">
+
+                        <thead>
+
+                            <tr>
+                                <th>Estudio</th>
+                                <th>Área</th>
+                                <th>Duración</th>
+                                <th>Sedes</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            {% for estudio in estudios %}
+
+                                <tr>
+
+                                    <td>
+
+                                        <strong>
+                                            {{ estudio["nombre"] }}
+                                        </strong>
+
+                                    </td>
+
+
+                                    <td>
+                                        {{ estudio["area"] }}
+                                    </td>
+
+
+                                    <td>
+                                        {{ estudio["duracion_minutos"] }}
+                                        min
+                                    </td>
+
+
+                                    <td>
+                                        {{ estudio["cantidad_sedes"] }}
+                                    </td>
+
+
+                                    <td>
+
+                                        {% if estudio["activo"] %}
+
+                                            <span class="patient-status-active">
+                                                Activo
+                                            </span>
+
+                                        {% else %}
+
+                                            <span class="patient-status-inactive">
+                                                Inactivo
+                                            </span>
+
+                                        {% endif %}
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <a
+                                            href="{{ url_for(
+                                                'admin_detalle_estudio',
+                                                estudio_id=estudio['id']
+                                            ) }}"
+                                            class="admin-action-link"
+                                        >
+                                            Ver estudio
+                                        </a>
+
+                                    </td>
+
+                                </tr>
+
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            {% else %}
+
+                <div class="admin-empty">
+
+                    <p>
+                        No hay estudios registrados.
+                    </p>
+
+                </div>
+
+            {% endif %}
+
+        </section>
+
+    </div>
+
+</section>
+
+{% endblock %}

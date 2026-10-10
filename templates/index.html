@@ -1,0 +1,481 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Mediscan | Centro de Diagnóstico Médico
+{% endblock %}
+
+
+{% block content %}
+
+<!-- ====================================================== -->
+<!-- HERO -->
+<!-- ====================================================== -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <span class="hero-label">
+            Centro de Diagnóstico Médico
+        </span>
+
+        <h1>
+            Tu salud comienza con un
+            <span>diagnóstico preciso.</span>
+        </h1>
+
+        <p class="hero-description">
+            Accedé a estudios de diagnóstico por imágenes,
+            cardiología y laboratorio. Reservá tu turno online
+            de manera simple, rápida y segura.
+        </p>
+
+
+        <div class="hero-actions">
+
+            <a
+                href="#servicios"
+                class="primary-button"
+            >
+                Reservar un turno
+            </a>
+
+            <a
+                href="#mediscan"
+                class="secondary-button"
+            >
+                Conocer Mediscan
+            </a>
+
+        </div>
+
+
+        <div class="hero-features">
+
+            <div>
+                <strong>3</strong>
+                <span>Sedes</span>
+            </div>
+
+            <div>
+                <strong>3</strong>
+                <span>Áreas médicas</span>
+            </div>
+
+            <div>
+                <strong>Online</strong>
+                <span>Reserva de turnos</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================================================== -->
+    <!-- TARJETA LATERAL -->
+    <!-- ================================================== -->
+
+    <div class="hero-card">
+
+        <span class="hero-card-label">
+            Portal del paciente
+        </span>
+
+        {% if session.get("usuario_id") %}
+
+            <h3>
+                Gestioná tus turnos
+            </h3>
+
+            <p>
+                Consultá tus datos personales y administrá
+                tus próximas reservas desde tu cuenta.
+            </p>
+
+
+            <div class="hero-card-feature">
+
+                <div class="hero-card-feature-icon">
+                    ✓
+                </div>
+
+                <div>
+                    <strong>
+                        Tu cuenta Mediscan
+                    </strong>
+
+                    <span>
+                        Toda tu información en un solo lugar.
+                    </span>
+                </div>
+
+            </div>
+
+
+            <a
+                href="{{ url_for('mi_cuenta') }}"
+                class="primary-button"
+            >
+                Ir a mi cuenta
+            </a>
+
+        {% else %}
+
+            <h3>
+                Reservá online
+            </h3>
+
+            <p>
+                Iniciá sesión para reservar estudios y
+                consultar tus próximos turnos.
+            </p>
+
+
+            <div class="hero-card-feature">
+
+                <div class="hero-card-feature-icon">
+                    ✓
+                </div>
+
+                <div>
+                    <strong>
+                        Fácil y rápido
+                    </strong>
+
+                    <span>
+                        Elegí estudio, sede, fecha y horario.
+                    </span>
+                </div>
+
+            </div>
+
+
+            <a
+                href="{{ url_for('login') }}"
+                class="primary-button"
+            >
+                Iniciar sesión
+            </a>
+
+            <a
+                href="{{ url_for('registro') }}"
+                class="hero-register-link"
+            >
+                ¿No tenés cuenta? Crear cuenta
+            </a>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+
+<!-- ====================================================== -->
+<!-- MEDISCAN -->
+<!-- ====================================================== -->
+
+<section
+    class="about-section"
+    id="mediscan"
+>
+
+    <div class="section-header">
+
+        <span class="section-label">
+            Conocé Mediscan
+        </span>
+
+        <h2>
+            Diagnóstico y atención en un mismo lugar
+        </h2>
+
+        <p>
+            Mediscan es un centro de diagnóstico médico orientado
+            a brindar una experiencia ágil y organizada, combinando
+            distintas especialidades con un sistema de turnos online.
+        </p>
+
+    </div>
+
+
+    <div class="about-grid">
+
+        <article class="about-card">
+
+            <div class="about-icon">
+                01
+            </div>
+
+            <h3>
+                Atención organizada
+            </h3>
+
+            <p>
+                Consultá estudios, sedes y horarios disponibles
+                antes de realizar tu reserva.
+            </p>
+
+        </article>
+
+
+        <article class="about-card">
+
+            <div class="about-icon">
+                02
+            </div>
+
+            <h3>
+                Múltiples especialidades
+            </h3>
+
+            <p>
+                Diagnóstico por imágenes, cardiología y laboratorio
+                integrados dentro de una misma plataforma.
+            </p>
+
+        </article>
+
+
+        <article class="about-card">
+
+            <div class="about-icon">
+                03
+            </div>
+
+            <h3>
+                Turnos online
+            </h3>
+
+            <p>
+                Reservá y consultá tus próximos turnos desde
+                cualquier dispositivo.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- ====================================================== -->
+<!-- ESTUDIOS -->
+<!-- ====================================================== -->
+
+<section
+    class="services"
+    id="servicios"
+>
+
+    <div class="section-header">
+
+        <span class="section-label">
+            Nuestros estudios
+        </span>
+
+        <h2>
+            Servicios de diagnóstico
+        </h2>
+
+        <p>
+            Conocé nuestros estudios, su preparación,
+            duración y las sedes disponibles.
+        </p>
+
+    </div>
+
+
+    <div class="services-grid">
+
+        {% for estudio in estudios %}
+
+            <a
+                href="{{ url_for(
+                    'detalle_estudio',
+                    slug=estudio['slug']
+                ) }}"
+                class="service-card-link"
+            >
+
+                <article class="service-card">
+
+                    <div class="service-card-top">
+
+                        <div class="service-icon">
+                            +
+                        </div>
+
+                        <span class="service-area">
+                            {{ estudio["area"] }}
+                        </span>
+
+                    </div>
+
+
+                    <h3>
+                        {{ estudio["nombre"] }}
+                    </h3>
+
+
+                    <p>
+                        {{ estudio["descripcion"] }}
+                    </p>
+
+
+                    <div class="service-card-footer">
+
+                        <span class="service-duration">
+                            {{ estudio["duracion_minutos"] }} min
+                        </span>
+
+                        <span class="service-link-text">
+                            Ver estudio →
+                        </span>
+
+                    </div>
+
+                </article>
+
+            </a>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+
+<!-- ====================================================== -->
+<!-- SEDES -->
+<!-- ====================================================== -->
+
+<section class="home-locations">
+
+    <div class="section-header">
+
+        <span class="section-label">
+            Nuestras sedes
+        </span>
+
+        <h2>
+            Encontrá tu sede más conveniente
+        </h2>
+
+        <p>
+            Mediscan cuenta con tres centros de atención
+            en la zona oeste de Buenos Aires.
+        </p>
+
+    </div>
+
+
+    <div class="locations-grid">
+
+        <article class="location-card">
+
+            <span class="location-label">
+                San Justo
+            </span>
+
+            <h3>
+                Sede San Justo
+            </h3>
+
+            <p>
+                Av. Juan Manuel de Rosas 2450
+            </p>
+
+            <span>
+                011-4444-1001
+            </span>
+
+        </article>
+
+
+        <article class="location-card">
+
+            <span class="location-label">
+                Morón
+            </span>
+
+            <h3>
+                Sede Morón
+            </h3>
+
+            <p>
+                Av. Rivadavia 17850
+            </p>
+
+            <span>
+                011-4444-1002
+            </span>
+
+        </article>
+
+
+        <article class="location-card">
+
+            <span class="location-label">
+                Gregorio de Laferrere
+            </span>
+
+            <h3>
+                Sede Laferrere
+            </h3>
+
+            <p>
+                Av. Luro 6200
+            </p>
+
+            <span>
+                011-4444-1003
+            </span>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- ====================================================== -->
+<!-- CTA FINAL -->
+<!-- ====================================================== -->
+
+<section class="home-cta">
+
+    <div class="home-cta-content">
+
+        <div>
+
+            <span class="home-cta-label">
+                Turnos online
+            </span>
+
+            <h2>
+                Encontrá el estudio que necesitás
+            </h2>
+
+            <p>
+                Consultá las opciones disponibles y reservá
+                tu turno en pocos pasos.
+            </p>
+
+        </div>
+
+
+        <a
+            href="#servicios"
+            class="primary-button"
+        >
+            Ver estudios
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

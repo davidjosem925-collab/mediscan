@@ -1,0 +1,208 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Editar paciente | Administración | Mediscan
+{% endblock %}
+
+
+{% block content %}
+
+<section class="page-section">
+
+    <div class="container">
+
+        <a
+            href="{{ url_for(
+                'admin_detalle_paciente',
+                paciente_id=paciente['id']
+            ) }}"
+            class="back-link"
+        >
+            ← Volver al paciente
+        </a>
+
+
+        <div class="page-header">
+
+            <span class="section-label">
+                Administración
+            </span>
+
+            <h1>
+                Editar paciente
+            </h1>
+
+            <p>
+                Modificá los datos personales del paciente.
+            </p>
+
+        </div>
+
+
+        <section class="booking-form-card">
+
+            {% if error %}
+
+                <div class="booking-error">
+                    {{ error }}
+                </div>
+
+            {% endif %}
+
+
+            <form method="POST">
+
+                <div class="form-grid">
+
+
+                    <div class="form-group">
+
+                        <label for="nombre">
+                            Nombre
+                        </label>
+
+                        <input
+                            type="text"
+                            id="nombre"
+                            name="nombre"
+                            value="{{ paciente['nombre'] }}"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="apellido">
+                            Apellido
+                        </label>
+
+                        <input
+                            type="text"
+                            id="apellido"
+                            name="apellido"
+                            value="{{ paciente['apellido'] }}"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="dni">
+                            DNI
+                        </label>
+
+                        <input
+                            type="text"
+                            id="dni"
+                            name="dni"
+                            inputmode="numeric"
+                            value="{{ paciente['dni'] }}"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            value="{{ paciente['email'] }}"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="telefono">
+                            Teléfono
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="telefono"
+                            name="telefono"
+                            value="{{ paciente['telefono'] }}"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="obra_social">
+                            Obra social
+                        </label>
+
+                        <input
+                            type="text"
+                            id="obra_social"
+                            name="obra_social"
+                            value="{{ paciente['obra_social'] or '' }}"
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="numero_afiliado">
+                            Número de afiliado
+                        </label>
+
+                        <input
+                            type="text"
+                            id="numero_afiliado"
+                            name="numero_afiliado"
+                            value="{{ paciente['numero_afiliado'] or '' }}"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <a
+                        href="{{ url_for(
+                            'admin_detalle_paciente',
+                            paciente_id=paciente['id']
+                        ) }}"
+                        class="btn-secondary"
+                    >
+                        Cancelar
+                    </a>
+
+                    <button
+                        type="submit"
+                        class="btn-primary"
+                    >
+                        Guardar cambios
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </div>
+
+</section>
+
+{% endblock %}

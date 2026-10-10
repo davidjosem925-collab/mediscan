@@ -1,0 +1,349 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Editar {{ estudio["nombre"] }} | Administración | Mediscan
+{% endblock %}
+
+
+{% block content %}
+
+<section class="page-section">
+
+    <div class="container admin-study-edit-container">
+
+        <!-- ================================================== -->
+        <!-- VOLVER -->
+        <!-- ================================================== -->
+
+        <a
+            href="{{ url_for(
+                'admin_detalle_estudio',
+                estudio_id=estudio['id']
+            ) }}"
+            class="back-link"
+        >
+            ← Volver al estudio
+        </a>
+
+
+        <!-- ================================================== -->
+        <!-- ENCABEZADO -->
+        <!-- ================================================== -->
+
+        <div class="page-header">
+
+            <span class="section-label">
+                Administración
+            </span>
+
+            <h1>
+                Editar estudio
+            </h1>
+
+            <p>
+                Modificá la información y disponibilidad
+                del estudio en Mediscan.
+            </p>
+
+        </div>
+
+
+        <!-- ================================================== -->
+        <!-- FORMULARIO: INFORMACIÓN DEL ESTUDIO -->
+        <!-- ================================================== -->
+
+        <section class="booking-form-card">
+
+            <div class="admin-study-branches-header">
+
+                <div>
+
+                    <span class="section-label">
+                        Información
+                    </span>
+
+                    <h2>
+                        Datos del estudio
+                    </h2>
+
+                    <p>
+                        Modificá la información que se muestra
+                        a los pacientes.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            {% if error %}
+
+                <div class="booking-error">
+                    {{ error }}
+                </div>
+
+            {% endif %}
+
+
+            <form method="POST">
+
+                <!-- ========================================== -->
+                <!-- NOMBRE -->
+                <!-- ========================================== -->
+
+                <div class="form-group">
+
+                    <label for="nombre">
+                        Nombre del estudio
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nombre"
+                        name="nombre"
+                        value="{{ estudio['nombre'] }}"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- ========================================== -->
+                <!-- ÁREA -->
+                <!-- ========================================== -->
+
+                <div class="form-group">
+
+                    <label for="area_id">
+                        Área
+                    </label>
+
+                    <select
+                        id="area_id"
+                        name="area_id"
+                        required
+                    >
+
+                        {% for area in areas %}
+
+                            <option
+                                value="{{ area['id'] }}"
+                                {% if area['id'] == estudio['area_id'] %}
+                                    selected
+                                {% endif %}
+                            >
+                                {{ area["nombre"] }}
+                            </option>
+
+                        {% endfor %}
+
+                    </select>
+
+                </div>
+
+
+                <!-- ========================================== -->
+                <!-- DURACIÓN -->
+                <!-- ========================================== -->
+
+                <div class="form-group">
+
+                    <label for="duracion_minutos">
+                        Duración aproximada
+                    </label>
+
+                    <input
+                        type="number"
+                        id="duracion_minutos"
+                        name="duracion_minutos"
+                        min="5"
+                        step="5"
+                        value="{{ estudio['duracion_minutos'] }}"
+                        required
+                    >
+
+                    <small>
+                        Duración expresada en minutos.
+                    </small>
+
+                </div>
+
+
+                <!-- ========================================== -->
+                <!-- DESCRIPCIÓN -->
+                <!-- ========================================== -->
+
+                <div class="form-group">
+
+                    <label for="descripcion">
+                        Descripción
+                    </label>
+
+                    <textarea
+                        id="descripcion"
+                        name="descripcion"
+                        rows="5"
+                    >{{ estudio["descripcion"] or "" }}</textarea>
+
+                </div>
+
+
+                <!-- ========================================== -->
+                <!-- PREPARACIÓN -->
+                <!-- ========================================== -->
+
+                <div class="form-group">
+
+                    <label for="preparacion">
+                        Preparación
+                    </label>
+
+                    <textarea
+                        id="preparacion"
+                        name="preparacion"
+                        rows="4"
+                    >{{ estudio["preparacion"] or "" }}</textarea>
+
+                </div>
+
+
+                <!-- ========================================== -->
+                <!-- REQUISITOS -->
+                <!-- ========================================== -->
+
+                <div class="form-group">
+
+                    <label for="requisitos">
+                        Requisitos
+                    </label>
+
+                    <textarea
+                        id="requisitos"
+                        name="requisitos"
+                        rows="4"
+                    >{{ estudio["requisitos"] or "" }}</textarea>
+
+                </div>
+
+
+                <!-- ========================================== -->
+                <!-- BOTONES -->
+                <!-- ========================================== -->
+
+                <div class="form-actions">
+
+                    <a
+                        href="{{ url_for(
+                            'admin_detalle_estudio',
+                            estudio_id=estudio['id']
+                        ) }}"
+                        class="btn-secondary"
+                    >
+                        Cancelar
+                    </a>
+
+                    <button
+                        type="submit"
+                        class="btn-primary"
+                    >
+                        Guardar cambios
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <!-- ================================================== -->
+        <!-- FORMULARIO: SEDES DEL ESTUDIO -->
+        <!-- ================================================== -->
+
+        <section class="admin-study-branches">
+
+            <div class="admin-study-branches-header">
+
+                <div>
+
+                    <span class="section-label">
+                        Disponibilidad
+                    </span>
+
+                    <h2>
+                        Sedes del estudio
+                    </h2>
+
+                    <p>
+                        Seleccioná las sedes donde se encuentra
+                        disponible este estudio.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <form
+                method="POST"
+                action="{{ url_for(
+                    'admin_actualizar_sedes_estudio',
+                    estudio_id=estudio['id']
+                ) }}"
+            >
+
+                <div class="admin-branches-grid">
+
+                    {% for sede in sedes %}
+
+                        <label class="admin-branch-option">
+
+                            <input
+                                type="checkbox"
+                                name="sedes"
+                                value="{{ sede['id'] }}"
+                                {% if sede['id'] in sedes_activas_ids %}
+                                    checked
+                                {% endif %}
+                            >
+
+                            <div class="admin-branch-option-info">
+
+                                <strong>
+                                    {{ sede["nombre"] }}
+                                </strong>
+
+                                <span>
+                                    {{ sede["direccion"] }}
+                                </span>
+
+                            </div>
+
+                        </label>
+
+                    {% endfor %}
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <button
+                        type="submit"
+                        class="btn-primary"
+                    >
+                        Guardar sedes
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </div>
+
+</section>
+
+{% endblock %}

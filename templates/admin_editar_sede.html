@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Editar {{ sede["nombre"] }} | Administración | Mediscan
+{% endblock %}
+
+
+{% block content %}
+
+<section class="page-section">
+
+    <div class="container">
+
+        <a
+            href="{{ url_for(
+                'admin_detalle_sede',
+                sede_id=sede['id']
+            ) }}"
+            class="back-link"
+        >
+            ← Volver a la sede
+        </a>
+
+
+        <div class="page-header">
+
+            <span class="section-label">
+                Administración
+            </span>
+
+            <h1>
+                Editar sede
+            </h1>
+
+            <p>
+                Modificá la información general de la sede.
+            </p>
+
+        </div>
+
+
+        {% if error %}
+
+            <div class="booking-error">
+                {{ error }}
+            </div>
+
+        {% endif %}
+
+
+       <section class="admin-detail-card admin-edit-branch-card">
+
+            <form
+                method="POST"
+                class="admin-form"
+            >
+
+                <div class="form-group">
+
+                    <label for="nombre">
+                        Nombre de la sede
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nombre"
+                        name="nombre"
+                        value="{{ sede['nombre'] }}"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="direccion">
+                        Dirección
+                    </label>
+
+                    <input
+                        type="text"
+                        id="direccion"
+                        name="direccion"
+                        value="{{ sede['direccion'] }}"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="telefono">
+                        Teléfono
+                    </label>
+
+                    <input
+                        type="text"
+                        id="telefono"
+                        name="telefono"
+                        value="{{ sede['telefono'] }}"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="admin-form-actions">
+
+                    <a
+                        href="{{ url_for(
+                            'admin_detalle_sede',
+                            sede_id=sede['id']
+                        ) }}"
+                        class="btn-secondary"
+                    >
+                        Cancelar
+                    </a>
+
+                    <button
+                        type="submit"
+                        class="btn-primary"
+                    >
+                        Guardar cambios
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </div>
+
+</section>
+
+{% endblock %}

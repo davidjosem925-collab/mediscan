@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        {% block title %}
+        Mediscan
+        {% endblock %}
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+    {% block extra_css %}
+    {% endblock %}
+</head>
+
+<body>
+
+    <!-- ================================================== -->
+    <!-- HEADER -->
+    <!-- ================================================== -->
+
+    <header class="site-header">
+
+        <div class="container navbar">
+
+            <!-- LOGO -->
+
+            <a
+                href="{{ url_for('inicio') }}"
+                class="logo"
+            >
+                Mediscan
+            </a>
+
+            <button
+              type="button"
+              class="nav-menu-toggle"
+              id="nav-menu-toggle"
+              aria-label="Abrir menú de navegación"
+              aria-controls="main-navigation"
+              aria-expanded="false"
+            >
+               ☰
+            </button>
+
+
+            <!-- NAVEGACIÓN -->
+
+            <nav class="nav-links" id="main-navigation">
+
+                <a href="{{ url_for('inicio') }}">
+                    Inicio
+                </a>
+
+                <a href="{{ url_for('inicio') }}#servicios">
+                  Estudios
+                </a>
+
+
+                {% if session.get("usuario_id") %}
+
+                    {% if session.get("rol") == "paciente" %}
+
+                        <a href="{{ url_for('mi_cuenta') }}">
+                            Mis turnos
+                        </a>
+
+                    {% endif %}
+
+
+                    {% if session.get("rol") == "admin" %}
+
+                        <a href="{{ url_for('admin_dashboard') }}">
+                          Administración
+                        </a>
+
+                    {% endif %}
+
+
+                    <span class="nav-user">
+                        
+                        Hola, {{ session.get("usuario_nombre", "Usuario") }}
+                    </span>
+
+
+                    <a
+                        href="{{ url_for('logout') }}"
+                        class="nav-logout"
+                    >
+                        Cerrar sesión
+                    </a>
+
+
+                {% else %}
+
+                    <a href="{{ url_for('login') }}">
+                        Iniciar sesión
+                    </a>
+
+                    <a
+                        href="{{ url_for('registro') }}"
+                        class="nav-register"
+                    >
+                        Crear cuenta
+                    </a>
+
+                {% endif %}
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================================================== -->
+    <!-- CONTENIDO DE CADA PÁGINA -->
+    <!-- ================================================== -->
+
+    <main>
+
+        {% block content %}
+        {% endblock %}
+
+    </main>
+
+
+    
+<!-- ================================================== -->
+<!-- FOOTER -->
+<!-- ================================================== -->
+
+<footer class="site-footer">
+    <div class="container">
+
+        <p>
+            © 2026 Mediscan · Proyecto de portfolio
+        </p>
+
+        <p class="footer-disclaimer">
+            Sitio demostrativo de un centro médico ficticio.
+            Sedes y datos de ejemplo. No se realizan reservas médicas reales.
+        </p>
+
+    </div>
+</footer>
+
+
+    {% block scripts %}
+    {% endblock %}
+
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const menuButton = document.getElementById("nav-menu-toggle");
+    const navigation = document.getElementById("main-navigation");
+
+    if (!menuButton || !navigation) return;
+
+    menuButton.addEventListener("click", function () {
+        const isOpen = navigation.classList.toggle("is-open");
+
+        menuButton.setAttribute("aria-expanded", String(isOpen));
+        menuButton.setAttribute(
+            "aria-label",
+            isOpen ? "Cerrar menú de navegación" : "Abrir menú de navegación"
+        );
+
+        menuButton.textContent = isOpen ? "✕" : "☰";
+    });
+
+    navigation.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+            navigation.classList.remove("is-open");
+            menuButton.setAttribute("aria-expanded", "false");
+            menuButton.setAttribute("aria-label", "Abrir menú de navegación");
+            menuButton.textContent = "☰";
+        });
+    });
+});
+</script>
+
+</body>
+
+</html>

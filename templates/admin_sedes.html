@@ -1,0 +1,192 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Sedes | Administración | Mediscan
+{% endblock %}
+
+
+{% block content %}
+
+<section class="page-section">
+
+    <div class="container">
+
+        <!-- VOLVER -->
+
+        <a
+            href="{{ url_for('admin_dashboard') }}"
+            class="back-link"
+        >
+            ← Volver al panel
+        </a>
+
+
+        <!-- ENCABEZADO -->
+
+        <div class="page-header">
+
+            <span class="section-label">
+                Administración
+            </span>
+
+            <h1>
+                Sedes
+            </h1>
+
+            <p>
+                Administrá las sedes disponibles
+                en Mediscan.
+            </p>
+
+        </div>
+
+
+        <!-- RESUMEN -->
+
+        <div class="admin-list-summary">
+
+            <strong>
+                {{ sedes|length }}
+            </strong>
+
+            <span>
+                sedes registradas
+            </span>
+
+        </div>
+
+
+        <!-- LISTADO -->
+
+        <section class="admin-section">
+
+            {% if sedes %}
+
+                <div class="admin-table-wrapper">
+
+                    <table class="admin-table">
+
+                        <thead>
+
+                            <tr>
+                                <th>Sede</th>
+                                <th>Dirección</th>
+                                <th>Teléfono</th>
+                                <th>Estudios</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            {% for sede in sedes %}
+
+                                <tr>
+
+                                    <!-- NOMBRE -->
+
+                                    <td>
+
+                                        <strong>
+                                            {{ sede["nombre"] }}
+                                        </strong>
+
+                                    </td>
+
+
+                                    <!-- DIRECCIÓN -->
+
+                                    <td>
+                                        {{ sede["direccion"] }}
+                                    </td>
+
+
+                                    <!-- TELÉFONO -->
+
+                                    <td>
+                                        {{ sede["telefono"] }}
+                                    </td>
+
+
+                                    <!-- ESTUDIOS -->
+
+                                    <td>
+
+                                        <strong>
+                                            {{ sede["cantidad_estudios"] }}
+                                        </strong>
+
+                                    </td>
+
+
+                                    <!-- ESTADO -->
+
+                                    <td>
+
+                                        {% if sede["activo"] %}
+
+                                            <span class="patient-status-active">
+                                                Activa
+                                            </span>
+
+                                        {% else %}
+
+                                            <span class="patient-status-inactive">
+                                                Inactiva
+                                            </span>
+
+                                        {% endif %}
+
+                                    </td>
+
+
+                                    <!-- ACCIONES -->
+
+                                    <td>
+
+                                        <a
+                                          href="{{ url_for(
+                                          'admin_detalle_sede',
+                                          sede_id=sede['id']
+                                          ) }}"
+                                         class="admin-action-link"
+                                        >
+                                         Ver sede
+                                        </a>
+
+                                    </td>
+
+                                </tr>
+
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+            {% else %}
+
+                <div class="admin-empty">
+
+                    <p>
+                        Todavía no hay sedes registradas.
+                    </p>
+
+                </div>
+
+            {% endif %}
+
+        </section>
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,249 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Horarios de {{ estudio["nombre"] }} | Administración | Mediscan
+{% endblock %}
+
+
+{% block content %}
+
+<section class="page-section">
+
+    <div class="container">
+
+        <!-- VOLVER -->
+
+        <a
+            href="{{ url_for(
+                'admin_detalle_estudio',
+                estudio_id=estudio['id']
+            ) }}"
+            class="back-link"
+        >
+            ← Volver al estudio
+        </a>
+
+
+        <!-- ENCABEZADO -->
+
+        <div class="page-header">
+
+            <span class="section-label">
+                Administración
+            </span>
+
+            <h1>
+                Horarios de {{ estudio["nombre"] }}
+            </h1>
+
+            <p>
+                Configurá los días y horarios disponibles
+                para cada sede donde se realiza este estudio.
+            </p>
+
+        </div>
+
+
+        <!-- MENSAJE DE ÉXITO -->
+
+        {% if mensaje %}
+
+            <div class="booking-success">
+                {{ mensaje }}
+            </div>
+
+        {% endif %}
+
+
+        <!-- MENSAJE DE ERROR -->
+
+        {% if error %}
+
+            <div class="booking-error">
+                {{ error }}
+            </div>
+
+        {% endif %}
+
+
+        <!-- SIN SEDES -->
+
+        {% if not sedes %}
+
+            <section class="admin-section">
+
+                <div class="admin-empty">
+
+                    <p>
+                        Este estudio todavía no tiene
+                        sedes habilitadas.
+                    </p>
+
+                    <a
+                        href="{{ url_for(
+                            'admin_editar_estudio',
+                            estudio_id=estudio['id']
+                        ) }}"
+                        class="btn-primary"
+                    >
+                        Configurar sedes
+                    </a>
+
+                </div>
+
+            </section>
+
+
+        {% else %}
+
+            <!-- FORMULARIO -->
+
+            <form method="POST">
+
+                {% for sede in sedes %}
+
+                    <section class="admin-schedule-card">
+
+                        <!-- CABECERA DE SEDE -->
+
+                        <div class="admin-schedule-header">
+
+                            <div>
+
+                                <span class="section-label">
+                                    Sede
+                                </span>
+
+                                <h2>
+                                    {{ sede["nombre"] }}
+                                </h2>
+
+                                <p>
+                                    {{ sede["direccion"] }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- DÍAS -->
+
+                        <div class="admin-schedule-days">
+
+                            {% for dia_numero, dia_nombre in dias %}
+
+                                {% set clave = (sede["id"], dia_numero) %}
+                                {% set horario = horarios.get(clave) %}
+
+
+                                <div class="admin-schedule-row">
+
+                                    <!-- ACTIVAR DÍA -->
+
+                                    <div class="admin-schedule-day">
+
+                                        <label>
+
+                                            <input
+                                                type="checkbox"
+                                                name="activo_{{ sede['id'] }}_{{ dia_numero }}"
+                                                class="schedule-checkbox"
+
+                                                {% if horario and horario["activo"] %}
+                                                    checked
+                                                {% endif %}
+                                            >
+
+                                            <strong>
+                                                {{ dia_nombre }}
+                                            </strong>
+
+                                        </label>
+
+                                    </div>
+
+
+                                    <!-- HORA INICIO -->
+
+                                    <div class="admin-schedule-time">
+
+                                        <label
+                                            for="inicio_{{ sede['id'] }}_{{ dia_numero }}"
+                                        >
+                                            Desde
+                                        </label>
+
+                                        <input
+                                            type="time"
+                                            id="inicio_{{ sede['id'] }}_{{ dia_numero }}"
+                                            name="inicio_{{ sede['id'] }}_{{ dia_numero }}"
+                                            value="{% if horario %}{{ horario['hora_inicio'] }}{% endif %}"
+                                        >
+
+                                    </div>
+
+
+                                    <!-- HORA FIN -->
+
+                                    <div class="admin-schedule-time">
+
+                                        <label
+                                            for="fin_{{ sede['id'] }}_{{ dia_numero }}"
+                                        >
+                                            Hasta
+                                        </label>
+
+                                        <input
+                                            type="time"
+                                            id="fin_{{ sede['id'] }}_{{ dia_numero }}"
+                                            name="fin_{{ sede['id'] }}_{{ dia_numero }}"
+                                            value="{% if horario %}{{ horario['hora_fin'] }}{% endif %}"
+                                        >
+
+                                    </div>
+
+                                </div>
+
+                            {% endfor %}
+
+                        </div>
+
+                    </section>
+
+                {% endfor %}
+
+
+                <!-- ACCIONES -->
+
+                <div class="form-actions">
+
+                    <a
+                        href="{{ url_for(
+                            'admin_detalle_estudio',
+                            estudio_id=estudio['id']
+                        ) }}"
+                        class="btn-secondary"
+                    >
+                        Cancelar
+                    </a>
+
+                    <button
+                        type="submit"
+                        class="btn-primary"
+                    >
+                        Guardar horarios
+                    </button>
+
+                </div>
+
+            </form>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+{% endblock %}

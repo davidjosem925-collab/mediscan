@@ -1,0 +1,355 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+{{ sede["nombre"] }} | Administración | Mediscan
+{% endblock %}
+
+
+{% block content %}
+
+<section class="page-section">
+
+    <div class="container">
+
+        <!-- VOLVER -->
+
+        <a
+            href="{{ url_for('admin_sedes') }}"
+            class="back-link"
+        >
+            ← Volver a sedes
+        </a>
+
+
+        <!-- ENCABEZADO -->
+
+        <div class="page-header">
+
+            <span class="section-label">
+                Administración
+            </span>
+
+            <h1>
+                {{ sede["nombre"] }}
+            </h1>
+
+            <p>
+                Información y configuración general de la sede.
+            </p>
+
+        </div>
+
+        {% if request.args.get("mensaje") %}
+
+        <div class="booking-success">
+         {{ request.args.get("mensaje") }}
+        </div>
+
+        {% endif %}
+
+
+        <!-- INFORMACIÓN PRINCIPAL -->
+
+        <div class="admin-detail-header">
+
+    <div>
+
+        <span class="admin-detail-label">
+            Sede
+        </span>
+
+        <h2>
+            {{ sede["nombre"] }}
+        </h2>
+
+    </div>
+
+
+    <div class="admin-branch-state-actions">
+
+        {% if sede["activo"] %}
+
+        <a
+          href="{{ url_for(
+          'admin_editar_sede',
+          sede_id=sede['id']
+         ) }}"
+         class="btn-secondary"
+        >
+         Editar sede
+        </a>
+
+            <span class="patient-status-active">
+                Activa
+            </span>
+
+            <form
+                method="POST"
+                action="{{ url_for(
+                    'admin_cambiar_estado_sede',
+                    sede_id=sede['id']
+                ) }}"
+                onsubmit="return confirm('¿Querés desactivar esta sede? La información, los estudios y los horarios se conservarán.');"
+            >
+
+                <button
+                 type="submit"
+                 class="btn-cancel"
+                >
+                 Desactivar sede
+                </button>
+
+            </form>
+
+
+        {% else %}
+
+            <span class="patient-status-inactive">
+                Inactiva
+            </span>
+
+            <form
+                method="POST"
+                action="{{ url_for(
+                    'admin_cambiar_estado_sede',
+                    sede_id=sede['id']
+                ) }}"
+            >
+
+                <button
+                    type="submit"
+                    class="btn-primary"
+                >
+                    Activar sede
+                </button>
+
+            </form>
+
+        {% endif %}
+
+    </div>
+
+</div>
+
+      
+
+
+        <!-- DATOS DE LA SEDE -->
+
+        <div class="admin-detail-grid">
+
+            <section class="admin-detail-card">
+
+                <h2>
+                    Información
+                </h2>
+
+
+                <div class="admin-detail-list">
+
+                    <div>
+
+                        <span>
+                            Nombre
+                        </span>
+
+                        <strong>
+                            {{ sede["nombre"] }}
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Dirección
+                        </span>
+
+                        <strong>
+                            {{ sede["direccion"] }}
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Teléfono
+                        </span>
+
+                        <strong>
+                            {{ sede["telefono"] }}
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Estado
+                        </span>
+
+                        <strong>
+                            {% if sede["activo"] %}
+                                Activa
+                            {% else %}
+                                Inactiva
+                            {% endif %}
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- RESUMEN -->
+
+            <section class="admin-detail-card">
+
+                <h2>
+                    Estudios
+                </h2>
+
+
+                <div class="admin-detail-list">
+
+                    <div>
+
+                        <span>
+                            Estudios asociados
+                        </span>
+
+                        <strong>
+                            {{ estudios|length }}
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!-- ESTUDIOS -->
+
+        <section
+            class="admin-section"
+            style="margin-top: 24px;"
+        >
+
+            <div class="admin-section-header">
+
+                <div>
+
+                    <span class="section-label">
+                        Servicios
+                    </span>
+
+                    <h2>
+                        Estudios asociados
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            {% if estudios %}
+
+                <div class="admin-table-wrapper">
+
+                    <table class="admin-table">
+
+                        <thead>
+
+                            <tr>
+                                <th>Estudio</th>
+                                <th>Área</th>
+                                <th>Duración</th>
+                                <th>Disponibilidad</th>
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            {% for estudio in estudios %}
+
+                                <tr>
+
+                                    <td>
+
+                                        <strong>
+                                            {{ estudio["nombre"] }}
+                                        </strong>
+
+                                    </td>
+
+
+                                    <td>
+                                        {{ estudio["area"] }}
+                                    </td>
+
+
+                                    <td>
+                                        {{ estudio["duracion_minutos"] }} min
+                                    </td>
+
+
+                                    <td>
+
+                                        {% if estudio["estudio_activo"] and estudio["disponible_sede"] %}
+
+                                            <span class="patient-status-active">
+                                                Disponible
+                                            </span>
+
+                                        {% else %}
+
+                                            <span class="patient-status-inactive">
+                                                No disponible
+                                            </span>
+
+                                        {% endif %}
+
+                                    </td>
+
+                                </tr>
+
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+            {% else %}
+
+                <div class="admin-empty">
+
+                    <p>
+                        Esta sede todavía no tiene estudios asociados.
+                    </p>
+
+                </div>
+
+            {% endif %}
+
+        </section>
+
+    </div>
+
+</section>
+
+{% endblock %}

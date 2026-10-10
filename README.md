@@ -1,0 +1,151 @@
+
+# Mediscan — Sistema de Gestión de Turnos Médicos
+
+Mediscan es una aplicación web desarrollada con Python, Flask y SQLite para gestionar turnos en un centro de diagnóstico médico.
+
+El sistema permite a los pacientes consultar estudios, seleccionar una sede, reservar turnos y administrar sus reservas. También incluye un panel de administración para gestionar estudios, sedes, horarios y turnos.
+
+## Aviso legal y uso demostrativo
+
+**Mediscan es un proyecto ficticio desarrollado con fines educativos y de portfolio profesional.**
+
+No representa a un centro médico real ni ofrece servicios de salud.
+
+Las sedes, direcciones, teléfonos, pacientes y demás datos utilizados son ficticios o de demostración.
+
+El sistema permite simular la gestión y reserva de turnos médicos, pero no realiza reservas reales.
+
+
+## Funcionalidades
+
+### Pacientes
+- Registro e inicio de sesión.
+- Consulta de estudios médicos disponibles.
+- Selección de sede, fecha y horario.
+- Reserva de turnos con validación de disponibilidad.
+- Consulta de turnos desde la cuenta personal.
+
+### Administración
+- Panel administrativo.
+- Gestión de estudios médicos.
+- Gestión de sedes.
+- Configuración de horarios por estudio y sede.
+- Consulta y administración de turnos.
+
+## Tecnologías utilizadas
+
+- **Python:** lógica del servidor.
+- **Flask:** framework web.
+- **SQLite:** base de datos.
+- **HTML5:** estructura de las páginas.
+- **CSS3:** diseño visual y responsive.
+- **JavaScript:** interactividad.
+- **Jinja2:** plantillas dinámicas.
+
+## Estructura del proyecto
+
+```text
+sistema de turnos/
+├── app.py
+├── crear_base.py
+├── crear_historial_turnos.py
+├── verificar_base.py
+├── requirements.txt
+├── static/
+│   └── css/
+├── templates/
+└── database/
+```
+
+## Instalación local
+
+### 1. Clonar el repositorio
+
+```bash
+git clone https://github.com/davidjosem925-collab/mediscan.git
+cd mediscan
+```
+
+### 2. Crear un entorno virtual
+
+```bash
+python -m venv .venv
+```
+
+### 3. Activar el entorno virtual
+
+En Windows (CMD):
+
+```cmd
+.venv\Scripts\activate.bat
+```
+
+### 4. Instalar las dependencias
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+
+
+### 5. Configurar las variables de entorno
+
+Mediscan utiliza dos variables de entorno:
+
+- `SECRET_KEY`: clave secreta utilizada por Flask para proteger las sesiones.
+- `ADMIN_PASSWORD`: contraseña inicial del administrador, utilizada al crear la base de datos.
+
+En Windows PowerShell:
+
+```powershell
+$env:SECRET_KEY = "REEMPLAZAR_POR_UNA_CLAVE_ALEATORIA_SEGURA"
+$env:ADMIN_PASSWORD = "REEMPLAZAR_POR_UNA_CONTRASENA_SEGURA"
+```
+
+Para generar una clave secreta aleatoria, se puede ejecutar:
+
+```powershell
+python -c "import secrets; print(secrets.token_hex(32))"
+```
+
+Reemplazar el valor de `SECRET_KEY` por la clave generada y definir una contraseña segura para `ADMIN_PASSWORD`.
+
+**Importante:** estas variables deben configurarse antes de crear la base de datos o iniciar la aplicación. Los comandos anteriores establecen las variables únicamente para la sesión actual de PowerShell.
+
+No publicar contraseñas ni claves secretas en el repositorio.
+
+### 6. Preparar la base de datos
+
+```bash
+python crear_base.py
+```
+
+### 7. Iniciar la aplicación
+
+```bash
+python app.py
+```
+
+Abrir en el navegador:
+
+http://127.0.0.1:5000
+
+## Seguridad
+
+- Las contraseñas de los usuarios se almacenan mediante hashes.
+- Se utilizan sesiones para controlar el acceso.
+- Las funciones administrativas requieren permisos de administrador.
+- La clave secreta se configura mediante una variable de entorno.
+- La base de datos local y los archivos privados están excluidos del repositorio mediante `.gitignore`.
+
+## Estado del proyecto
+
+Proyecto de portfolio desarrollado con fines educativos y demostrativos.
+
+## Autor
+
+**David Martin**
+
+Desarrollador web y programador.
+
+Este proyecto forma parte de mi portfolio profesional.

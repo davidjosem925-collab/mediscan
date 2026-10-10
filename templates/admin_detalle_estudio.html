@@ -1,0 +1,302 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+{{ estudio["nombre"] }} | Administración | Mediscan
+{% endblock %}
+
+
+{% block content %}
+
+<section class="page-section">
+
+    <div class="container admin-study-detail-container">
+
+        <!-- VOLVER -->
+
+        <a
+            href="{{ url_for('admin_estudios') }}"
+            class="back-link"
+        >
+            ← Volver a estudios
+        </a>
+
+
+        <!-- ENCABEZADO -->
+
+        <div class="page-header">
+
+            <span class="section-label">
+                Administración
+            </span>
+
+            <h1>
+                Detalle del estudio
+            </h1>
+
+            <p>
+                Información y configuración del estudio.
+            </p>
+
+        </div>
+
+        {% if mensaje %}
+
+        <div class="booking-success">
+          {{ mensaje }}
+        </div>
+
+        {% endif %}
+
+
+        <!-- CABECERA -->
+
+        <!-- CABECERA -->
+
+<section class="admin-detail-header">
+
+    <!-- NOMBRE -->
+
+    <div>
+
+        <span class="admin-detail-label">
+            Estudio
+        </span>
+
+        <h2>
+            {{ estudio["nombre"] }}
+        </h2>
+
+    </div>
+
+
+    <!-- ACCIONES -->
+
+    <div class="admin-study-actions">
+
+        <a
+            href="{{ url_for(
+                'admin_editar_estudio',
+                estudio_id=estudio['id']
+            ) }}"
+            class="btn-secondary"
+        >
+            Editar estudio
+        </a>
+
+
+        <a
+            href="{{ url_for(
+                'admin_horarios_estudio',
+                estudio_id=estudio['id']
+            ) }}"
+            class="btn-secondary"
+        >
+            Gestionar horarios
+        </a>
+
+
+        {% if estudio["activo"] %}
+
+            <span class="patient-status-active">
+                Activo
+            </span>
+
+            <form
+                method="POST"
+                action="{{ url_for(
+                    'admin_cambiar_estado_estudio',
+                    estudio_id=estudio['id']
+                ) }}"
+                onsubmit="return confirm('¿Querés desactivar este estudio? Dejará de estar disponible para nuevas reservas en todas las sedes, pero se conservarán sus datos, sedes y horarios.');"
+            >
+
+                <button
+                 type="submit"
+                 class="btn-cancel"
+                >
+                 Desactivar estudio
+                </button>
+
+            </form>
+
+
+        {% else %}
+
+            <span class="patient-status-inactive">
+                Inactivo
+            </span>
+
+            <form
+                method="POST"
+                action="{{ url_for(
+                    'admin_cambiar_estado_estudio',
+                    estudio_id=estudio['id']
+                ) }}"
+            >
+
+                <button
+                    type="submit"
+                    class="btn-primary"
+                >
+                    Activar estudio
+                </button>
+
+            </form>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+
+        <!-- INFORMACIÓN -->
+
+        <div class="admin-detail-grid">
+
+
+            <!-- DATOS GENERALES -->
+
+            <section class="admin-detail-card">
+
+                <h2>
+                    Información general
+                </h2>
+
+                <div class="admin-detail-list">
+
+                    <div>
+                        <span>Nombre</span>
+
+                        <strong>
+                            {{ estudio["nombre"] }}
+                        </strong>
+                    </div>
+
+
+                    <div>
+                        <span>Área</span>
+
+                        <strong>
+                            {{ estudio["area"] }}
+                        </strong>
+                    </div>
+
+
+                    <div>
+                        <span>Duración</span>
+
+                        <strong>
+                            {{ estudio["duracion_minutos"] }}
+                            minutos
+                        </strong>
+                    </div>
+
+
+                    <div>
+                        <span>Slug</span>
+
+                        <strong>
+                            {{ estudio["slug"] }}
+                        </strong>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- SEDES -->
+
+            <section class="admin-detail-card">
+
+                <h2>
+                    Sedes disponibles
+                </h2>
+
+                {% if sedes %}
+
+                    <div class="admin-detail-list">
+
+                        {% for sede in sedes %}
+
+                            <div>
+
+                                <span>
+                                    {{ sede["nombre"] }}
+                                </span>
+
+                                <strong>
+                                    {{ sede["direccion"] }}
+                                </strong>
+
+                            </div>
+
+                        {% endfor %}
+
+                    </div>
+
+                {% else %}
+
+                    <p class="admin-empty-text">
+                        Este estudio no está disponible
+                        en ninguna sede.
+                    </p>
+
+                {% endif %}
+
+            </section>
+
+
+            <!-- DESCRIPCIÓN -->
+
+            <section class="admin-detail-card">
+
+                <h2>
+                    Descripción
+                </h2>
+
+                <p class="admin-observations">
+                    {{ estudio["descripcion"] or "-" }}
+                </p>
+
+            </section>
+
+
+            <!-- PREPARACIÓN -->
+
+            <section class="admin-detail-card">
+
+                <h2>
+                    Preparación
+                </h2>
+
+                <p class="admin-observations">
+                    {{ estudio["preparacion"] or "-" }}
+                </p>
+
+            </section>
+
+
+            <!-- REQUISITOS -->
+
+            <section class="admin-detail-card">
+
+                <h2>
+                    Requisitos
+                </h2>
+
+                <p class="admin-observations">
+                    {{ estudio["requisitos"] or "-" }}
+                </p>
+
+            </section>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

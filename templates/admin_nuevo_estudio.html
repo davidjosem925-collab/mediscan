@@ -1,0 +1,304 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Nuevo estudio | Administración | Mediscan
+{% endblock %}
+
+
+{% block content %}
+
+<section class="page-section">
+
+    <div class="container">
+
+        <!-- VOLVER -->
+
+        <a
+            href="{{ url_for('admin_estudios') }}"
+            class="back-link"
+        >
+            ← Volver a estudios
+        </a>
+
+
+        <!-- ENCABEZADO -->
+
+        <div class="page-header">
+
+            <span class="section-label">
+                Administración
+            </span>
+
+            <h1>
+                Nuevo estudio
+            </h1>
+
+            <p>
+                Registrá un nuevo estudio y configurá
+                la información que estará disponible
+                para los pacientes.
+            </p>
+
+        </div>
+
+
+        <!-- FORMULARIO -->
+
+        <section class="booking-form-card">
+
+            {% if error %}
+
+                <div class="booking-error">
+                    {{ error }}
+                </div>
+
+            {% endif %}
+
+
+            <form method="POST">
+
+
+                <!-- ====================================== -->
+                <!-- NOMBRE -->
+                <!-- ====================================== -->
+
+                <div class="form-group">
+
+                    <label for="nombre">
+                        Nombre del estudio
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nombre"
+                        name="nombre"
+                        value="{{ request.form.get('nombre', '') }}"
+                        placeholder="Ej: Ecografía Doppler"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- ====================================== -->
+                <!-- ÁREA -->
+                <!-- ====================================== -->
+
+                <div class="form-group">
+
+                    <label for="area_id">
+                        Área
+                    </label>
+
+                    <select
+                        id="area_id"
+                        name="area_id"
+                        required
+                    >
+
+                        <option value="">
+                            Seleccionar área
+                        </option>
+
+                        {% for area in areas %}
+
+                            <option
+                                value="{{ area['id'] }}"
+                                {% if request.form.get('area_id') == area['id']|string %}
+                                    selected
+                                {% endif %}
+                            >
+                                {{ area["nombre"] }}
+                            </option>
+
+                        {% endfor %}
+
+                    </select>
+
+                </div>
+
+
+                <!-- ====================================== -->
+                <!-- DURACIÓN -->
+                <!-- ====================================== -->
+
+                <div class="form-group">
+
+                    <label for="duracion_minutos">
+                        Duración aproximada
+                    </label>
+
+                    <input
+                        type="number"
+                        id="duracion_minutos"
+                        name="duracion_minutos"
+                        min="5"
+                        step="5"
+                        value="{{ request.form.get('duracion_minutos', '') }}"
+                        placeholder="Ej: 30"
+                        required
+                    >
+
+                    <small>
+                        Duración del estudio expresada en minutos.
+                    </small>
+
+                </div>
+
+
+                <!-- ====================================== -->
+                <!-- DESCRIPCIÓN -->
+                <!-- ====================================== -->
+
+                <div class="form-group">
+
+                    <label for="descripcion">
+                        Descripción
+                    </label>
+
+                    <textarea
+                        id="descripcion"
+                        name="descripcion"
+                        rows="5"
+                        placeholder="Descripción general del estudio..."
+                    >{{ request.form.get('descripcion', '') }}</textarea>
+
+                </div>
+
+
+                <!-- ====================================== -->
+                <!-- PREPARACIÓN -->
+                <!-- ====================================== -->
+
+                <div class="form-group">
+
+                    <label for="preparacion">
+                        Preparación
+                    </label>
+
+                    <textarea
+                        id="preparacion"
+                        name="preparacion"
+                        rows="4"
+                        placeholder="Indicaciones previas para el paciente..."
+                    >{{ request.form.get('preparacion', '') }}</textarea>
+
+                </div>
+
+
+                <!-- ====================================== -->
+                <!-- REQUISITOS -->
+                <!-- ====================================== -->
+
+                <div class="form-group">
+
+                    <label for="requisitos">
+                        Requisitos
+                    </label>
+
+                    <textarea
+                        id="requisitos"
+                        name="requisitos"
+                        rows="4"
+                        placeholder="Orden médica, documentación u otros requisitos..."
+                    >{{ request.form.get('requisitos', '') }}</textarea>
+
+                </div>
+
+
+                <!-- ====================================== -->
+                <!-- SEDES -->
+                <!-- ====================================== -->
+
+                <section class="admin-study-branches">
+
+                    <div class="admin-study-branches-header">
+
+                        <div>
+
+                            <span class="section-label">
+                                Disponibilidad
+                            </span>
+
+                            <h2>
+                                Sedes del estudio
+                            </h2>
+
+                            <p>
+                                Seleccioná al menos una sede
+                                donde estará disponible este estudio.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="admin-branches-grid">
+
+                        {% for sede in sedes %}
+
+                            <label class="admin-branch-option">
+
+                                <input
+                                    type="checkbox"
+                                    name="sedes"
+                                    value="{{ sede['id'] }}"
+                                    {% if sede['id']|string in request.form.getlist('sedes') %}
+                                        checked
+                                    {% endif %}
+                                >
+
+                                <div class="admin-branch-option-info">
+
+                                    <strong>
+                                        {{ sede["nombre"] }}
+                                    </strong>
+
+                                    <span>
+                                        {{ sede["direccion"] }}
+                                    </span>
+
+                                </div>
+
+                            </label>
+
+                        {% endfor %}
+
+                    </div>
+
+                </section>
+
+
+                <!-- ====================================== -->
+                <!-- ACCIONES -->
+                <!-- ====================================== -->
+
+                <div class="form-actions">
+
+                    <a
+                        href="{{ url_for('admin_estudios') }}"
+                        class="btn-secondary"
+                    >
+                        Cancelar
+                    </a>
+
+                    <button
+                        type="submit"
+                        class="btn-primary"
+                    >
+                        Crear estudio
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </div>
+
+</section>
+
+{% endblock %}

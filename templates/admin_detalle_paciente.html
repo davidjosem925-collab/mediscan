@@ -1,0 +1,354 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+{{ paciente["nombre"] }} {{ paciente["apellido"] }} | Administración | Mediscan
+{% endblock %}
+
+
+{% block content %}
+
+<section class="page-section">
+
+   <div class="container admin-patient-detail-container">
+
+        <!-- VOLVER -->
+
+        <a
+            href="{{ url_for('admin_pacientes') }}"
+            class="back-link"
+        >
+            ← Volver a pacientes
+        </a>
+
+
+        <!-- ENCABEZADO -->
+
+        <div class="page-header">
+
+            <span class="section-label">
+                Administración
+            </span>
+
+            <h1>
+                Ficha del paciente
+            </h1>
+
+            <p>
+                Información del paciente y sus turnos registrados.
+            </p>
+
+        </div>
+
+        {% if mensaje %}
+
+        <div class="booking-success">
+          {{ mensaje }}
+        </div>
+
+        {% endif %}
+
+
+        <!-- ================================================== -->
+        <!-- CABECERA DEL PACIENTE -->
+        <!-- ================================================== -->
+
+        <section class="admin-detail-header">
+
+            <div>
+
+                <span class="admin-detail-label">
+                    Paciente
+                </span>
+
+                <h2>
+                    {{ paciente["nombre"] }}
+                    {{ paciente["apellido"] }}
+                </h2>
+
+            </div>
+
+            
+            <div class="admin-patient-actions">
+
+            <a
+             href="{{ url_for(
+              'admin_editar_paciente',
+              paciente_id=paciente['id']
+             ) }}"
+             class="btn-secondary"
+            >
+             Editar datos
+            </a>
+
+
+            <form
+              method="POST"
+              action="{{ url_for(
+              'admin_cambiar_estado_paciente',
+              paciente_id=paciente['id']
+             ) }}"
+            >
+
+            {% if paciente["activo"] %}
+
+            <button
+                type="submit"
+                class="btn-cancel"
+                onclick="return confirm(
+                    '¿Estás seguro de que querés desactivar este paciente?'
+                );"
+            >
+                Desactivar paciente
+            </button>
+
+            {% else %}
+
+            <button
+                type="submit"
+                class="btn-primary"
+                onclick="return confirm(
+                    '¿Querés volver a activar este paciente?'
+                );"
+            >
+                Activar paciente
+            </button>
+
+            {% endif %}
+
+            </form>
+
+            </div>
+
+
+
+
+            {% if paciente["activo"] %}
+
+                <span class="patient-status-active">
+                    Activo
+                </span>
+
+            {% else %}
+
+                <span class="patient-status-inactive">
+                    Inactivo
+                </span>
+
+            {% endif %}
+
+        </section>
+
+
+        <!-- ================================================== -->
+        <!-- DATOS PERSONALES -->
+        <!-- ================================================== -->
+
+        <section class="admin-detail-card">
+
+            <h2>
+                Datos personales
+            </h2>
+
+            <div class="admin-detail-list">
+
+                <div>
+                    <span>Nombre completo</span>
+
+                    <strong>
+                        {{ paciente["nombre"] }}
+                        {{ paciente["apellido"] }}
+                    </strong>
+                </div>
+
+
+                <div>
+                    <span>DNI</span>
+
+                    <strong>
+                        {{ paciente["dni"] }}
+                    </strong>
+                </div>
+
+
+                <div>
+                    <span>Email</span>
+
+                    <strong>
+                        {{ paciente["email"] }}
+                    </strong>
+                </div>
+
+
+                <div>
+                    <span>Teléfono</span>
+
+                    <strong>
+                        {{ paciente["telefono"] }}
+                    </strong>
+                </div>
+
+
+                <div>
+                    <span>Obra social</span>
+
+                    <strong>
+                        {{ paciente["obra_social"] or "-" }}
+                    </strong>
+                </div>
+
+
+                <div>
+                    <span>Número de afiliado</span>
+
+                    <strong>
+                        {{ paciente["numero_afiliado"] or "-" }}
+                    </strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================================== -->
+        <!-- TURNOS DEL PACIENTE -->
+        <!-- ================================================== -->
+
+        <section class="admin-section admin-patient-appointments">
+
+            <div class="admin-section-header">
+
+                <div>
+
+                    <span class="section-label">
+                        Historial
+                    </span>
+
+                    <h2>
+                        Turnos del paciente
+                    </h2>
+
+                </div>
+
+                <div class="admin-list-summary">
+
+                    <strong>
+                        {{ turnos|length }}
+                    </strong>
+
+                    <span>
+                        turnos
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            {% if turnos %}
+
+                <div class="admin-table-wrapper">
+
+                    <table class="admin-table">
+
+                        <thead>
+
+                            <tr>
+                                <th>Código</th>
+                                <th>Fecha</th>
+                                <th>Hora</th>
+                                <th>Estudio</th>
+                                <th>Sede</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            {% for turno in turnos %}
+
+                                <tr>
+
+                                    <td>
+                                        <strong>
+                                            {{ turno["codigo"] }}
+                                        </strong>
+                                    </td>
+
+                                    <td>
+                                        {{ turno["fecha"] }}
+                                    </td>
+
+                                    <td>
+                                        {{ turno["hora"] }}
+                                    </td>
+
+                                    <td>
+                                        {{ turno["estudio"] }}
+                                    </td>
+
+                                    <td>
+                                        {{ turno["sede"] }}
+                                    </td>
+
+                                    <td>
+
+                                        <span
+                                            class="
+                                                admin-status
+                                                admin-status-{{ turno['estado'] }}
+                                            "
+                                        >
+                                            {{ turno["estado"] }}
+                                        </span>
+
+                                    </td>
+
+                                    <td>
+
+                                        <a
+                                            href="{{ url_for(
+                                                'admin_detalle_turno',
+                                                turno_id=turno['id']
+                                            ) }}"
+                                            class="admin-action-link"
+                                        >
+                                            Ver detalle
+                                        </a>
+
+                                    </td>
+
+                                </tr>
+
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            {% else %}
+
+                <div class="admin-empty">
+
+                    <p>
+                        Este paciente todavía no tiene
+                        turnos registrados.
+                    </p>
+
+                </div>
+
+            {% endif %}
+
+        </section>
+
+    </div>
+
+</section>
+
+{% endblock %}

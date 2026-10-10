@@ -1,0 +1,257 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Pacientes | Administración | Mediscan
+{% endblock %}
+
+
+{% block content %}
+
+<section class="page-section">
+
+    <div class="container admin-pacientes-container">
+
+        <!-- VOLVER -->
+
+        <a
+            href="{{ url_for('admin_dashboard') }}"
+            class="back-link"
+        >
+            ← Volver al panel
+        </a>
+
+
+        <!-- ENCABEZADO -->
+
+        <div class="page-header">
+
+            <span class="section-label">
+                Administración
+            </span>
+
+            <h1>
+                Pacientes
+            </h1>
+
+            <p>
+                Consultá los pacientes registrados
+                en Mediscan.
+            </p>
+
+        </div>
+
+
+        <!-- ============================================== -->
+        <!-- BUSCADOR -->
+        <!-- ============================================== -->
+
+        <section class="admin-filters">
+
+            <form
+                method="GET"
+                action="{{ url_for('admin_pacientes') }}"
+                class="admin-patient-search"
+            >
+
+                <div class="form-group">
+
+                    <label for="buscar">
+                        Buscar paciente
+                    </label>
+
+                    <input
+                        type="text"
+                        id="buscar"
+                        name="buscar"
+                        value="{{ busqueda }}"
+                        placeholder="Nombre, apellido, DNI o email"
+                    >
+
+                </div>
+
+
+                <div class="admin-filter-actions">
+
+                    <button
+                        type="submit"
+                        class="btn-primary"
+                    >
+                        Buscar
+                    </button>
+
+                    {% if busqueda %}
+
+                        <a
+                            href="{{ url_for('admin_pacientes') }}"
+                            class="btn-secondary"
+                        >
+                            Limpiar
+                        </a>
+
+                    {% endif %}
+
+                </div>
+
+            </form>
+
+        </section>
+
+
+        <!-- ============================================== -->
+        <!-- CANTIDAD -->
+        <!-- ============================================== -->
+
+        <div class="admin-list-summary">
+
+            <strong>
+                {{ pacientes|length }}
+            </strong>
+
+            <span>
+             {% if pacientes|length == 1 %}
+             paciente encontrado
+             {% else %}
+             pacientes encontrados
+             {% endif %}
+</span>
+
+        </div>
+
+
+        <!-- ============================================== -->
+        <!-- LISTADO -->
+        <!-- ============================================== -->
+
+        <section class="admin-section">
+
+            {% if pacientes %}
+
+                <div class="admin-table-wrapper">
+
+                    <table class="admin-table">
+
+                        <thead>
+
+                            <tr>
+                                <th>Paciente</th>
+                                <th>DNI</th>
+                                <th>Email</th>
+                                <th>Teléfono</th>
+                                <th>Obra social</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            {% for paciente in pacientes %}
+
+                                <tr>
+
+                                    <td>
+
+                                        <strong>
+                                            {{ paciente["nombre"] }}
+                                            {{ paciente["apellido"] }}
+                                        </strong>
+
+                                    </td>
+
+
+                                    <td>
+                                        {{ paciente["dni"] }}
+                                    </td>
+
+
+                                    <td>
+                                        {{ paciente["email"] }}
+                                    </td>
+
+
+                                    <td>
+                                        {{ paciente["telefono"] }}
+                                    </td>
+
+
+                                    <td>
+                                        {{ paciente["obra_social"] or "-" }}
+                                    </td>
+
+
+                                    <td>
+
+                                        {% if paciente["activo"] %}
+
+                                            <span class="patient-status-active">
+                                                Activo
+                                            </span>
+
+                                        {% else %}
+
+                                            <span class="patient-status-inactive">
+                                                Inactivo
+                                            </span>
+
+                                        {% endif %}
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <a
+                                         href="{{ url_for(
+                                         'admin_detalle_paciente',
+                                         paciente_id=paciente['id']
+                                         ) }}"
+                                         class="admin-action-link"
+                                        >
+                                        Ver paciente
+                                        </a>
+
+                                    </td>
+
+                                </tr>
+
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            {% else %}
+
+                <div class="admin-empty">
+
+                    {% if busqueda %}
+
+                        <p>
+                            No se encontraron pacientes
+                            para "{{ busqueda }}".
+                        </p>
+
+                    {% else %}
+
+                        <p>
+                            Todavía no hay pacientes registrados.
+                        </p>
+
+                    {% endif %}
+
+                </div>
+
+            {% endif %}
+
+        </section>
+
+    </div>
+
+</section>
+
+{% endblock %}

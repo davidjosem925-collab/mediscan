@@ -1,0 +1,336 @@
+
+{% extends "base.html" %}
+
+{% block title %}
+Mi cuenta | Mediscan
+{% endblock %}
+
+{% block content %}
+
+<section class="page-section patient-account-page">
+
+    <div class="container">
+
+        <!-- ENCABEZADO -->
+
+        <div class="page-header patient-account-header">
+
+            <span class="section-label">
+                Portal del paciente
+            </span>
+
+            <h1>Mi cuenta</h1>
+
+            <p>
+                Consultá tus datos personales y
+                administrá tus próximos turnos.
+            </p>
+
+        </div>
+
+
+        <!-- MENSAJES -->
+
+        {% if mensaje %}
+
+            <div class="booking-success">
+                {{ mensaje }}
+            </div>
+
+        {% endif %}
+
+
+        <!-- DATOS PERSONALES -->
+
+        <section class="patient-account-profile">
+
+            <div class="patient-account-profile-header">
+
+                <div>
+
+                    <span class="section-label">
+                        Perfil
+                    </span>
+
+                    <h2>Mis datos personales</h2>
+
+                    <p>
+                        Información registrada en tu cuenta.
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="{{ url_for('editar_mi_cuenta') }}"
+                    class="btn-secondary"
+                >
+                    Editar mis datos
+                </a>
+
+            </div>
+
+
+            <div class="patient-account-data-grid">
+
+                <div class="patient-account-data-item">
+
+                    <span>Nombre y apellido</span>
+
+                    <strong>
+                        {{ paciente["nombre"] }}
+                        {{ paciente["apellido"] }}
+                    </strong>
+
+                </div>
+
+
+                <div class="patient-account-data-item">
+
+                    <span>DNI</span>
+
+                    <strong>
+                        {{ paciente["dni"] }}
+                    </strong>
+
+                </div>
+
+
+                <div class="patient-account-data-item">
+
+                    <span>Email</span>
+
+                    <strong>
+                        {{ paciente["email"] }}
+                    </strong>
+
+                </div>
+
+
+                <div class="patient-account-data-item">
+
+                    <span>Teléfono</span>
+
+                    <strong>
+                        {{ paciente["telefono"] }}
+                    </strong>
+
+                </div>
+
+
+                <div class="patient-account-data-item">
+
+                    <span>Obra social</span>
+
+                    <strong>
+                        {{ paciente["obra_social"] or "Particular" }}
+                    </strong>
+
+                </div>
+
+
+                <div class="patient-account-data-item">
+
+                    <span>Número de afiliado</span>
+
+                    <strong>
+                        {{ paciente["numero_afiliado"] or "-" }}
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- MIS TURNOS -->
+
+        <section class="patient-account-appointments">
+
+            <div class="patient-account-appointments-header">
+
+                <span class="section-label">
+                    Turnos
+                </span>
+
+                <h2>Mis próximos turnos</h2>
+
+                <p>
+                    Consultá y administrá tus próximas reservas.
+                </p>
+
+            </div>
+
+
+            {% if turnos %}
+
+                <div class="patient-appointments-grid">
+
+                    {% for turno in turnos %}
+
+                        <article class="patient-appointment-card">
+
+                            <!-- ENCABEZADO -->
+
+                            <div class="patient-appointment-header">
+
+                                <div>
+
+                                    <span class="patient-appointment-label">
+                                        Estudio reservado
+                                    </span>
+
+                                    <h3>
+                                        {{ turno["estudio"] }}
+                                    </h3>
+
+                                </div>
+
+
+                                <span class="appointment-status">
+                                    {{ turno["estado"] }}
+                                </span>
+
+                            </div>
+
+
+                            <!-- CÓDIGO -->
+
+                            <div class="patient-appointment-code">
+
+                                <span>Código de turno</span>
+
+                                <strong>
+                                    {{ turno["codigo"] }}
+                                </strong>
+
+                            </div>
+
+
+                            <!-- INFORMACIÓN -->
+
+                            <div class="patient-appointment-details">
+
+                                <div class="patient-appointment-detail">
+
+                                    <span>Fecha</span>
+
+                                    <strong>
+                                        {{ turno["fecha"] }}
+                                    </strong>
+
+                                </div>
+
+
+                                <div class="patient-appointment-detail">
+
+                                    <span>Horario</span>
+
+                                    <strong>
+                                        {{ turno["hora"] }}
+                                    </strong>
+
+                                </div>
+
+
+                                <div class="patient-appointment-detail">
+
+                                    <span>Sede</span>
+
+                                    <strong>
+                                        {{ turno["sede"] }}
+                                    </strong>
+
+                                </div>
+
+
+                                <div class="patient-appointment-detail">
+
+                                    <span>Duración</span>
+
+                                    <strong>
+                                        {{ turno["duracion_minutos"] }}
+                                        minutos
+                                    </strong>
+
+                                </div>
+
+
+                                <div class="patient-appointment-detail patient-appointment-wide">
+
+                                    <span>Dirección</span>
+
+                                    <strong>
+                                        {{ turno["direccion"] }}
+                                    </strong>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- ACCIONES -->
+
+                            <div class="patient-appointment-actions">
+
+                                <form
+                                    method="POST"
+                                    action="{{ url_for(
+                                        'cancelar_turno',
+                                        turno_id=turno['id']
+                                    ) }}"
+                                >
+
+                                    <button
+                                        type="submit"
+                                        class="btn-cancel"
+                                        onclick="return confirm(
+                                            '¿Estás seguro de que querés cancelar este turno?'
+                                        );"
+                                    >
+                                        Cancelar turno
+                                    </button>
+
+                                </form>
+
+                            </div>
+
+                        </article>
+
+                    {% endfor %}
+
+                </div>
+
+
+            {% else %}
+
+                <div class="patient-account-empty">
+
+                    <h3>
+                        No tenés turnos pendientes
+                    </h3>
+
+                    <p>
+                        Actualmente no tenés próximos turnos
+                        reservados.
+                    </p>
+
+                    <a
+                        href="{{ url_for('inicio') }}#servicios"
+                        class="btn-primary"
+                    >
+                        Reservar un turno
+                    </a>
+
+                </div>
+
+            {% endif %}
+
+        </section>
+
+    </div>
+
+</section>
+
+{% endblock %}

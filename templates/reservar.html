@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Reservar {{ estudio["nombre"] }} | Mediscan
+{% endblock %}
+
+
+{% block content %}
+
+<!-- ====================================================== -->
+<!-- SELECCIÓN DE SEDE -->
+<!-- ====================================================== -->
+
+<section class="study-page">
+
+    <div class="study-container">
+
+        <!-- VOLVER -->
+
+        <a
+            href="{{ url_for(
+                'detalle_estudio',
+                slug=estudio['slug']
+            ) }}"
+            class="back-link"
+        >
+            ← Volver al estudio
+        </a>
+
+
+        <!-- ================================================== -->
+        <!-- ENCABEZADO -->
+        <!-- ================================================== -->
+
+        <div class="study-header">
+
+            <span class="study-area">
+                {{ estudio["area"] }}
+            </span>
+
+            <h1>
+                Reservar turno
+            </h1>
+
+            <p class="study-description">
+                Estás por reservar un turno para:
+            </p>
+
+            <h2>
+                {{ estudio["nombre"] }}
+            </h2>
+
+        </div>
+
+
+        <!-- ================================================== -->
+        <!-- SEDES -->
+        <!-- ================================================== -->
+
+        <div class="study-booking">
+
+            <h2>
+                Seleccioná una sede
+            </h2>
+
+            <p>
+                Elegí dónde querés realizar:
+                <strong>
+                    {{ estudio["nombre"] }}
+                </strong>
+            </p>
+
+
+            <div class="branches-list">
+
+                {% for sede in sedes %}
+
+                    <div class="branch-card">
+
+                        <div class="branch-info">
+
+                            <h3>
+                                {{ sede["nombre"] }}
+                            </h3>
+
+                            <p>
+                                {{ sede["direccion"] }}
+                            </p>
+
+                            <p>
+                                {{ sede["telefono"] }}
+                            </p>
+
+                        </div>
+
+
+                        <a
+                            href="{{ url_for(
+                                'seleccionar_fecha',
+                                slug=estudio['slug'],
+                                sede_id=sede['id']
+                            ) }}"
+                            class="btn-primary"
+                        >
+                            Seleccionar
+                        </a>
+
+                    </div>
+
+                {% else %}
+
+                    <div class="branch-card">
+
+                        <div class="branch-info">
+
+                            <h3>
+                                No hay sedes disponibles
+                            </h3>
+
+                            <p>
+                                Actualmente este estudio no está
+                                disponible en ninguna sede.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

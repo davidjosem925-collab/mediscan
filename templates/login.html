@@ -1,0 +1,267 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Iniciar sesión | Mediscan
+{% endblock %}
+
+
+{% block content %}
+
+<section class="auth-page">
+
+    <div class="auth-container">
+
+        <!-- ================================================== -->
+        <!-- INFORMACIÓN LATERAL -->
+        <!-- ================================================== -->
+
+        <div class="auth-info">
+
+            <a
+                href="{{ url_for('inicio') }}"
+                class="auth-back-link"
+            >
+                ← Volver a Mediscan
+            </a>
+
+            <div class="auth-info-content">
+
+                <span class="auth-label">
+                    Portal del paciente
+                </span>
+
+                <h1>
+                    Tu salud,
+                    <span>más organizada.</span>
+                </h1>
+
+                <p>
+                    Ingresá a tu cuenta para reservar estudios,
+                    consultar tus próximos turnos y administrar
+                    tus datos personales.
+                </p>
+
+
+                <div class="auth-benefits">
+
+                    <div class="auth-benefit">
+
+                        <span class="auth-benefit-icon">
+                            ✓
+                        </span>
+
+                        <div>
+                            <strong>
+                                Reserva online
+                            </strong>
+
+                            <p>
+                                Elegí estudio, sede, fecha y horario.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="auth-benefit">
+
+                        <span class="auth-benefit-icon">
+                            ✓
+                        </span>
+
+                        <div>
+                            <strong>
+                                Tus turnos en un solo lugar
+                            </strong>
+
+                            <p>
+                                Consultá y administrá tus próximas reservas.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="auth-benefit">
+
+                        <span class="auth-benefit-icon">
+                            ✓
+                        </span>
+
+                        <div>
+                            <strong>
+                                Acceso simple y seguro
+                            </strong>
+
+                            <p>
+                                Ingresá utilizando tu DNI y contraseña.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================================================== -->
+        <!-- LOGIN -->
+        <!-- ================================================== -->
+
+        <div class="auth-form-wrapper">
+
+            <section class="auth-card">
+
+                <div class="auth-card-header">
+
+                    <span class="section-label">
+                        Bienvenido
+                    </span>
+
+                    <h2>
+                        Iniciar sesión
+                    </h2>
+
+                    <p>
+                        Ingresá tus datos para acceder a tu cuenta.
+                    </p>
+
+                </div>
+
+
+                {% if error %}
+
+                    <div class="booking-error">
+                        {{ error }}
+                    </div>
+
+                {% endif %}
+
+
+                <form method="POST">
+
+                    <!-- DNI -->
+
+                    <div class="form-group">
+
+                        <label for="dni">
+                            DNI
+                        </label>
+
+                        <input
+                            type="text"
+                            id="dni"
+                            name="dni"
+                            inputmode="numeric"
+                            autocomplete="username"
+                            placeholder="Ej: 12345678"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- CONTRASEÑA -->
+
+                    <div class="form-group">
+
+                        <label for="password">
+                            Contraseña
+                        </label>
+
+                        <div class="password-field">
+
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                autocomplete="current-password"
+                                placeholder="Ingresá tu contraseña"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                data-password-target="password"
+                                aria-label="Mostrar contraseña"
+                            >
+                                Mostrar
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn-primary auth-submit"
+                    >
+                        Iniciar sesión
+                    </button>
+
+                </form>
+
+
+                <div class="login-register">
+
+                    <p>
+                        ¿Todavía no tenés una cuenta?
+                    </p>
+
+                    <a href="{{ url_for('registro') }}">
+                        Crear cuenta
+                    </a>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+    document.querySelectorAll(".password-toggle").forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+            const inputId = button.dataset.passwordTarget;
+            const input = document.getElementById(inputId);
+
+            if (input.type === "password") {
+
+                input.type = "text";
+                button.textContent = "Ocultar";
+                button.setAttribute(
+                    "aria-label",
+                    "Ocultar contraseña"
+                );
+
+            } else {
+
+                input.type = "password";
+                button.textContent = "Mostrar";
+                button.setAttribute(
+                    "aria-label",
+                    "Mostrar contraseña"
+                );
+
+            }
+
+        });
+
+    });
+
+</script>
+
+{% endblock %}

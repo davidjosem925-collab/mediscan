@@ -1,0 +1,614 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+{{ turno["codigo"] }} | Administración | Mediscan
+{% endblock %}
+
+
+{% block content %}
+
+<section class="page-section">
+
+    <div class="container">
+
+        <!-- VOLVER -->
+
+        <a
+            href="{{ url_for('admin_turnos') }}"
+            class="back-link"
+        >
+            ← Volver a todos los turnos
+        </a>
+
+
+        <!-- ENCABEZADO -->
+
+        <div class="page-header">
+            {% if mensaje %}
+
+        <div class="booking-success">
+        {{ mensaje }}
+        </div>
+
+        {% endif %}
+
+            <span class="section-label">
+                Administración
+            </span>
+
+            <h1>
+                Detalle del turno
+            </h1>
+
+            <p>
+                Información completa de la reserva
+                {{ turno["codigo"] }}.
+            </p>
+
+        </div>
+
+
+        <!-- CABECERA DEL TURNO -->
+
+        <section class="admin-detail-header">
+
+            <div>
+
+                <span class="admin-detail-label">
+                    Código de turno
+                </span>
+
+                <h2>
+                    {{ turno["codigo"] }}
+                </h2>
+
+            </div>
+
+            <span
+                class="
+                    admin-status
+                    admin-status-{{ turno['estado'] }}
+                "
+            >
+                {{ turno["estado"] }}
+            </span>
+
+        </section>
+
+        <!-- ================================================== -->
+<!-- ================================================== -->
+<!-- CAMBIAR ESTADO -->
+<!-- ================================================== -->
+
+<section class="admin-state-card">
+
+    <div class="admin-state-header">
+
+        <div>
+
+            <span class="section-label">
+                Gestión del turno
+            </span>
+
+            <h2>
+                Cambiar estado
+            </h2>
+
+        </div>
+
+        <span
+            class="
+                admin-status
+                admin-status-{{ turno['estado'] }}
+            "
+        >
+            {{ turno["estado"] }}
+        </span>
+
+    </div>
+
+
+    <!-- ============================================== -->
+    <!-- PENDIENTE -->
+    <!-- ============================================== -->
+
+    {% if turno["estado"] == "pendiente" %}
+
+        <p class="admin-state-description">
+            El turno está pendiente.
+            Podés confirmarlo o cancelarlo.
+        </p>
+
+        <div class="admin-state-actions">
+
+            <!-- CONFIRMAR -->
+
+            <form
+                method="POST"
+                action="{{ url_for(
+                    'admin_cambiar_estado_turno',
+                    turno_id=turno['id']
+                ) }}"
+            >
+
+                <input
+                    type="hidden"
+                    name="estado"
+                    value="confirmado"
+                >
+
+                <button
+                    type="submit"
+                    class="btn-primary"
+                >
+                    Confirmar turno
+                </button>
+
+            </form>
+
+
+            <!-- CANCELAR -->
+
+            <form
+                method="POST"
+                action="{{ url_for(
+                    'admin_cambiar_estado_turno',
+                    turno_id=turno['id']
+                ) }}"
+            >
+
+                <input
+                    type="hidden"
+                    name="estado"
+                    value="cancelado"
+                >
+
+                <button
+                    type="submit"
+                    class="btn-cancel"
+                    onclick="return confirm(
+                        '¿Estás seguro de que querés cancelar este turno?'
+                    );"
+                >
+                    Cancelar turno
+                </button>
+
+            </form>
+
+        </div>
+
+
+    <!-- ============================================== -->
+    <!-- CONFIRMADO -->
+    <!-- ============================================== -->
+
+    {% elif turno["estado"] == "confirmado" %}
+
+        <p class="admin-state-description">
+            El turno está confirmado.
+            Seleccioná la acción correspondiente.
+        </p>
+
+        <div class="admin-state-actions">
+
+            <!-- REALIZADO -->
+
+            <form
+                method="POST"
+                action="{{ url_for(
+                    'admin_cambiar_estado_turno',
+                    turno_id=turno['id']
+                ) }}"
+            >
+
+                <input
+                    type="hidden"
+                    name="estado"
+                    value="realizado"
+                >
+
+                <button
+                    type="submit"
+                    class="btn-primary"
+                    onclick="return confirm(
+                        '¿Confirmás que este estudio fue realizado?'
+                    );"
+                >
+                    Marcar como realizado
+                </button>
+
+            </form>
+
+
+            <!-- NO ASISTIÓ -->
+
+            <form
+                method="POST"
+                action="{{ url_for(
+                    'admin_cambiar_estado_turno',
+                    turno_id=turno['id']
+                ) }}"
+            >
+
+                <input
+                    type="hidden"
+                    name="estado"
+                    value="no_asistio"
+                >
+
+                <button
+                    type="submit"
+                    class="btn-secondary"
+                    onclick="return confirm(
+                        '¿Confirmás que el paciente no asistió al turno?'
+                    );"
+                >
+                    No asistió
+                </button>
+
+            </form>
+
+
+            <!-- CANCELAR -->
+
+            <form
+                method="POST"
+                action="{{ url_for(
+                    'admin_cambiar_estado_turno',
+                    turno_id=turno['id']
+                ) }}"
+            >
+
+                <input
+                    type="hidden"
+                    name="estado"
+                    value="cancelado"
+                >
+
+                <button
+                    type="submit"
+                    class="btn-cancel"
+                    onclick="return confirm(
+                        '¿Estás seguro de que querés cancelar este turno?'
+                    );"
+                >
+                    Cancelar turno
+                </button>
+
+            </form>
+
+        </div>
+
+
+    <!-- ============================================== -->
+    <!-- REALIZADO -->
+    <!-- ============================================== -->
+
+    {% elif turno["estado"] == "realizado" %}
+
+        <div class="admin-state-final">
+            Este turno fue realizado y ya no puede modificarse.
+        </div>
+
+
+    <!-- ============================================== -->
+    <!-- NO ASISTIÓ -->
+    <!-- ============================================== -->
+
+    {% elif turno["estado"] == "no_asistio" %}
+
+        <div class="admin-state-final">
+            El paciente no asistió a este turno.
+            El estado ya no puede modificarse.
+        </div>
+
+
+    <!-- ============================================== -->
+    <!-- CANCELADO -->
+    <!-- ============================================== -->
+
+    {% elif turno["estado"] == "cancelado" %}
+
+        <div class="admin-state-final">
+            Este turno fue cancelado y ya no puede modificarse.
+        </div>
+
+    {% endif %}
+
+</section>
+
+
+        <div class="admin-detail-grid">
+
+            <!-- ========================================== -->
+            <!-- PACIENTE -->
+            <!-- ========================================== -->
+
+            <section class="admin-detail-card">
+
+                <h2>
+                    Paciente
+                </h2>
+
+                <div class="admin-detail-list">
+
+                    <div>
+                        <span>Nombre completo</span>
+
+                        <strong>
+                            {{ turno["paciente_nombre"] }}
+                            {{ turno["paciente_apellido"] }}
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>DNI</span>
+
+                        <strong>
+                            {{ turno["paciente_dni"] }}
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Email</span>
+
+                        <strong>
+                            {{ turno["paciente_email"] }}
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Teléfono</span>
+
+                        <strong>
+                            {{ turno["paciente_telefono"] }}
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Obra social</span>
+
+                        <strong>
+                            {{ turno["paciente_obra_social"] }}
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Número de afiliado</span>
+
+                        <strong>
+                            {{ turno["paciente_numero_afiliado"] or "-" }}
+                        </strong>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- ================================================== -->
+<!-- HISTORIAL DEL TURNO -->
+<!-- ================================================== -->
+
+<section class="admin-history">
+
+    <div class="admin-history-header">
+
+        <div>
+
+            <span class="section-label">
+                Actividad
+            </span>
+
+            <h2>
+                Historial del turno
+            </h2>
+
+        </div>
+
+    </div>
+
+
+    {% if historial %}
+
+        <div class="admin-timeline">
+
+            {% for cambio in historial %}
+
+                <div class="admin-timeline-item">
+
+                    <div class="admin-timeline-marker">
+                    </div>
+
+
+                    <div class="admin-timeline-content">
+
+                        <div class="admin-timeline-top">
+
+                            <strong>
+                                {{ cambio["estado_anterior"]|capitalize }}
+                                →
+                                {{ cambio["estado_nuevo"]|capitalize }}
+                            </strong>
+
+                            <span>
+                                {{ cambio["fecha_cambio_local"] }}
+                            </span>
+
+                        </div>
+
+
+                        <p>
+                            Cambio realizado por
+
+                            <strong>
+                                {{ cambio["usuario_nombre"] }}
+                                {{ cambio["usuario_apellido"] }}
+                            </strong>
+
+                            {% if cambio["usuario_rol"] == "admin" %}
+                                · Administrador
+                            {% endif %}
+                        </p>
+
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    {% else %}
+
+        <div class="admin-history-empty">
+
+            Este turno todavía no tiene cambios
+            de estado registrados.
+
+        </div>
+
+    {% endif %}
+
+</section>
+
+
+            <!-- ========================================== -->
+            <!-- TURNO -->
+            <!-- ========================================== -->
+
+            <section class="admin-detail-card">
+
+                <h2>
+                    Información del turno
+                </h2>
+
+                <div class="admin-detail-list">
+
+                    <div>
+                        <span>Estudio</span>
+
+                        <strong>
+                            {{ turno["estudio"] }}
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Área</span>
+
+                        <strong>
+                            {{ turno["area"] }}
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Duración</span>
+
+                        <strong>
+                            {{ turno["duracion_minutos"] }} minutos
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Fecha</span>
+
+                        <strong>
+                            {{ turno["fecha"] }}
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Hora</span>
+
+                        <strong>
+                            {{ turno["hora"] }}
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Fecha de creación</span>
+
+                        <strong>
+                            {{ turno["fecha_creacion"] }}
+                        </strong>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ========================================== -->
+            <!-- SEDE -->
+            <!-- ========================================== -->
+
+            <section class="admin-detail-card">
+
+                <h2>
+                    Sede
+                </h2>
+
+                <div class="admin-detail-list">
+
+                    <div>
+                        <span>Nombre</span>
+
+                        <strong>
+                            {{ turno["sede"] }}
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Dirección</span>
+
+                        <strong>
+                            {{ turno["sede_direccion"] }}
+                        </strong>
+                    </div>
+
+                    <div>
+                        <span>Teléfono</span>
+
+                        <strong>
+                            {{ turno["sede_telefono"] }}
+                        </strong>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ========================================== -->
+            <!-- OBSERVACIONES -->
+            <!-- ========================================== -->
+
+            <section class="admin-detail-card">
+
+                <h2>
+                    Observaciones
+                </h2>
+
+                {% if turno["observaciones"] %}
+
+                    <p class="admin-observations">
+                        {{ turno["observaciones"] }}
+                    </p>
+
+                {% else %}
+
+                    <p class="admin-observations admin-empty-text">
+                        Sin observaciones.
+                    </p>
+
+                {% endif %}
+
+            </section>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

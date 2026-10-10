@@ -1,0 +1,7555 @@
+/* =========================================================
+   MEDISCAN
+   Estilos generales
+   ========================================================= */
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: #f6f8fc;
+    color: #1f2937;
+
+    line-height: 1.6;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   CONTENEDOR GENERAL
+   ========================================================= */
+
+.container {
+    width: min(1120px, calc(100% - 48px));
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.navbar,
+.navbar-container {
+    width: min(1200px, calc(100% - 48px));
+    min-height: 72px;
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+.logo {
+    color: #2563eb;
+
+    font-size: 1.55rem;
+    font-weight: 800;
+
+    letter-spacing: -0.5px;
+}
+
+.nav-links,
+.navbar nav {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.nav-links a,
+.navbar nav a {
+    color: #4b5563;
+
+    font-size: 0.95rem;
+    font-weight: 500;
+
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.nav-links a:hover,
+.navbar nav a:hover {
+    color: #2563eb;
+}
+
+.nav-user {
+    color: #374151;
+    font-size: 0.92rem;
+    font-weight: 600;
+}
+
+.login-button {
+    padding: 10px 17px;
+
+    border-radius: 9px;
+
+    background: #2563eb;
+    color: #ffffff !important;
+}
+
+.login-button:hover {
+    background: #1d4ed8;
+}
+
+.nav-register {
+    padding: 9px 16px;
+
+    border: 1px solid #dbe3ef;
+    border-radius: 9px;
+}
+
+.nav-logout {
+    font-weight: 600 !important;
+}
+
+
+/* =========================================================
+   BOTONES
+   ========================================================= */
+
+.btn-primary,
+.primary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 46px;
+
+    padding: 11px 22px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #2563eb;
+    color: #ffffff;
+
+    font-weight: 600;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.btn-primary:hover,
+.primary-button:hover {
+    background: #1d4ed8;
+
+    transform: translateY(-1px);
+
+    box-shadow: 0 8px 18px rgba(37, 99, 235, 0.18);
+}
+
+.btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 46px;
+
+    padding: 11px 22px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+
+    background: #ffffff;
+    color: #374151;
+
+    font-weight: 600;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.btn-secondary:hover {
+    background: #f9fafb;
+    border-color: #9ca3af;
+}
+
+.btn-cancel {
+    padding: 10px 18px;
+
+    border: 1px solid #fecaca;
+    border-radius: 9px;
+
+    background: #fff5f5;
+    color: #dc2626;
+
+    font-weight: 600;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.btn-cancel:hover {
+    background: #fee2e2;
+    border-color: #fca5a5;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero {
+    width: min(1200px, calc(100% - 48px));
+
+    margin: 0 auto;
+    padding: 90px 0 80px;
+
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+
+    align-items: center;
+
+    gap: 70px;
+}
+
+.hero-content h1 {
+    max-width: 650px;
+
+    margin-bottom: 22px;
+
+    color: #111827;
+
+    font-size: clamp(2.6rem, 5vw, 4rem);
+    line-height: 1.08;
+
+    letter-spacing: -2px;
+}
+
+.hero-content h1 span {
+    color: #2563eb;
+}
+
+.hero-content p {
+    max-width: 580px;
+
+    margin-bottom: 32px;
+
+    color: #6b7280;
+
+    font-size: 1.08rem;
+}
+
+.hero-card {
+    padding: 32px;
+
+    background: #ffffff;
+
+    border: 1px solid #e7eaf0;
+    border-radius: 20px;
+
+    box-shadow:
+        0 20px 45px rgba(15, 23, 42, 0.08);
+}
+
+.hero-card h3 {
+    margin-bottom: 20px;
+
+    color: #111827;
+
+    font-size: 1.15rem;
+}
+
+
+/* =========================================================
+   VISTA PREVIA DE TURNOS
+   ========================================================= */
+
+.appointment-preview {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 16px;
+
+    padding: 17px;
+
+    margin-bottom: 12px;
+
+    background: #f8fafc;
+
+    border: 1px solid #edf0f4;
+    border-radius: 12px;
+}
+
+.appointment-preview:last-child {
+    margin-bottom: 0;
+}
+
+.appointment-info strong {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: #1f2937;
+}
+
+.appointment-info span {
+    color: #6b7280;
+
+    font-size: 0.88rem;
+}
+
+.status,
+.appointment-status {
+    display: inline-flex;
+
+    padding: 5px 10px;
+
+    border-radius: 999px;
+
+    background: #ecfdf5;
+    color: #047857;
+
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   ENCABEZADOS DE SECCIÓN
+   ========================================================= */
+
+.section-header,
+.section-title,
+.page-header {
+    margin-bottom: 38px;
+}
+
+.section-header,
+.section-title {
+    text-align: center;
+}
+
+.section-label {
+    display: inline-block;
+
+    margin-bottom: 8px;
+
+    color: #2563eb;
+
+    font-size: 0.82rem;
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.section-header h2,
+.section-title h2 {
+    margin-bottom: 10px;
+
+    color: #111827;
+
+    font-size: 2rem;
+    line-height: 1.2;
+}
+
+.section-header p,
+.section-title p,
+.page-header p {
+    color: #6b7280;
+}
+
+.page-header h1 {
+    margin-bottom: 8px;
+
+    color: #111827;
+
+    font-size: 2.2rem;
+    line-height: 1.2;
+}
+
+
+/* =========================================================
+   SERVICIOS
+   ========================================================= */
+
+.services {
+    width: min(1200px, calc(100% - 48px));
+
+    margin: 0 auto;
+
+    padding: 35px 0 90px;
+}
+
+.services-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+.service-card-link {
+    display: block;
+
+    height: 100%;
+}
+
+.service-card {
+    height: 100%;
+
+    padding: 28px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-4px);
+
+    border-color: #cbdcfb;
+
+    box-shadow:
+        0 14px 30px rgba(15, 23, 42, 0.07);
+}
+
+.service-icon {
+    width: 48px;
+    height: 48px;
+
+    margin-bottom: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #eff6ff;
+    color: #2563eb;
+
+    border-radius: 12px;
+
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+.service-area,
+.study-area {
+    display: inline-block;
+
+    margin-bottom: 8px;
+
+    color: #2563eb;
+
+    font-size: 0.8rem;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.service-card h3 {
+    margin-bottom: 9px;
+
+    color: #111827;
+
+    font-size: 1.15rem;
+}
+
+.service-card p {
+    color: #6b7280;
+
+    font-size: 0.94rem;
+}
+
+.service-duration {
+    margin-top: 18px;
+
+    color: #4b5563;
+
+    font-size: 0.86rem;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   PÁGINAS INTERNAS
+   ========================================================= */
+
+.page-section,
+.study-page {
+    min-height: calc(100vh - 150px);
+
+    padding: 60px 0;
+}
+
+.study-container {
+    width: min(1050px, calc(100% - 48px));
+
+    margin: 0 auto;
+}
+
+.back-link {
+    display: inline-block;
+
+    margin-bottom: 30px;
+
+    color: #2563eb;
+
+    font-size: 0.92rem;
+    font-weight: 600;
+}
+
+.back-link:hover {
+    color: #1d4ed8;
+}
+
+.study-header {
+    margin-bottom: 35px;
+}
+
+.study-header h1 {
+    margin-bottom: 12px;
+
+    color: #111827;
+
+    font-size: 2.5rem;
+    line-height: 1.15;
+}
+
+.study-description {
+    max-width: 750px;
+
+    color: #6b7280;
+
+    font-size: 1.02rem;
+}
+
+.study-content {
+    display: grid;
+
+    grid-template-columns: 1fr 360px;
+
+    gap: 30px;
+
+    align-items: start;
+}
+
+.study-info {
+    display: grid;
+    gap: 18px;
+}
+
+
+/* =========================================================
+   TARJETAS
+   ========================================================= */
+
+.info-card,
+.study-booking,
+.booking-form-card,
+.confirmation-card {
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+}
+
+.info-card {
+    padding: 22px;
+}
+
+.info-card h2,
+.info-card h3 {
+    margin-bottom: 8px;
+
+    color: #111827;
+}
+
+.info-card p {
+    color: #6b7280;
+}
+
+.study-booking {
+    padding: 28px;
+}
+
+.study-booking > h2 {
+    margin-bottom: 8px;
+
+    color: #111827;
+}
+
+.study-booking > p {
+    margin-bottom: 22px;
+
+    color: #6b7280;
+}
+
+.booking-form-card {
+    max-width: 760px;
+
+    margin: 0 auto;
+
+    padding: 32px;
+
+    box-shadow:
+        0 10px 30px rgba(15, 23, 42, 0.04);
+}
+
+
+/* =========================================================
+   SEDES
+   ========================================================= */
+
+.branches-list {
+    display: grid;
+
+    gap: 14px;
+
+    margin-top: 24px;
+}
+
+.branch-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 20px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+}
+
+.branch-info h3 {
+    margin-bottom: 4px;
+
+    color: #111827;
+}
+
+.branch-info p {
+    color: #6b7280;
+
+    font-size: 0.9rem;
+}
+
+
+/* =========================================================
+   FORMULARIOS
+   ========================================================= */
+
+.form-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-grid .form-group {
+    margin-bottom: 0;
+}
+
+.form-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #374151;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea,
+.date-form input {
+    width: 100%;
+
+    min-height: 46px;
+
+    padding: 10px 13px;
+
+    background: #ffffff;
+    color: #111827;
+
+    border: 1px solid #d1d5db;
+    border-radius: 9px;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus,
+.date-form input:focus {
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.form-group small {
+    display: block;
+
+    margin-top: 6px;
+
+    color: #6b7280;
+
+    font-size: 0.8rem;
+}
+
+.form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 12px;
+
+    margin-top: 28px;
+}
+
+.date-form {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 18px;
+}
+
+.date-form input {
+    max-width: 260px;
+}
+
+
+/* =========================================================
+   MENSAJES
+   ========================================================= */
+
+.form-message {
+    margin-top: 18px;
+
+    padding: 12px 15px;
+
+    background: #fffbeb;
+    color: #92400e;
+
+    border: 1px solid #fde68a;
+    border-radius: 9px;
+}
+
+.booking-error {
+    margin-bottom: 20px;
+
+    padding: 13px 15px;
+
+    background: #fef2f2;
+    color: #b91c1c;
+
+    border: 1px solid #fecaca;
+    border-radius: 9px;
+}
+
+.booking-success {
+    margin-bottom: 24px;
+
+    padding: 13px 15px;
+
+    background: #ecfdf5;
+    color: #047857;
+
+    border: 1px solid #a7f3d0;
+    border-radius: 9px;
+}
+
+
+/* =========================================================
+   HORARIOS
+   ========================================================= */
+
+.available-times {
+    margin-top: 30px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid #e5e7eb;
+}
+
+.available-times h3 {
+    margin-bottom: 5px;
+
+    color: #111827;
+}
+
+.available-times > p {
+    margin-bottom: 16px;
+
+    color: #6b7280;
+}
+
+.times-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fill, minmax(100px, 1fr));
+
+    gap: 10px;
+}
+
+.time-slot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 11px 12px;
+
+    background: #ffffff;
+    color: #2563eb;
+
+    border: 1px solid #bfdbfe;
+    border-radius: 9px;
+
+    font-size: 0.92rem;
+    font-weight: 600;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.time-slot:hover {
+    background: #2563eb;
+    color: #ffffff;
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   CONFIRMACIÓN PREVIA
+   ========================================================= */
+
+.confirmation-section {
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.confirmation-section:last-of-type {
+    margin-bottom: 0;
+}
+
+.confirmation-section h2 {
+    margin-bottom: 16px;
+
+    color: #111827;
+
+    font-size: 1.2rem;
+}
+
+.confirmation-details {
+    display: grid;
+
+    gap: 10px;
+}
+
+.confirmation-details p {
+    color: #4b5563;
+}
+
+.confirmation-details strong {
+    color: #1f2937;
+}
+
+
+/* =========================================================
+   TURNO CONFIRMADO
+   ========================================================= */
+
+.confirmation-card {
+    max-width: 760px;
+
+    margin: 0 auto;
+
+    padding: 40px;
+
+    text-align: center;
+
+    box-shadow:
+        0 18px 45px rgba(15, 23, 42, 0.06);
+}
+
+.confirmation-icon {
+    width: 64px;
+    height: 64px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ecfdf5;
+    color: #059669;
+
+    border-radius: 50%;
+
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.confirmation-card h1 {
+    margin-bottom: 10px;
+
+    color: #111827;
+
+    font-size: 2rem;
+}
+
+.confirmation-description {
+    max-width: 540px;
+
+    margin: 0 auto 25px;
+
+    color: #6b7280;
+}
+
+.confirmation-code {
+    max-width: 400px;
+
+    margin: 0 auto 28px;
+
+    padding: 18px;
+
+    background: #eff6ff;
+
+    border: 1px solid #bfdbfe;
+    border-radius: 12px;
+}
+
+.confirmation-code span {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #64748b;
+
+    font-size: 0.8rem;
+}
+
+.confirmation-code strong {
+    color: #1d4ed8;
+
+    font-size: 1.35rem;
+    letter-spacing: 0.04em;
+}
+
+.confirmation-card > .confirmation-details {
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 14px;
+
+    margin-top: 25px;
+
+    text-align: left;
+}
+
+.confirmation-detail {
+    padding: 15px;
+
+    background: #f8fafc;
+
+    border-radius: 10px;
+}
+
+.confirmation-detail span {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: #6b7280;
+
+    font-size: 0.8rem;
+}
+
+.confirmation-detail strong {
+    color: #1f2937;
+}
+
+.confirmation-actions {
+    display: flex;
+    justify-content: center;
+
+    gap: 12px;
+
+    margin-top: 30px;
+}
+
+
+/* =========================================================
+   MIS TURNOS
+   ========================================================= */
+
+.appointments-list {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+.appointments-list .booking-form-card {
+    width: 100%;
+    max-width: none;
+
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.appointments-list h2 {
+    margin-bottom: 8px;
+
+    color: #111827;
+
+    font-size: 1.25rem;
+}
+
+.appointments-list form {
+    margin-top: 22px;
+}
+
+
+/* =========================================================
+   LOGIN / REGISTRO
+   ========================================================= */
+
+.login-register {
+    margin-top: 28px;
+    padding-top: 22px;
+
+    text-align: center;
+
+    border-top: 1px solid #e5e7eb;
+}
+
+.login-register p {
+    margin-bottom: 4px;
+
+    color: #6b7280;
+}
+
+.login-register a {
+    color: #2563eb;
+
+    font-weight: 600;
+}
+
+.login-register a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.site-footer,
+footer {
+    margin-top: 70px;
+
+    padding: 28px 20px;
+
+    background: #111827;
+    color: #9ca3af;
+
+    text-align: center;
+
+    font-size: 0.88rem;
+}
+/* =========================================================
+   HOME - REDISEÑO FINAL
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   HERO
+   --------------------------------------------------------- */
+
+.hero-label {
+    display: inline-block;
+
+    margin-bottom: 16px;
+
+    color: #2563eb;
+
+    font-size: 0.82rem;
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+
+.hero-description {
+    max-width: 600px;
+}
+
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 38px;
+}
+
+
+.secondary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 46px;
+
+    padding: 11px 22px;
+
+    background: transparent;
+    color: #374151;
+
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+
+    font-weight: 600;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.secondary-button:hover {
+    background: #ffffff;
+    color: #2563eb;
+
+    border-color: #bfdbfe;
+}
+
+
+/* ---------------------------------------------------------
+   DATOS DESTACADOS DEL HERO
+   --------------------------------------------------------- */
+
+.hero-features {
+    display: flex;
+    align-items: center;
+
+    gap: 34px;
+}
+
+
+.hero-features > div {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+.hero-features > div:not(:last-child)::after {
+    content: "";
+
+    position: absolute;
+
+    top: 5px;
+    right: -17px;
+
+    width: 1px;
+    height: 38px;
+
+    background: #dbe3ef;
+}
+
+
+.hero-features strong {
+    color: #111827;
+
+    font-size: 1.25rem;
+    line-height: 1.2;
+}
+
+
+.hero-features span {
+    margin-top: 3px;
+
+    color: #6b7280;
+
+    font-size: 0.82rem;
+}
+
+
+/* ---------------------------------------------------------
+   TARJETA DEL PORTAL
+   --------------------------------------------------------- */
+
+.hero-card-label {
+    display: inline-block;
+
+    margin-bottom: 12px;
+
+    color: #2563eb;
+
+    font-size: 0.78rem;
+    font-weight: 700;
+
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+}
+
+
+.hero-card h3 {
+    margin-bottom: 10px;
+
+    font-size: 1.45rem;
+}
+
+
+.hero-card > p {
+    margin-bottom: 24px;
+
+    color: #6b7280;
+
+    font-size: 0.95rem;
+}
+
+
+.hero-card-feature {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 24px;
+    padding: 16px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+}
+
+
+.hero-card-feature-icon {
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ecfdf5;
+    color: #047857;
+
+    border-radius: 50%;
+
+    font-weight: 800;
+}
+
+
+.hero-card-feature strong {
+    display: block;
+
+    margin-bottom: 2px;
+
+    color: #1f2937;
+
+    font-size: 0.92rem;
+}
+
+
+.hero-card-feature span {
+    display: block;
+
+    color: #6b7280;
+
+    font-size: 0.82rem;
+}
+
+
+.hero-card .primary-button {
+    width: 100%;
+}
+
+
+.hero-register-link {
+    display: block;
+
+    margin-top: 15px;
+
+    color: #2563eb;
+
+    text-align: center;
+
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+
+.hero-register-link:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   CONOCÉ MEDISCAN
+   ========================================================= */
+
+.about-section {
+    padding: 85px 0;
+
+    background: #ffffff;
+
+    border-top: 1px solid #eef2f7;
+    border-bottom: 1px solid #eef2f7;
+}
+
+
+.about-section > .section-header {
+    width: min(760px, calc(100% - 48px));
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.about-grid {
+    width: min(1120px, calc(100% - 48px));
+
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+
+.about-card {
+    min-height: 245px;
+
+    padding: 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background: #f8fafc;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+
+    text-align: center;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.about-card:hover {
+    transform: translateY(-4px);
+
+    border-color: #bfdbfe;
+
+    box-shadow:
+        0 14px 30px rgba(15, 23, 42, 0.06);
+}
+
+
+.about-icon {
+    width: 52px;
+    height: 52px;
+
+    margin-bottom: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #eff6ff;
+    color: #2563eb;
+
+    border-radius: 14px;
+
+    font-size: 0.9rem;
+    font-weight: 800;
+}
+
+
+.about-card h3 {
+    margin-bottom: 10px;
+
+    color: #111827;
+
+    font-size: 1.12rem;
+}
+
+
+.about-card p {
+    max-width: 280px;
+
+    color: #6b7280;
+
+    font-size: 0.92rem;
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   ESTUDIOS - MEJORAS DE TARJETAS
+   ========================================================= */
+
+.services {
+    padding-top: 85px;
+}
+
+
+.services > .section-header {
+    max-width: 720px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.service-card {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.service-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+}
+
+
+.service-card-top .service-icon {
+    margin-bottom: 0;
+}
+
+
+.service-card-top .service-area {
+    margin-bottom: 0;
+
+    text-align: right;
+}
+
+
+.service-card p {
+    flex-grow: 1;
+
+    line-height: 1.65;
+}
+
+
+.service-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-top: 24px;
+    padding-top: 18px;
+
+    border-top: 1px solid #f1f5f9;
+}
+
+
+.service-card-footer .service-duration {
+    margin-top: 0;
+
+    color: #64748b;
+}
+
+
+.service-link-text {
+    color: #2563eb;
+
+    font-size: 0.86rem;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   SEDES DE LA HOME
+   ========================================================= */
+
+.home-locations {
+    padding: 85px 0;
+
+    background: #ffffff;
+
+    border-top: 1px solid #eef2f7;
+    border-bottom: 1px solid #eef2f7;
+}
+
+
+.home-locations > .section-header {
+    width: min(720px, calc(100% - 48px));
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.locations-grid {
+    width: min(1120px, calc(100% - 48px));
+
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+
+.location-card {
+    min-height: 220px;
+
+    padding: 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    background: #f8fafc;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+
+    text-align: center;
+
+    transition:
+        transform 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.location-card:hover {
+    transform: translateY(-4px);
+
+    border-color: #bfdbfe;
+
+    box-shadow:
+        0 14px 30px rgba(15, 23, 42, 0.06);
+}
+
+
+.location-label {
+    display: inline-block;
+
+    margin-bottom: 12px;
+    padding: 5px 10px;
+
+    background: #eff6ff;
+    color: #2563eb;
+
+    border-radius: 999px;
+
+    font-size: 0.76rem;
+    font-weight: 700;
+
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+
+.location-card h3 {
+    margin-bottom: 10px;
+
+    color: #111827;
+
+    font-size: 1.2rem;
+}
+
+
+.location-card p {
+    margin-bottom: 8px;
+
+    color: #6b7280;
+
+    font-size: 0.92rem;
+}
+
+
+.location-card > span:last-child {
+    color: #374151;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   CTA FINAL
+   ========================================================= */
+
+.home-cta {
+    width: min(1120px, calc(100% - 48px));
+
+    margin: 85px auto 20px;
+}
+
+
+.home-cta-content {
+    padding: 38px 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 35px;
+
+    background: #111827;
+    color: #ffffff;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 18px 45px rgba(15, 23, 42, 0.12);
+}
+
+
+.home-cta-label {
+    display: inline-block;
+
+    margin-bottom: 8px;
+
+    color: #93c5fd;
+
+    font-size: 0.78rem;
+    font-weight: 700;
+
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+}
+
+
+.home-cta h2 {
+    margin-bottom: 7px;
+
+    color: #ffffff;
+
+    font-size: 1.7rem;
+}
+
+
+.home-cta p {
+    color: #cbd5e1;
+}
+
+
+.home-cta .primary-button {
+    flex-shrink: 0;
+}
+
+
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+   ========================================================= */
+
+@media (max-width: 900px) { .about-grid,
+.locations-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.about-card:last-child,
+.location-card:last-child {
+    grid-column: 1 / -1;
+}
+
+.home-cta-content {
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+    .hero {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+
+        padding-top: 60px;
+    }
+
+    .services-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .study-content {
+        grid-template-columns: 1fr;
+    }
+
+    .appointments-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================================================
+   ADMINISTRACIÓN
+   ========================================================= */
+
+.admin-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+
+    margin-bottom: 40px;
+}
+
+.admin-stat-card {
+    padding: 24px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+
+    box-shadow:
+        0 8px 24px rgba(15, 23, 42, 0.04);
+}
+
+.admin-stat-card span {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #6b7280;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.admin-stat-card strong {
+    color: #111827;
+
+    font-size: 2rem;
+    line-height: 1;
+}
+
+.admin-section {
+    padding: 28px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+}
+
+.admin-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 24px;
+}
+
+.admin-section-header h2 {
+    color: #111827;
+
+    font-size: 1.4rem;
+}
+
+.admin-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 14px 10px;
+
+    text-align: left;
+    vertical-align: middle;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+/* Encabezados siempre en una línea */
+.admin-table th {
+    white-space: nowrap;
+}
+
+/* El contenido puede adaptarse al ancho disponible */
+.admin-table td {
+    white-space: normal;
+}
+
+/* Datos que conviene mantener en una línea */
+.admin-table td:first-child,
+.admin-table td:nth-child(2),
+.admin-table td:nth-child(3),
+.admin-table td:nth-child(5),
+.admin-table td:nth-child(8),
+.admin-table td:nth-child(9) {
+    white-space: nowrap;
+}
+
+.admin-table th {
+    color: #6b7280;
+
+    font-size: 0.78rem;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.admin-table td {
+    color: #374151;
+
+    font-size: 0.9rem;
+}
+
+.admin-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.admin-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+.admin-status {
+    display: inline-flex;
+
+    padding: 5px 10px;
+
+    background: #fffbeb;
+    color: #92400e;
+
+    border-radius: 999px;
+
+    font-size: 0.78rem;
+    font-weight: 700;
+
+    text-transform: capitalize;
+}
+
+.admin-empty {
+    padding: 35px;
+
+    background: #f8fafc;
+
+    border-radius: 12px;
+
+    text-align: center;
+
+    color: #6b7280;
+}
+
+/* =========================================================
+   ADMIN - LISTADO DE TURNOS
+   ========================================================= */
+
+.admin-list-summary {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+
+    margin-bottom: 20px;
+}
+
+.admin-list-summary strong {
+    color: #111827;
+
+    font-size: 1.8rem;
+}
+
+.admin-list-summary span {
+    color: #6b7280;
+}
+
+
+/* ESTADOS */
+
+.admin-status-pendiente {
+    background: #fffbeb;
+    color: #92400e;
+}
+
+.admin-status-confirmado {
+    background: #eff6ff;
+    color: #1d4ed8;
+}
+
+.admin-status-realizado {
+    background: #ecfdf5;
+    color: #047857;
+}
+
+.admin-status-no_asistio {
+    background: #f3f4f6;
+    color: #4b5563;
+}
+.admin-status-cancelado {
+    background: #fef2f2;
+    color: #b91c1c;
+}
+
+
+.admin-turnos-container {
+    width: min(1450px, calc(100% - 48px));
+    max-width: none;
+}
+
+.admin-turnos-container .admin-section {
+    width: 100%;
+}
+
+.admin-turnos-container .admin-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.admin-turnos-container .admin-table {
+    width: 100%;
+}
+
+/* =========================================================
+   ADMIN - FILTROS
+   ========================================================= */
+
+.admin-filters {
+    margin-bottom: 28px;
+    padding: 22px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+}
+
+.admin-filters-form {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(150px, 1fr));
+
+    gap: 18px;
+
+    align-items: end;
+}
+
+.admin-filters .form-group {
+    margin: 0;
+}
+
+.admin-filters select,
+.admin-filters input {
+    width: 100%;
+    min-height: 46px;
+
+    padding: 10px 12px;
+
+    background: #ffffff;
+
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+
+    color: #374151;
+
+    font-family: inherit;
+    font-size: 0.9rem;
+}
+
+.admin-filters select:focus,
+.admin-filters input:focus {
+    outline: none;
+
+    border-color: #2563eb;
+
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+
+.admin-filter-actions {
+    grid-column: 1 / -1;
+
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+}
+
+/* =========================================================
+   ADMIN - DETALLE DE TURNO
+   ========================================================= */
+
+.admin-action-link {
+    display: inline-block;
+
+    padding: 7px 12px;
+
+    border: 1px solid #dbeafe;
+    border-radius: 8px;
+
+    background: #eff6ff;
+    color: #1d4ed8;
+
+    font-size: 0.85rem;
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.admin-action-link:hover {
+    background: #dbeafe;
+    border-color: #bfdbfe;
+}
+
+
+.admin-detail-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 24px;
+    padding: 24px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+}
+
+.admin-detail-label {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #6b7280;
+
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.admin-detail-header h2 {
+    color: #111827;
+    font-size: 1.5rem;
+}
+
+
+.admin-detail-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+
+.admin-detail-card {
+    padding: 24px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+}
+
+.admin-detail-card h2 {
+    margin-bottom: 20px;
+
+    color: #111827;
+
+    font-size: 1.15rem;
+}
+
+
+.admin-detail-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-detail-list > div {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 12px 0;
+
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.admin-detail-list > div:last-child {
+    border-bottom: none;
+}
+
+.admin-detail-list span {
+    color: #6b7280;
+
+    font-size: 0.9rem;
+}
+
+.admin-detail-list strong {
+    color: #1f2937;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    text-align: right;
+
+    overflow-wrap: anywhere;
+}
+
+
+.admin-observations {
+    color: #374151;
+
+    line-height: 1.7;
+
+    white-space: pre-wrap;
+}
+
+.admin-empty-text {
+    color: #9ca3af;
+}
+
+
+/* =========================================================
+   ADMIN - CAMBIO DE ESTADO
+   ========================================================= */
+
+.admin-state-card {
+    margin-bottom: 24px;
+    padding: 24px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+}
+
+.admin-state-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 12px;
+}
+
+.admin-state-header h2 {
+    margin-top: 4px;
+
+    color: #111827;
+
+    font-size: 1.2rem;
+}
+
+.admin-state-description {
+    margin-bottom: 20px;
+
+    color: #6b7280;
+}
+
+.admin-state-actions {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+.admin-state-actions form {
+    margin: 0;
+}
+
+.admin-state-final {
+    padding: 14px 16px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+
+    color: #64748b;
+
+    font-size: 0.9rem;
+}
+
+
+/* =========================================================
+   ADMIN - HISTORIAL DEL TURNO
+   ========================================================= */
+
+.admin-history {
+    margin-top: 24px;
+    padding: 24px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+}
+
+.admin-history-header {
+    margin-bottom: 24px;
+}
+
+.admin-history-header h2 {
+    margin-top: 4px;
+
+    color: #111827;
+
+    font-size: 1.2rem;
+}
+
+
+/* TIMELINE */
+
+.admin-timeline {
+    position: relative;
+}
+
+.admin-timeline-item {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns: 18px 1fr;
+
+    gap: 16px;
+
+    padding-bottom: 24px;
+}
+
+.admin-timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+
+/* LÍNEA VERTICAL */
+
+.admin-timeline-item:not(:last-child)::before {
+    content: "";
+
+    position: absolute;
+
+    top: 14px;
+    bottom: -2px;
+    left: 5px;
+
+    width: 2px;
+
+    background: #e5e7eb;
+}
+
+
+/* PUNTO */
+
+.admin-timeline-marker {
+    position: relative;
+
+    width: 12px;
+    height: 12px;
+
+    margin-top: 5px;
+
+    border-radius: 50%;
+
+    background: #2563eb;
+
+    z-index: 1;
+}
+
+
+/* CONTENIDO */
+
+.admin-timeline-content {
+    padding-bottom: 4px;
+}
+
+.admin-timeline-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 5px;
+}
+
+.admin-timeline-top strong {
+    color: #111827;
+
+    font-size: 0.95rem;
+}
+
+.admin-timeline-top span {
+    color: #9ca3af;
+
+    font-size: 0.82rem;
+
+    white-space: nowrap;
+}
+
+.admin-timeline-content p {
+    color: #6b7280;
+
+    font-size: 0.88rem;
+}
+
+.admin-history-empty {
+    padding: 16px;
+
+    background: #f8fafc;
+
+    border-radius: 10px;
+
+    color: #64748b;
+
+    font-size: 0.9rem;
+}
+
+
+/* =========================================================
+   ADMIN - PACIENTES
+   ========================================================= */
+
+.admin-patient-search {
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+}
+
+.admin-patient-search .form-group {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+.admin-patient-search input {
+    width: 100%;
+}
+
+.patient-status-active,
+.patient-status-inactive {
+    display: inline-block;
+
+    padding: 6px 10px;
+
+    border-radius: 999px;
+
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.patient-status-active {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.patient-status-inactive {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.admin-stat-link {
+    display: inline-block;
+
+    margin-top: 14px;
+
+    color: #2563eb;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+.admin-stat-link:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   ADMIN - DETALLE DE PACIENTE
+   ========================================================= */
+
+.admin-patient-appointments {
+    margin-top: 24px;
+}
+
+.admin-patient-appointments .admin-list-summary {
+    margin-bottom: 0;
+}
+
+.admin-patient-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+
+    margin-bottom: 24px;
+}
+
+
+.form-group select,
+.form-group textarea {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    background: #ffffff;
+
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+
+    color: #374151;
+
+    font-family: inherit;
+    font-size: 0.95rem;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+
+.admin-patient-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 24px;
+}
+
+.admin-patient-actions form {
+    margin: 0;
+}
+
+
+/* =========================================================
+   ADMIN - SEDES DE ESTUDIO
+   ========================================================= */
+
+.admin-study-branches {
+    margin-top: 24px;
+    padding: 28px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+}
+
+.admin-study-branches-header {
+    margin-bottom: 24px;
+}
+
+.admin-study-branches-header h2 {
+    margin-top: 4px;
+    margin-bottom: 6px;
+
+    color: #111827;
+
+    font-size: 1.3rem;
+}
+
+.admin-study-branches-header p {
+    color: #6b7280;
+}
+
+
+.admin-branches-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 16px;
+
+    margin-bottom: 24px;
+}
+
+
+.admin-branch-option {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 14px;
+
+    padding: 18px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    transition:
+        border-color 0.2s ease,
+        background-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.admin-branch-option:hover {
+    background: #eff6ff;
+    border-color: #bfdbfe;
+
+    transform: translateY(-2px);
+}
+
+
+.admin-branch-option input {
+    width: 18px;
+    height: 18px;
+
+    margin-top: 3px;
+
+    accent-color: #2563eb;
+
+    cursor: pointer;
+}
+
+
+.admin-branch-option-info {
+    display: flex;
+    flex-direction: column;
+
+    gap: 4px;
+}
+
+.admin-branch-option-info strong {
+    color: #111827;
+
+    font-size: 0.95rem;
+}
+
+.admin-branch-option-info span {
+    color: #6b7280;
+
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+
+/* =========================================================
+   ADMIN - GESTIÓN DE ESTUDIOS
+   ========================================================= */
+
+.admin-study-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 24px;
+}
+
+.admin-study-actions form {
+    margin: 0;
+}
+
+/* =========================================================
+   ADMIN - ENCABEZADO CON ACCIONES
+   ========================================================= */
+
+.admin-page-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-bottom: 32px;
+}
+
+.admin-page-header .page-header {
+    margin-bottom: 0;
+}
+
+.admin-page-header .btn-primary {
+    flex-shrink: 0;
+    margin-top: 6px;
+}
+
+/* =========================================================
+   ADMIN - HORARIOS DE ESTUDIOS
+   ========================================================= */
+
+.admin-schedule-card {
+    margin-bottom: 24px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+
+    overflow: hidden;
+}
+
+.admin-schedule-header {
+    padding: 22px 24px;
+
+    background: #f8fafc;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.admin-schedule-header h2 {
+    margin-top: 4px;
+    margin-bottom: 4px;
+
+    color: #111827;
+
+    font-size: 1.25rem;
+}
+
+.admin-schedule-header p {
+    color: #6b7280;
+
+    font-size: 0.9rem;
+}
+
+
+/* DÍAS */
+
+.admin-schedule-days {
+    padding: 0 24px;
+}
+
+.admin-schedule-row {
+    display: grid;
+
+    grid-template-columns:
+        minmax(150px, 1fr)
+        minmax(140px, 180px)
+        minmax(140px, 180px);
+
+    align-items: end;
+
+    gap: 24px;
+
+    padding: 18px 0;
+
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.admin-schedule-row:last-child {
+    border-bottom: none;
+}
+
+
+/* CHECKBOX Y DÍA */
+
+.admin-schedule-day {
+    align-self: center;
+}
+
+.admin-schedule-day label {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    cursor: pointer;
+}
+
+.admin-schedule-day input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+
+    cursor: pointer;
+
+    accent-color: #2563eb;
+}
+
+.admin-schedule-day strong {
+    color: #1f2937;
+
+    font-size: 0.95rem;
+}
+
+
+/* HORAS */
+
+.admin-schedule-time {
+    display: flex;
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+.admin-schedule-time label {
+    color: #6b7280;
+
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.admin-schedule-time input {
+    width: 100%;
+    min-height: 44px;
+
+    padding: 9px 11px;
+
+    background: #ffffff;
+
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+
+    color: #374151;
+
+    font-family: inherit;
+    font-size: 0.9rem;
+}
+
+.admin-schedule-time input:focus {
+    outline: none;
+
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+
+
+/* =========================================================
+   ADMIN - GESTIÓN
+   ========================================================= */
+
+.admin-management {
+    margin-bottom: 32px;
+}
+
+.admin-management-actions {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   ADMIN - ESTADO DE SEDE
+   ========================================================= */
+
+.admin-branch-state-actions {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    flex-wrap: wrap;
+}
+
+
+/* =========================================================
+   PORTAL DEL PACIENTE - PERFIL
+   ========================================================= */
+
+.patient-profile-card {
+    margin-bottom: 32px;
+}
+
+.patient-profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 24px;
+
+    margin-bottom: 24px;
+}
+
+.patient-profile-header h2 {
+    margin-bottom: 0;
+}
+
+.admin-branch-state-actions form {
+    margin: 0;
+}
+
+
+
+
+/* =========================================================
+   MEDISCAN - LOGIN Y REGISTRO
+   DISEÑO FINAL
+   ========================================================= */
+
+/* ESTRUCTURA GENERAL */
+
+.auth-page {
+    min-height: calc(100vh - 145px);
+    padding: 50px 24px 70px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at 8% 10%,
+            rgba(37, 99, 235, 0.08),
+            transparent 35%
+        ),
+        #f6f8fc;
+}
+
+.auth-container {
+    width: min(1120px, 100%);
+    min-height: 600px;
+
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 24px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 24px 65px rgba(15, 23, 42, 0.09);
+}
+
+/* REGISTRO: UN POCO MÁS ANCHO */
+
+.auth-container-register {
+    width: min(1240px, 100%);
+    grid-template-columns: 0.8fr 1.2fr;
+}
+
+
+/* =========================================================
+   COLUMNA IZQUIERDA
+   ========================================================= */
+
+.auth-info {
+    position: relative;
+
+    min-width: 0;
+    padding: 38px 42px;
+
+    display: flex;
+    flex-direction: column;
+
+    background:
+        radial-gradient(
+            circle at 100% 100%,
+            rgba(147, 197, 253, 0.18),
+            transparent 45%
+        ),
+        linear-gradient(
+            145deg,
+            #1e40af 0%,
+            #1e3a8a 55%,
+            #172554 100%
+        );
+
+    color: #ffffff;
+}
+
+.auth-back-link {
+    display: inline-flex;
+    align-items: center;
+
+    width: fit-content;
+
+    color: #dbeafe;
+
+    font-size: 0.88rem;
+    font-weight: 600;
+
+    transition: color 0.2s ease;
+}
+
+.auth-back-link:hover {
+    color: #ffffff;
+}
+
+.auth-info-content {
+    margin: auto 0;
+    padding: 50px 0;
+}
+
+.auth-label {
+    display: inline-block;
+
+    margin-bottom: 20px;
+    padding: 7px 13px;
+
+    background: rgba(255, 255, 255, 0.12);
+
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+
+    color: #dbeafe;
+
+    font-size: 0.75rem;
+    font-weight: 700;
+
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+}
+
+.auth-info h1 {
+    max-width: 440px;
+
+    margin-bottom: 20px;
+
+    color: #ffffff;
+
+    font-size: clamp(2.2rem, 3.5vw, 3.4rem);
+    line-height: 1.12;
+
+    letter-spacing: -1.5px;
+}
+
+.auth-info h1 span {
+    display: block;
+    color: #93c5fd;
+}
+
+.auth-info-content > p {
+    max-width: 430px;
+
+    margin-bottom: 38px;
+
+    color: #dbeafe;
+
+    font-size: 0.98rem;
+    line-height: 1.75;
+}
+
+
+/* =========================================================
+   BENEFICIOS
+   ========================================================= */
+
+.auth-benefits {
+    display: flex;
+    flex-direction: column;
+
+    gap: 24px;
+}
+
+.auth-benefit {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 15px;
+}
+
+.auth-benefit-icon {
+    width: 38px;
+    height: 38px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255, 255, 255, 0.13);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 11px;
+
+    color: #bfdbfe;
+
+    font-size: 0.82rem;
+    font-weight: 800;
+}
+
+.auth-benefit strong {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: #ffffff;
+
+    font-size: 0.94rem;
+}
+
+.auth-benefit p {
+    color: #cbdcfb;
+
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   COLUMNA DERECHA
+   ========================================================= */
+
+.auth-form-wrapper {
+    min-width: 0;
+    padding: 50px 52px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ffffff;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 420px;
+}
+
+.auth-card-register {
+    max-width: 650px;
+}
+
+.auth-card-header {
+    margin-bottom: 30px;
+}
+
+.auth-card-header h2 {
+    margin-bottom: 8px;
+
+    color: #111827;
+
+    font-size: clamp(1.8rem, 2.5vw, 2.25rem);
+    line-height: 1.2;
+
+    letter-spacing: -0.7px;
+}
+
+.auth-card-header p {
+    color: #6b7280;
+
+    font-size: 0.94rem;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   CAMPOS DEL FORMULARIO
+   ========================================================= */
+
+.auth-card .form-group {
+    min-width: 0;
+    margin-bottom: 22px;
+}
+
+.auth-card .form-group label {
+    margin-bottom: 8px;
+
+    color: #374151;
+
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+.auth-card .form-group input {
+    width: 100%;
+    min-height: 49px;
+
+    padding: 12px 15px;
+
+    background: #ffffff;
+    color: #111827;
+
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+
+    font-size: 0.94rem;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.auth-card .form-group input:hover {
+    border-color: #94a3b8;
+}
+
+.auth-card .form-group input:focus {
+    outline: none;
+
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 4px rgba(37, 99, 235, 0.10);
+}
+
+.auth-card .form-group input::placeholder {
+    color: #9ca3af;
+}
+
+.auth-card .form-group small {
+    display: block;
+
+    margin-top: 7px;
+
+    color: #64748b;
+
+    font-size: 0.78rem;
+}
+
+
+/* =========================================================
+   MOSTRAR / OCULTAR CONTRASEÑA
+   ========================================================= */
+
+.password-field {
+    position: relative;
+    width: 100%;
+}
+
+.auth-card .password-field input {
+    padding-right: 95px;
+}
+
+.password-toggle {
+    position: absolute;
+
+    top: 50%;
+    right: 10px;
+
+    transform: translateY(-50%);
+
+    padding: 7px 9px;
+
+    background: transparent;
+    color: #2563eb;
+
+    border: none;
+    border-radius: 7px;
+
+    font-size: 0.82rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.password-toggle:hover {
+    background: #eff6ff;
+    color: #1d4ed8;
+}
+
+.password-toggle:focus-visible {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+}
+
+
+/* =========================================================
+   BOTÓN PRINCIPAL
+   ========================================================= */
+
+.auth-submit {
+    width: 100%;
+    min-height: 50px;
+
+    margin-top: 8px;
+
+    border-radius: 10px;
+
+    font-size: 0.95rem;
+    font-weight: 700;
+}
+
+.auth-submit:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 22px rgba(37, 99, 235, 0.2);
+}
+
+
+/* =========================================================
+   REGISTRO - CAMPOS EN DOS COLUMNAS
+   ========================================================= */
+
+.auth-card-register .form-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    column-gap: 18px;
+    row-gap: 2px;
+}
+
+.auth-card-register .form-grid .form-group {
+    min-width: 0;
+    margin-bottom: 20px;
+}
+
+/* Email ocupa todo el ancho */
+
+.auth-card-register
+.form-group:has(input[name="email"]) {
+    grid-column: 1 / -1;
+}
+
+
+/* =========================================================
+   ENLACE LOGIN / REGISTRO
+   ========================================================= */
+
+.auth-card .login-register {
+    margin-top: 28px;
+    padding-top: 24px;
+
+    border-top: 1px solid #e5e7eb;
+
+    text-align: center;
+}
+
+.auth-card .login-register p {
+    margin-bottom: 5px;
+
+    color: #6b7280;
+
+    font-size: 0.88rem;
+}
+
+.auth-card .login-register a {
+    color: #2563eb;
+
+    font-size: 0.92rem;
+    font-weight: 700;
+}
+
+.auth-card .login-register a:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+}
+
+
+/* =========================================================
+   MENSAJES DE ERROR
+   ========================================================= */
+
+.auth-card .booking-error {
+    margin-bottom: 24px;
+    margin-top: 0;
+
+    padding: 14px 16px;
+
+    background: #fef2f2;
+    color: #b91c1c;
+
+    border: 1px solid #fecaca;
+    border-radius: 10px;
+
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .auth-container,
+    .auth-container-register {
+        grid-template-columns: 1fr;
+    }
+
+    .auth-info {
+        padding: 28px 36px;
+    }
+
+    .auth-info-content {
+        padding: 30px 0 10px;
+    }
+
+    .auth-info h1 {
+        max-width: none;
+        font-size: 2.3rem;
+    }
+
+    .auth-info h1 span {
+        display: inline;
+    }
+
+    .auth-info-content > p {
+        max-width: 650px;
+        margin-bottom: 24px;
+    }
+
+    .auth-benefits {
+        display: grid;
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+
+        gap: 16px;
+    }
+
+    .auth-benefit {
+        flex-direction: column;
+    }
+
+    .auth-form-wrapper {
+        padding: 42px 36px;
+    }
+
+    .auth-card,
+    .auth-card-register {
+        max-width: 650px;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - CELULAR
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .auth-page {
+        padding: 20px 16px 45px;
+        align-items: flex-start;
+    }
+
+    .auth-container,
+    .auth-container-register {
+        width: 100%;
+        min-height: auto;
+
+        grid-template-columns: 1fr;
+
+        border-radius: 17px;
+    }
+
+    .auth-info {
+        padding: 25px 24px 28px;
+    }
+
+    .auth-info-content {
+        padding: 28px 0 0;
+    }
+
+    .auth-label {
+        margin-bottom: 14px;
+    }
+
+    .auth-info h1 {
+        font-size: 2rem;
+        letter-spacing: -1px;
+    }
+
+    .auth-info-content > p {
+        margin-bottom: 22px;
+        font-size: 0.9rem;
+    }
+
+    .auth-benefits {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .auth-benefit {
+        flex-direction: row;
+        gap: 12px;
+    }
+
+    .auth-benefit-icon {
+        width: 34px;
+        height: 34px;
+    }
+
+    .auth-benefit p {
+        font-size: 0.8rem;
+    }
+
+    .auth-form-wrapper {
+        padding: 32px 24px;
+    }
+
+    .auth-card-header {
+        margin-bottom: 25px;
+    }
+
+    .auth-card-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .auth-card-register .form-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .auth-card-register
+    .form-group:has(input[name="email"]) {
+        grid-column: auto;
+    }
+
+    .auth-card .form-group {
+        margin-bottom: 18px;
+    }
+
+    .auth-submit {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   PANTALLAS MUY PEQUEÑAS
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .auth-page {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .auth-info {
+        padding: 22px 18px;
+    }
+
+    .auth-form-wrapper {
+        padding: 28px 18px;
+    }
+
+    .auth-info h1 {
+        font-size: 1.8rem;
+    }
+
+    .auth-card-header h2 {
+        font-size: 1.6rem;
+    }
+
+}
+
+/* DETALLE DE ESTUDIO - AJUSTES VISUALES */
+
+.study-booking {
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
+}
+
+.study-booking .primary-button,
+.study-booking .btn-primary {
+    width: 100%;
+    margin-top: 6px;
+}
+
+/* =========================================================
+   MEDISCAN - SELECCIÓN DE SEDE
+   ========================================================= */
+
+/* Tarjetas de las sedes */
+
+.branches-list .branch-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 24px;
+
+    padding: 22px 24px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.branches-list .branch-card:hover {
+    border-color: #bfdbfe;
+
+    box-shadow:
+        0 8px 20px rgba(15, 23, 42, 0.04);
+}
+
+/* Información de la sede */
+
+.branches-list .branch-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.branches-list .branch-info h3 {
+    margin-bottom: 6px;
+
+    color: #111827;
+
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+
+.branches-list .branch-info p {
+    margin-bottom: 3px;
+
+    color: #64748b;
+
+    font-size: 0.88rem;
+    line-height: 1.6;
+}
+
+/* Botón Seleccionar */
+
+.branches-list .branch-card > .btn-primary {
+    width: auto;
+    min-width: 140px;
+
+    flex: 0 0 auto;
+
+    padding: 11px 20px;
+
+    white-space: nowrap;
+    text-align: center;
+
+    border-radius: 9px;
+}
+
+/* =========================================================
+   RESPONSIVE - CELULAR
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .branches-list .branch-card {
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 18px;
+
+        padding: 20px;
+    }
+
+    .branches-list .branch-card > .btn-primary {
+        width: 100%;
+        min-width: 0;
+    }
+
+}
+
+
+/* =========================================================
+   MEDISCAN - SELECCIÓN DE FECHA Y HORARIO
+   ========================================================= */
+
+/* CONTENEDOR PRINCIPAL */
+
+.booking-date-page {
+    padding: 32px;
+}
+
+.booking-date-header {
+    margin-bottom: 26px;
+}
+
+.booking-date-header h2 {
+    margin-bottom: 7px;
+
+    color: #111827;
+
+    font-size: 1.5rem;
+}
+
+.booking-date-header p {
+    color: #6b7280;
+
+    font-size: 0.94rem;
+}
+
+
+/* =========================================================
+   RESUMEN DEL TURNO
+   ========================================================= */
+
+.booking-summary-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 14px;
+}
+
+.booking-summary-card {
+    min-width: 0;
+
+    padding: 20px 22px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 6px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+}
+
+.booking-summary-label {
+    color: #64748b;
+
+    font-size: 0.78rem;
+    font-weight: 700;
+
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+
+.booking-summary-card strong {
+    color: #111827;
+
+    font-size: 1rem;
+    line-height: 1.45;
+}
+
+.booking-summary-card p {
+    color: #6b7280;
+
+    font-size: 0.88rem;
+    line-height: 1.55;
+}
+
+.booking-summary-wide {
+    grid-column: 1 / -1;
+}
+
+
+/* =========================================================
+   SELECCIÓN DE FECHA
+   ========================================================= */
+
+.booking-date-selection {
+    margin-top: 30px;
+    padding-top: 28px;
+
+    border-top: 1px solid #e5e7eb;
+}
+
+.booking-date-section-header {
+    margin-bottom: 20px;
+}
+
+.booking-date-section-header h3 {
+    margin-bottom: 6px;
+
+    color: #111827;
+
+    font-size: 1.2rem;
+}
+
+.booking-date-section-header p {
+    color: #6b7280;
+
+    font-size: 0.92rem;
+}
+
+
+/* FORMULARIO */
+
+.booking-date-form {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr) auto;
+
+    align-items: end;
+
+    gap: 14px;
+
+    margin-top: 0;
+}
+
+.booking-date-input {
+    min-width: 0;
+}
+
+.booking-date-input label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #374151;
+
+    font-size: 0.88rem;
+    font-weight: 700;
+}
+
+.booking-date-form .booking-date-input input {
+    width: 100%;
+    max-width: none;
+
+    min-height: 48px;
+
+    padding: 10px 14px;
+
+    background: #ffffff;
+    color: #111827;
+
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+}
+
+.booking-date-form .booking-date-input input:focus {
+    outline: none;
+
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+.booking-date-form .btn-primary {
+    min-height: 48px;
+
+    padding: 11px 24px;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   HORARIOS DISPONIBLES
+   ========================================================= */
+
+.booking-available-times {
+    margin-top: 30px;
+    padding-top: 28px;
+
+    border-top: 1px solid #e5e7eb;
+}
+
+.booking-available-times .times-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fill, minmax(105px, 1fr));
+
+    gap: 12px;
+}
+
+.booking-available-times .time-slot {
+    min-height: 48px;
+
+    padding: 12px;
+
+    background: #eff6ff;
+    color: #1d4ed8;
+
+    border: 1px solid #bfdbfe;
+    border-radius: 10px;
+
+    font-weight: 700;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.booking-available-times .time-slot:hover {
+    background: #2563eb;
+    color: #ffffff;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   RESPONSIVE - CELULAR
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .booking-date-page {
+        padding: 22px 18px;
+    }
+
+    .booking-date-header h2 {
+        font-size: 1.3rem;
+    }
+
+    .booking-summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .booking-summary-wide {
+        grid-column: auto;
+    }
+
+    .booking-summary-card {
+        padding: 17px 18px;
+    }
+
+    .booking-date-selection {
+        margin-top: 24px;
+        padding-top: 24px;
+    }
+
+    .booking-date-form {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .booking-date-form .btn-primary {
+        width: 100%;
+    }
+
+    .booking-available-times .times-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* =========================================================
+   PANTALLAS MUY PEQUEÑAS
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .booking-date-page {
+        padding: 18px 14px;
+    }
+
+    .booking-summary-card {
+        padding: 15px;
+    }
+
+    .booking-available-times .times-grid {
+        gap: 8px;
+    }
+
+}
+
+/* =========================================================
+   MEDISCAN - CONFIRMACIÓN PREVIA DEL TURNO
+   ========================================================= */
+
+/* CONTENEDOR */
+
+.booking-confirm-page {
+    padding-top: 55px;
+    padding-bottom: 80px;
+}
+
+.booking-confirm-page > .container {
+    max-width: 1000px;
+}
+
+.booking-confirm-header {
+    max-width: 900px;
+    margin: 0 auto 30px;
+}
+
+.booking-confirm-header h1 {
+    margin-bottom: 10px;
+}
+
+.booking-confirm-card {
+    width: 100%;
+    max-width: 900px;
+
+    margin: 0 auto;
+    padding: 34px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+
+    box-shadow:
+        0 14px 35px rgba(15, 23, 42, 0.05);
+}
+
+
+/* =========================================================
+   SECCIONES
+   ========================================================= */
+
+.booking-confirm-section {
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.booking-confirm-section-header {
+    margin-bottom: 20px;
+}
+
+.booking-confirm-section-header h2 {
+    margin-top: 6px;
+
+    color: #111827;
+
+    font-size: 1.3rem;
+    line-height: 1.3;
+}
+
+
+/* =========================================================
+   TARJETAS DE INFORMACIÓN
+   ========================================================= */
+
+.booking-confirm-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 14px;
+}
+
+.booking-confirm-item {
+    min-width: 0;
+    padding: 19px 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+}
+
+.booking-confirm-item span {
+    color: #64748b;
+
+    font-size: 0.78rem;
+    font-weight: 700;
+
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+}
+
+.booking-confirm-item strong {
+    color: #111827;
+
+    font-size: 0.96rem;
+    font-weight: 700;
+    line-height: 1.5;
+
+    overflow-wrap: anywhere;
+}
+
+.booking-confirm-wide {
+    grid-column: 1 / -1;
+}
+
+
+/* =========================================================
+   FECHA Y HORARIO DESTACADOS
+   ========================================================= */
+
+.booking-confirm-datetime {
+    margin-bottom: 25px;
+}
+
+.booking-confirm-highlight {
+    background: #eff6ff;
+
+    border-color: #bfdbfe;
+}
+
+.booking-confirm-highlight span {
+    color: #1d4ed8;
+}
+
+.booking-confirm-highlight strong {
+    color: #1e40af;
+
+    font-size: 1.3rem;
+}
+
+
+/* =========================================================
+   BOTONES
+   ========================================================= */
+
+.booking-confirm-form {
+    margin: 0;
+}
+
+.booking-confirm-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 12px;
+}
+
+.booking-confirm-actions .btn-secondary,
+.booking-confirm-actions .btn-primary {
+    min-height: 48px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 12px 24px;
+
+    border-radius: 10px;
+
+    font-weight: 700;
+}
+
+.booking-confirm-actions .btn-primary {
+    min-width: 190px;
+}
+
+.booking-confirm-actions .btn-primary:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 10px 22px rgba(37, 99, 235, 0.16);
+}
+
+
+/* =========================================================
+   RESPONSIVE - CELULAR
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .booking-confirm-page {
+        padding-top: 30px;
+        padding-bottom: 50px;
+    }
+
+    .booking-confirm-header {
+        margin-bottom: 24px;
+    }
+
+    .booking-confirm-card {
+        padding: 22px 18px;
+        border-radius: 14px;
+    }
+
+    .booking-confirm-section {
+        margin-bottom: 24px;
+        padding-bottom: 24px;
+    }
+
+    .booking-confirm-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .booking-confirm-wide {
+        grid-column: auto;
+    }
+
+    .booking-confirm-item {
+        padding: 16px;
+    }
+
+    .booking-confirm-actions {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+    .booking-confirm-actions .btn-secondary,
+    .booking-confirm-actions .btn-primary {
+        width: 100%;
+        min-width: 0;
+    }
+
+}
+
+
+/* =========================================================
+   PANTALLAS PEQUEÑAS
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .booking-confirm-card {
+        padding: 18px 14px;
+    }
+
+    .booking-confirm-item {
+        padding: 14px;
+    }
+
+    .booking-confirm-highlight strong {
+        font-size: 1.15rem;
+    }
+
+}
+
+/* =========================================================
+   MEDISCAN - MI CUENTA DEL PACIENTE
+   ========================================================= */
+
+/* ESTRUCTURA GENERAL */
+
+.patient-account-page {
+    padding-top: 55px;
+    padding-bottom: 85px;
+}
+
+.patient-account-page > .container {
+    max-width: 1100px;
+}
+
+.patient-account-header {
+    margin-bottom: 30px;
+}
+
+
+/* =========================================================
+   PERFIL DEL PACIENTE
+   ========================================================= */
+
+.patient-account-profile {
+    padding: 30px 32px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+
+    box-shadow:
+        0 12px 30px rgba(15, 23, 42, 0.04);
+}
+
+.patient-account-profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 26px;
+}
+
+.patient-account-profile-header h2 {
+    margin-top: 7px;
+    margin-bottom: 6px;
+
+    color: #111827;
+
+    font-size: 1.4rem;
+}
+
+.patient-account-profile-header p {
+    color: #64748b;
+
+    font-size: 0.9rem;
+}
+
+.patient-account-profile-header .btn-secondary {
+    flex-shrink: 0;
+
+    padding: 11px 18px;
+    border-radius: 9px;
+}
+
+
+/* DATOS EN CUADRÍCULA */
+
+.patient-account-data-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 14px;
+}
+
+.patient-account-data-item {
+    min-width: 0;
+
+    padding: 18px 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 11px;
+}
+
+.patient-account-data-item span {
+    color: #64748b;
+
+    font-size: 0.78rem;
+    font-weight: 700;
+
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+.patient-account-data-item strong {
+    color: #111827;
+
+    font-size: 0.95rem;
+    line-height: 1.5;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* =========================================================
+   SECCIÓN DE TURNOS
+   ========================================================= */
+
+.patient-account-appointments {
+    margin-top: 52px;
+}
+
+.patient-account-appointments-header {
+    margin-bottom: 25px;
+}
+
+.patient-account-appointments-header h2 {
+    margin-top: 7px;
+    margin-bottom: 7px;
+
+    color: #111827;
+
+    font-size: 1.65rem;
+}
+
+.patient-account-appointments-header p {
+    color: #64748b;
+
+    font-size: 0.93rem;
+}
+
+
+/* CUADRÍCULA DE RESERVAS */
+
+.patient-appointments-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+
+/* TARJETA DEL TURNO */
+
+.patient-appointment-card {
+    min-width: 0;
+
+    padding: 25px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 15px;
+
+    box-shadow:
+        0 10px 25px rgba(15, 23, 42, 0.04);
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+.patient-appointment-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 14px;
+}
+
+.patient-appointment-label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #64748b;
+
+    font-size: 0.76rem;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.patient-appointment-header h3 {
+    color: #111827;
+
+    font-size: 1.15rem;
+    line-height: 1.35;
+}
+
+
+/* ESTADO */
+
+.patient-appointment-header .appointment-status {
+    flex-shrink: 0;
+
+    font-size: 0.78rem;
+}
+
+
+/* CÓDIGO DEL TURNO */
+
+.patient-appointment-code {
+    padding: 14px 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    background: #eff6ff;
+
+    border: 1px solid #bfdbfe;
+    border-radius: 10px;
+}
+
+.patient-appointment-code span {
+    color: #475569;
+
+    font-size: 0.83rem;
+}
+
+.patient-appointment-code strong {
+    color: #1d4ed8;
+
+    font-size: 1rem;
+    letter-spacing: 0.02em;
+}
+
+
+/* DETALLES DEL TURNO */
+
+.patient-appointment-details {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 12px;
+}
+
+.patient-appointment-detail {
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 5px;
+}
+
+.patient-appointment-detail span {
+    color: #64748b;
+
+    font-size: 0.78rem;
+}
+
+.patient-appointment-detail strong {
+    color: #111827;
+
+    font-size: 0.91rem;
+    line-height: 1.5;
+
+    overflow-wrap: anywhere;
+}
+
+.patient-appointment-wide {
+    grid-column: 1 / -1;
+}
+
+
+/* BOTÓN CANCELAR */
+
+.patient-appointment-actions {
+    margin-top: auto;
+    padding-top: 18px;
+
+    border-top: 1px solid #e5e7eb;
+}
+
+.patient-appointment-actions form {
+    margin: 0;
+}
+
+.patient-appointment-actions .btn-cancel {
+    padding: 11px 18px;
+
+    border-radius: 9px;
+
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   SIN TURNOS
+   ========================================================= */
+
+.patient-account-empty {
+    padding: 38px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 15px;
+
+    text-align: center;
+}
+
+.patient-account-empty h3 {
+    margin-bottom: 10px;
+
+    color: #111827;
+}
+
+.patient-account-empty p {
+    margin-bottom: 24px;
+
+    color: #64748b;
+}
+
+.patient-account-empty .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .patient-appointments-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - CELULAR
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .patient-account-page {
+        padding-top: 30px;
+        padding-bottom: 50px;
+    }
+
+    .patient-account-profile {
+        padding: 22px 18px;
+    }
+
+    .patient-account-profile-header {
+        flex-direction: column;
+        align-items: stretch;
+
+        gap: 16px;
+    }
+
+    .patient-account-profile-header .btn-secondary {
+        width: 100%;
+        text-align: center;
+    }
+
+    .patient-account-data-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .patient-account-data-item {
+        padding: 16px;
+    }
+
+    .patient-account-appointments {
+        margin-top: 38px;
+    }
+
+    .patient-account-appointments-header h2 {
+        font-size: 1.4rem;
+    }
+
+    .patient-appointment-card {
+        padding: 20px 17px;
+    }
+
+    .patient-appointment-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .patient-appointment-code {
+        flex-wrap: wrap;
+    }
+
+    .patient-appointment-actions .btn-cancel {
+        width: 100%;
+    }
+
+    .patient-account-empty {
+        padding: 28px 20px;
+    }
+
+}
+
+
+/* =========================================================
+   PANTALLAS PEQUEÑAS
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+    .patient-appointment-details {
+        grid-template-columns: 1fr;
+    }
+
+    .patient-appointment-wide {
+        grid-column: auto;
+    }
+
+}
+
+
+/* =========================================================
+   MEDISCAN - DASHBOARD ADMINISTRADOR
+   ========================================================= */
+
+.admin-dashboard-page {
+    padding-top: 55px;
+    padding-bottom: 85px;
+}
+
+.admin-dashboard-page > .container {
+    max-width: 1200px;
+}
+
+.admin-dashboard-header {
+    margin-bottom: 32px;
+}
+
+
+/* ESTADÍSTICAS */
+
+.admin-dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 34px;
+}
+
+.admin-dashboard-stat {
+    min-width: 0;
+    padding: 24px;
+
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 15px;
+
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.04);
+}
+
+.admin-dashboard-stat-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 22px;
+}
+
+.admin-dashboard-stat-top > span:first-child {
+    color: #475569;
+    font-size: 0.86rem;
+    font-weight: 700;
+}
+
+.admin-dashboard-stat-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 35px;
+    height: 35px;
+
+    flex-shrink: 0;
+
+    background: #eff6ff;
+    color: #2563eb;
+
+    border-radius: 10px;
+    font-size: 0.8rem;
+    font-weight: 800;
+}
+
+.admin-dashboard-stat > strong {
+    display: block;
+    margin-bottom: 8px;
+
+    color: #0f172a;
+    font-size: 2.2rem;
+    line-height: 1.1;
+}
+
+.admin-dashboard-stat > p {
+    color: #64748b;
+    font-size: 0.8rem;
+    line-height: 1.5;
+}
+
+
+/* PANELES */
+
+.admin-dashboard-panel {
+    margin-bottom: 28px;
+    padding: 30px;
+
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+
+    box-shadow: 0 10px 28px rgba(15, 23, 42, 0.04);
+}
+
+.admin-dashboard-panel-heading {
+    margin-bottom: 24px;
+}
+
+.admin-dashboard-panel-heading h2,
+.admin-dashboard-agenda-heading h2 {
+    margin-top: 7px;
+    margin-bottom: 8px;
+
+    color: #111827;
+    font-size: 1.4rem;
+}
+
+.admin-dashboard-panel-heading p,
+.admin-dashboard-agenda-heading p {
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+
+/* ACCESOS DE GESTIÓN */
+
+.admin-dashboard-management-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.admin-dashboard-management-card {
+    min-width: 0;
+    min-height: 190px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+
+    padding: 22px;
+
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 13px;
+
+    text-decoration: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        transform 0.2s ease;
+}
+
+.admin-dashboard-management-card:hover {
+    border-color: #93c5fd;
+
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.08);
+
+    transform: translateY(-3px);
+}
+
+.admin-dashboard-management-card:focus-visible {
+    outline: 3px solid #93c5fd;
+    outline-offset: 3px;
+}
+
+.admin-dashboard-management-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 36px;
+    height: 36px;
+
+    background: #dbeafe;
+    color: #1d4ed8;
+
+    border-radius: 10px;
+    font-size: 0.78rem;
+    font-weight: 800;
+}
+
+.admin-dashboard-management-card h3 {
+    margin-bottom: 7px;
+
+    color: #111827;
+    font-size: 1.1rem;
+}
+
+.admin-dashboard-management-card p {
+    color: #64748b;
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+.admin-dashboard-management-arrow {
+    margin-top: auto;
+    align-self: flex-end;
+
+    color: #2563eb;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+
+/* AGENDA */
+
+.admin-dashboard-agenda-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+    margin-bottom: 24px;
+}
+
+.admin-dashboard-agenda-heading .btn-secondary {
+    flex-shrink: 0;
+    padding: 11px 18px;
+}
+
+
+/* TABLA */
+
+.admin-dashboard-table-scroll {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.admin-dashboard-table {
+    width: 100%;
+    min-width: 850px;
+
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.admin-dashboard-table th {
+    padding: 14px 12px;
+
+    color: #64748b;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    font-size: 0.75rem;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.admin-dashboard-table td {
+    padding: 18px 12px;
+
+    color: #334155;
+
+    border-bottom: 1px solid #f1f5f9;
+
+    font-size: 0.86rem;
+    line-height: 1.5;
+}
+
+.admin-dashboard-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+.admin-dashboard-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.admin-dashboard-code {
+    color: #1d4ed8;
+    white-space: nowrap;
+}
+
+.admin-dashboard-table td:nth-child(1),
+.admin-dashboard-table td:nth-child(2) {
+    white-space: nowrap;
+}
+
+
+/* SIN TURNOS */
+
+.admin-dashboard-empty {
+    padding: 38px 20px;
+    text-align: center;
+
+    background: #f8fafc;
+    border: 1px dashed #cbd5e1;
+    border-radius: 12px;
+}
+
+.admin-dashboard-empty h3 {
+    margin-bottom: 8px;
+    color: #111827;
+}
+
+.admin-dashboard-empty p {
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+    .admin-dashboard-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .admin-dashboard-management-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-dashboard-management-card {
+        min-height: auto;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - CELULAR
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .admin-dashboard-page {
+        padding-top: 30px;
+        padding-bottom: 50px;
+    }
+
+    .admin-dashboard-stats {
+        gap: 12px;
+    }
+
+    .admin-dashboard-stat {
+        padding: 18px 15px;
+    }
+
+    .admin-dashboard-stat-top {
+        flex-direction: column-reverse;
+        gap: 12px;
+    }
+
+    .admin-dashboard-stat > strong {
+        font-size: 1.8rem;
+    }
+
+    .admin-dashboard-stat > p {
+        font-size: 0.76rem;
+    }
+
+    .admin-dashboard-panel {
+        padding: 22px 17px;
+    }
+
+    .admin-dashboard-management-card {
+        padding: 19px;
+    }
+
+    .admin-dashboard-agenda-heading {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .admin-dashboard-agenda-heading .btn-secondary {
+        width: 100%;
+        text-align: center;
+    }
+
+}
+
+
+/* PANTALLAS MUY PEQUEÑAS */
+
+@media (max-width: 380px) {
+
+    .admin-dashboard-stats {
+        grid-template-columns: 1fr;
+    }
+
+}
+/* ==========================================
+   MEDISCAN - GESTIÓN DE TURNOS
+   ========================================== */
+
+/* Contenedor principal */
+
+.admin-turnos-container {
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+/* Filtros */
+
+.admin-turnos-container .admin-filters {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 28px;
+}
+
+.admin-turnos-container .admin-filters-form {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    align-items: end;
+}
+
+.admin-turnos-container .admin-filters .form-group {
+    min-width: 0;
+    margin-bottom: 0;
+}
+
+.admin-turnos-container .admin-filters label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #334155;
+    margin-bottom: 8px;
+}
+
+.admin-turnos-container .admin-filters input,
+.admin-turnos-container .admin-filters select {
+    width: 100%;
+    min-width: 0;
+    height: 44px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: #ffffff;
+    padding: 0 12px;
+    font-size: 14px;
+    color: #0f172a;
+}
+
+.admin-turnos-container .admin-filters input:focus,
+.admin-turnos-container .admin-filters select:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Acciones de filtros */
+
+.admin-turnos-container .admin-filter-actions {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 2px;
+}
+
+/* Cantidad de resultados */
+
+.admin-turnos-container .admin-list-summary {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.admin-turnos-container .admin-list-summary strong {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.admin-turnos-container .admin-list-summary span {
+    font-size: 14px;
+    color: #64748b;
+}
+
+/* Tabla */
+
+.admin-turnos-container .admin-turnos-table-section {
+    padding: 24px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+}
+
+.admin-turnos-container .admin-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.admin-turnos-container .admin-table {
+    width: 100%;
+    min-width: 980px;
+    border-collapse: collapse;
+}
+
+.admin-turnos-container .admin-table th {
+    padding: 15px 12px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #64748b;
+    border-bottom: 1px solid #e2e8f0;
+    white-space: nowrap;
+}
+
+.admin-turnos-container .admin-table td {
+    padding: 17px 12px;
+    font-size: 13px;
+    color: #334155;
+    border-bottom: 1px solid #f1f5f9;
+    vertical-align: middle;
+}
+
+.admin-turnos-container .admin-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.admin-turnos-container .admin-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+.admin-turnos-container .admin-table td:first-child strong {
+    color: #0f172a;
+    font-weight: 700;
+}
+
+/* Estado */
+
+.admin-turnos-container .admin-status {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.admin-turnos-container .admin-status-pendiente {
+    background: #fff7ed;
+    color: #9a3412;
+}
+
+.admin-turnos-container .admin-status-confirmado {
+    background: #eff6ff;
+    color: #1d4ed8;
+}
+
+.admin-turnos-container .admin-status-realizado {
+    background: #ecfdf5;
+    color: #047857;
+}
+
+.admin-turnos-container .admin-status-cancelado {
+    background: #fef2f2;
+    color: #b91c1c;
+}
+
+.admin-turnos-container .admin-status-no_asistio {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+/* Ver detalle */
+
+.admin-turnos-container .admin-action-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #dbeafe;
+    background: #eff6ff;
+    color: #1d4ed8;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background 0.2s ease;
+}
+
+.admin-turnos-container .admin-action-link:hover {
+    background: #dbeafe;
+}
+
+/* Sin resultados */
+
+.admin-turnos-container .admin-empty {
+    padding: 36px 20px;
+    text-align: center;
+    color: #64748b;
+}
+
+/* ==========================================
+   RESPONSIVE
+   ========================================== */
+
+@media (max-width: 1000px) {
+
+    .admin-turnos-container .admin-filters-form {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .admin-turnos-container .admin-filters {
+        padding: 18px;
+    }
+
+    .admin-turnos-container .admin-filters-form {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .admin-turnos-container .admin-filter-actions {
+        flex-direction: column;
+    }
+
+    .admin-turnos-container .admin-filter-actions .btn-primary,
+    .admin-turnos-container .admin-filter-actions .btn-secondary {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .admin-turnos-container .admin-turnos-table-section {
+        padding: 14px;
+    }
+
+}
+
+/* ==========================================
+   MEDISCAN - DETALLE DEL TURNO
+   ========================================== */
+
+.admin-detail-header,
+.admin-state-card,
+.admin-detail-card,
+.admin-history {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.035);
+}
+
+/* Código y estado */
+
+.admin-detail-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 24px 28px;
+    margin-bottom: 24px;
+}
+
+.admin-detail-header h2 {
+    margin-top: 6px;
+    color: #0f172a;
+    font-size: 1.65rem;
+}
+
+.admin-detail-label {
+    color: #64748b;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+/* Gestión de estado */
+
+.admin-state-card {
+    padding: 26px 28px;
+    margin-bottom: 24px;
+}
+
+.admin-state-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 18px;
+}
+
+.admin-state-header h2 {
+    margin-top: 6px;
+    font-size: 1.3rem;
+    color: #0f172a;
+}
+
+.admin-state-description {
+    color: #64748b;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.admin-state-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+}
+
+.admin-state-actions form {
+    margin: 0;
+}
+
+.admin-state-actions button {
+    min-height: 44px;
+    padding: 11px 18px;
+    border-radius: 9px;
+    font-weight: 600;
+}
+
+.admin-state-final {
+    padding: 16px 18px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 9px;
+    color: #475569;
+    line-height: 1.6;
+}
+
+/* Tarjetas de información */
+
+.admin-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.admin-detail-card {
+    min-width: 0;
+    padding: 25px;
+}
+
+.admin-detail-card h2 {
+    margin-bottom: 22px;
+    font-size: 1.2rem;
+    color: #0f172a;
+}
+
+.admin-detail-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.admin-detail-list > div {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 14px 16px;
+    background: #f8fafc;
+    border: 1px solid #f1f5f9;
+    border-radius: 9px;
+}
+
+.admin-detail-list span {
+    font-size: 0.78rem;
+    color: #64748b;
+}
+
+.admin-detail-list strong {
+    color: #0f172a;
+    font-size: 0.9rem;
+    overflow-wrap: anywhere;
+}
+
+.admin-observations {
+    color: #334155;
+    line-height: 1.7;
+}
+
+.admin-empty-text {
+    color: #94a3b8;
+}
+
+/* Historial */
+
+.admin-history {
+    padding: 26px 28px;
+    margin-bottom: 28px;
+}
+
+.admin-history-header {
+    margin-bottom: 22px;
+}
+
+.admin-history-header h2 {
+    margin-top: 6px;
+    font-size: 1.3rem;
+    color: #0f172a;
+}
+
+.admin-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.admin-timeline-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.admin-timeline-marker {
+    flex-shrink: 0;
+    width: 12px;
+    height: 12px;
+    margin-top: 7px;
+    border-radius: 50%;
+    background: #2563eb;
+    box-shadow: 0 0 0 4px #dbeafe;
+}
+
+.admin-timeline-content {
+    flex: 1;
+    min-width: 0;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.admin-timeline-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.admin-timeline-top strong {
+    color: #0f172a;
+    font-size: 0.93rem;
+}
+
+.admin-timeline-top span,
+.admin-timeline-content p {
+    color: #64748b;
+    font-size: 0.83rem;
+}
+
+.admin-history-empty {
+    padding: 20px;
+    background: #f8fafc;
+    border-radius: 9px;
+    color: #64748b;
+    text-align: center;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+    .admin-detail-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .admin-detail-header,
+    .admin-state-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .admin-detail-header,
+    .admin-state-card,
+    .admin-detail-card,
+    .admin-history {
+        padding: 20px 17px;
+    }
+
+    .admin-detail-list {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-state-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .admin-state-actions button,
+    .admin-state-actions form {
+        width: 100%;
+    }
+}
+
+/* ==========================================
+   MEDISCAN - AJUSTES FINALES DETALLE TURNO
+   ========================================== */
+
+/* Contenedor general */
+
+.admin-detail-header,
+.admin-state-card,
+.admin-detail-grid,
+.admin-history {
+    width: 100%;
+}
+
+/* Tarjetas organizadas en dos columnas */
+
+.admin-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    align-items: stretch;
+    margin-bottom: 24px;
+}
+
+.admin-detail-card {
+    min-width: 0;
+    height: 100%;
+    padding: 24px;
+    border-radius: 14px;
+}
+
+.admin-detail-card h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 20px;
+}
+
+/* Datos internos más compactos */
+
+.admin-detail-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.admin-detail-list > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    min-width: 0;
+    min-height: 76px;
+    padding: 14px;
+    background: #f8fafc;
+    border: 1px solid #edf2f7;
+    border-radius: 9px;
+}
+
+.admin-detail-list span {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #64748b;
+}
+
+.admin-detail-list strong {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.5;
+    color: #0f172a;
+    overflow-wrap: anywhere;
+    text-align: left;
+}
+
+/* Historial en sección independiente */
+
+.admin-history {
+    display: block;
+    padding: 26px 28px;
+    margin-top: 0;
+    margin-bottom: 28px;
+}
+
+.admin-history-header {
+    margin-bottom: 24px;
+}
+
+.admin-timeline {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.admin-timeline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    padding-bottom: 22px;
+}
+
+.admin-timeline-item:last-child {
+    padding-bottom: 0;
+}
+
+.admin-timeline-marker {
+    position: relative;
+    z-index: 1;
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+    margin-top: 6px;
+    background: #2563eb;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px #dbeafe;
+}
+
+.admin-timeline-content {
+    flex: 1;
+    min-width: 0;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.admin-timeline-item:last-child .admin-timeline-content {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.admin-timeline-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.admin-timeline-top strong {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.admin-timeline-top span {
+    font-size: 12px;
+    color: #64748b;
+}
+
+.admin-timeline-content p {
+    margin: 0;
+    font-size: 13px;
+    color: #64748b;
+    line-height: 1.6;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+    .admin-detail-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .admin-detail-card {
+        padding: 20px 17px;
+    }
+
+    .admin-detail-list {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-history {
+        padding: 22px 17px;
+    }
+
+    .admin-timeline-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+}
+/* ==========================================
+   MEDISCAN - SIMETRÍA DE TARJETAS
+   ========================================== */
+
+/* Grilla principal de dos columnas */
+
+.admin-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    align-items: stretch;
+}
+
+/* Todas las secciones mantienen la misma altura
+   dentro de cada fila */
+
+.admin-detail-grid > .admin-detail-card,
+.admin-detail-grid > .admin-history {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Misma separación interior */
+
+.admin-detail-grid > .admin-detail-card,
+.admin-detail-grid > .admin-history {
+    padding: 24px;
+}
+
+/* Títulos alineados */
+
+.admin-detail-grid > .admin-detail-card h2 {
+    margin-top: 0;
+}
+
+/* Historial alineado con las demás tarjetas */
+
+.admin-detail-grid > .admin-history {
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-detail-grid > .admin-history .admin-history-header {
+    margin-bottom: 20px;
+}
+
+/* Evitar desbordamientos */
+
+.admin-detail-grid > * {
+    min-width: 0;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+    .admin-detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-detail-grid > .admin-detail-card,
+    .admin-detail-grid > .admin-history {
+        height: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .admin-detail-grid {
+        gap: 16px;
+    }
+
+    .admin-detail-grid > .admin-detail-card,
+    .admin-detail-grid > .admin-history {
+        padding: 20px 17px;
+    }
+}
+/* ==========================================
+   MEDISCAN - GESTIÓN DE PACIENTES
+   ========================================== */
+
+/* Contenedor */
+
+.admin-pacientes-container {
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+/* Buscador */
+
+.admin-pacientes-container .admin-filters {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 28px;
+}
+
+.admin-pacientes-container .admin-patient-search {
+    display: flex;
+    align-items: flex-end;
+    gap: 14px;
+}
+
+.admin-pacientes-container .admin-patient-search .form-group {
+    flex: 1;
+    min-width: 0;
+    margin-bottom: 0;
+}
+
+.admin-pacientes-container .admin-patient-search label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #334155;
+}
+
+.admin-pacientes-container .admin-patient-search input {
+    width: 100%;
+    height: 44px;
+    padding: 0 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #0f172a;
+    font-size: 14px;
+}
+
+.admin-pacientes-container .admin-patient-search input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.admin-pacientes-container .admin-filter-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    margin: 0;
+}
+
+.admin-pacientes-container .admin-filter-actions .btn-primary,
+.admin-pacientes-container .admin-filter-actions .btn-secondary {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Contador */
+
+.admin-pacientes-container .admin-list-summary {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.admin-pacientes-container .admin-list-summary strong {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.admin-pacientes-container .admin-list-summary span {
+    font-size: 14px;
+    color: #64748b;
+}
+
+/* Contenedor de tabla */
+
+.admin-pacientes-container .admin-section {
+    padding: 24px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+}
+
+/* Tabla */
+
+.admin-pacientes-container .admin-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.admin-pacientes-container .admin-table {
+    width: 100%;
+    min-width: 900px;
+    border-collapse: collapse;
+}
+
+.admin-pacientes-container .admin-table th {
+    padding: 15px 12px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #64748b;
+    border-bottom: 1px solid #e2e8f0;
+    white-space: nowrap;
+}
+
+.admin-pacientes-container .admin-table td {
+    padding: 17px 12px;
+    font-size: 13px;
+    color: #334155;
+    border-bottom: 1px solid #f1f5f9;
+    vertical-align: middle;
+}
+
+.admin-pacientes-container .admin-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.admin-pacientes-container .admin-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+.admin-pacientes-container .admin-table td:first-child strong {
+    color: #0f172a;
+    font-weight: 700;
+}
+
+.admin-pacientes-container .admin-table td:nth-child(3) {
+    overflow-wrap: anywhere;
+}
+
+/* Estados */
+
+.admin-pacientes-container .patient-status-active,
+.admin-pacientes-container .patient-status-inactive {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 11px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.admin-pacientes-container .patient-status-active {
+    background: #ecfdf5;
+    color: #047857;
+}
+
+.admin-pacientes-container .patient-status-inactive {
+    background: #fef2f2;
+    color: #b91c1c;
+}
+
+/* Botón Ver paciente */
+
+.admin-pacientes-container .admin-action-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #dbeafe;
+    background: #eff6ff;
+    color: #1d4ed8;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.admin-pacientes-container .admin-action-link:hover {
+    background: #dbeafe;
+}
+
+/* Sin resultados */
+
+.admin-pacientes-container .admin-empty {
+    padding: 36px 20px;
+    text-align: center;
+    color: #64748b;
+}
+
+/* Responsive */
+
+@media (max-width: 700px) {
+
+    .admin-pacientes-container .admin-filters {
+        padding: 18px;
+    }
+
+    .admin-pacientes-container .admin-patient-search {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .admin-pacientes-container .admin-filter-actions {
+        width: 100%;
+    }
+
+    .admin-pacientes-container .admin-filter-actions .btn-primary,
+    .admin-pacientes-container .admin-filter-actions .btn-secondary {
+        flex: 1;
+    }
+
+    .admin-pacientes-container .admin-section {
+        padding: 14px;
+    }
+}
+
+/* ==========================================
+   MEDISCAN - FICHA DEL PACIENTE
+   ========================================== */
+
+.admin-patient-detail-container {
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+/* Cabecera del paciente */
+
+.admin-patient-detail-container .admin-detail-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 24px 28px;
+    margin-bottom: 24px;
+}
+
+.admin-patient-detail-container .admin-detail-header h2 {
+    margin: 6px 0 0;
+    font-size: 24px;
+    color: #0f172a;
+}
+
+/* Botones de gestión */
+
+.admin-patient-detail-container .admin-patient-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.admin-patient-detail-container .admin-patient-actions form {
+    margin: 0;
+}
+
+.admin-patient-detail-container .admin-patient-actions a,
+.admin-patient-detail-container .admin-patient-actions button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 10px 16px;
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* Estado */
+
+.admin-patient-detail-container .patient-status-active,
+.admin-patient-detail-container .patient-status-inactive {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.admin-patient-detail-container .patient-status-active {
+    background: #ecfdf5;
+    color: #047857;
+}
+
+.admin-patient-detail-container .patient-status-inactive {
+    background: #fef2f2;
+    color: #b91c1c;
+}
+
+/* Datos personales */
+
+.admin-patient-detail-container > .admin-detail-card {
+    width: 100%;
+    height: auto;
+    margin-bottom: 24px;
+    padding: 26px 28px;
+}
+
+.admin-patient-detail-container > .admin-detail-card h2 {
+    margin-bottom: 22px;
+    font-size: 19px;
+    color: #0f172a;
+}
+
+.admin-patient-detail-container > .admin-detail-card .admin-detail-list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.admin-patient-detail-container .admin-detail-list > div {
+    min-width: 0;
+    min-height: 76px;
+    padding: 14px 16px;
+    background: #f8fafc;
+    border: 1px solid #edf2f7;
+    border-radius: 9px;
+}
+
+.admin-patient-detail-container .admin-detail-list span {
+    display: block;
+    margin-bottom: 7px;
+    color: #64748b;
+    font-size: 12px;
+}
+
+.admin-patient-detail-container .admin-detail-list strong {
+    display: block;
+    color: #0f172a;
+    font-size: 13px;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+/* Turnos del paciente */
+
+.admin-patient-detail-container .admin-patient-appointments {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 26px 28px;
+}
+
+.admin-patient-detail-container .admin-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.admin-patient-detail-container .admin-section-header h2 {
+    margin-top: 6px;
+    font-size: 19px;
+    color: #0f172a;
+}
+
+.admin-patient-detail-container .admin-list-summary {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin: 0;
+}
+
+.admin-patient-detail-container .admin-list-summary strong {
+    font-size: 22px;
+    color: #0f172a;
+}
+
+.admin-patient-detail-container .admin-list-summary span {
+    font-size: 13px;
+    color: #64748b;
+}
+
+/* Tabla */
+
+.admin-patient-detail-container .admin-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.admin-patient-detail-container .admin-table {
+    width: 100%;
+    min-width: 850px;
+    border-collapse: collapse;
+}
+
+.admin-patient-detail-container .admin-table th {
+    padding: 15px 12px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 700;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.admin-patient-detail-container .admin-table td {
+    padding: 16px 12px;
+    font-size: 13px;
+    color: #334155;
+    border-bottom: 1px solid #f1f5f9;
+    vertical-align: middle;
+}
+
+.admin-patient-detail-container .admin-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.admin-patient-detail-container .admin-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+
+    .admin-patient-detail-container > .admin-detail-card .admin-detail-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .admin-patient-detail-container .admin-detail-header,
+    .admin-patient-detail-container > .admin-detail-card,
+    .admin-patient-detail-container .admin-patient-appointments {
+        padding: 20px 17px;
+    }
+
+    .admin-patient-detail-container .admin-detail-header {
+        align-items: flex-start;
+    }
+
+    .admin-patient-detail-container .admin-patient-actions {
+        width: 100%;
+    }
+
+    .admin-patient-detail-container > .admin-detail-card .admin-detail-list {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* ==========================================
+   MEDISCAN - GESTIÓN DE ESTUDIOS
+   ========================================== */
+
+.admin-estudios-container {
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+/* Encabezado */
+
+.admin-estudios-container .admin-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 28px;
+}
+
+.admin-estudios-container .admin-page-header .page-header {
+    margin-bottom: 0;
+}
+
+.admin-estudios-container .admin-page-header > .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    white-space: nowrap;
+}
+
+/* Contador */
+
+.admin-estudios-container .admin-list-summary {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.admin-estudios-container .admin-list-summary strong {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.admin-estudios-container .admin-list-summary span {
+    font-size: 14px;
+    color: #64748b;
+}
+
+/* Tabla */
+
+.admin-estudios-container .admin-section {
+    padding: 24px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+}
+
+.admin-estudios-container .admin-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.admin-estudios-container .admin-table {
+    width: 100%;
+    min-width: 760px;
+    border-collapse: collapse;
+}
+
+.admin-estudios-container .admin-table th {
+    padding: 15px 12px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #64748b;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.admin-estudios-container .admin-table td {
+    padding: 16px 12px;
+    font-size: 13px;
+    color: #334155;
+    border-bottom: 1px solid #f1f5f9;
+    vertical-align: middle;
+}
+
+.admin-estudios-container .admin-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.admin-estudios-container .admin-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+/* Botón Ver estudio */
+
+.admin-estudios-container .admin-action-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid #dbeafe;
+    background: #eff6ff;
+    color: #1d4ed8;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.admin-estudios-container .admin-action-link:hover {
+    background: #dbeafe;
+}
+
+/* Responsive */
+
+@media (max-width: 700px) {
+
+    .admin-estudios-container .admin-page-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .admin-estudios-container .admin-page-header > .btn-primary {
+        width: 100%;
+    }
+
+    .admin-estudios-container .admin-section {
+        padding: 14px;
+    }
+}
+/* ==========================================
+   MEDISCAN - DETALLE DEL ESTUDIO
+   ========================================== */
+
+.admin-study-detail-container {
+    max-width: 1250px;
+    margin: 0 auto;
+}
+
+/* Cabecera */
+
+.admin-study-detail-container .admin-detail-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+    padding: 24px;
+    margin-bottom: 22px;
+}
+
+.admin-study-detail-container .admin-detail-header h2 {
+    margin: 6px 0 0;
+    font-size: 23px;
+    line-height: 1.3;
+    color: #0f172a;
+}
+
+/* Acciones */
+
+.admin-study-detail-container .admin-study-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.admin-study-detail-container .admin-study-actions form {
+    margin: 0;
+}
+
+.admin-study-detail-container .admin-study-actions a,
+.admin-study-detail-container .admin-study-actions button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 10px 15px;
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* Estado */
+
+.admin-study-detail-container .patient-status-active,
+.admin-study-detail-container .patient-status-inactive {
+    display: inline-flex;
+    align-items: center;
+    padding: 7px 11px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* Grilla de información */
+
+.admin-study-detail-container .admin-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    align-items: stretch;
+}
+
+.admin-study-detail-container .admin-detail-card {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    margin: 0;
+    padding: 24px;
+    box-sizing: border-box;
+}
+
+.admin-study-detail-container .admin-detail-card h2 {
+    margin: 0 0 20px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+/* Datos internos */
+
+.admin-study-detail-container .admin-detail-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.admin-study-detail-container .admin-detail-list > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    min-width: 0;
+    min-height: 76px;
+    padding: 13px 14px;
+    background: #f8fafc;
+    border: 1px solid #edf2f7;
+    border-radius: 9px;
+}
+
+.admin-study-detail-container .admin-detail-list span {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 12px;
+    color: #64748b;
+}
+
+.admin-study-detail-container .admin-detail-list strong {
+    display: block;
+    font-size: 13px;
+    line-height: 1.5;
+    font-weight: 600;
+    color: #0f172a;
+    text-align: left;
+    overflow-wrap: anywhere;
+}
+
+/* Descripción, preparación y requisitos */
+
+.admin-study-detail-container .admin-observations {
+    margin: 0;
+    color: #334155;
+    font-size: 14px;
+    line-height: 1.8;
+    text-align: left;
+    white-space: pre-line;
+    overflow-wrap: anywhere;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+
+    .admin-study-detail-container .admin-detail-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-study-detail-container .admin-study-actions {
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .admin-study-detail-container .admin-detail-header,
+    .admin-study-detail-container .admin-detail-card {
+        padding: 20px 17px;
+    }
+
+    .admin-study-detail-container .admin-study-actions {
+        width: 100%;
+        align-items: stretch;
+    }
+
+    .admin-study-detail-container .admin-study-actions a,
+    .admin-study-detail-container .admin-study-actions form,
+    .admin-study-detail-container .admin-study-actions button {
+        width: 100%;
+    }
+
+    .admin-study-detail-container .admin-detail-list {
+        grid-template-columns: 1fr;
+    }
+}
+@media (min-width: 901px) {
+    .admin-study-detail-container .admin-detail-grid
+    > .admin-detail-card:last-child {
+        grid-column: 1 / -1;
+    }
+}
+
+.admin-study-detail-container .admin-study-actions .btn-cancel {
+    background: #fff5f5;
+    color: #dc2626;
+    border: 1px solid #fecaca;
+}
+
+.admin-study-detail-container .admin-study-actions .btn-cancel:hover {
+    background: #fee2e2;
+    border-color: #fca5a5;
+}
+
+/* ==========================================
+   MEDISCAN - EDITAR ESTUDIO
+   ========================================== */
+
+.admin-study-edit-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Formulario de información */
+
+.admin-study-edit-container .booking-form-card {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto 24px;
+    padding: 28px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.035);
+    box-sizing: border-box;
+}
+
+/* Encabezados de las secciones */
+
+.admin-study-edit-container .admin-study-branches-header {
+    margin-bottom: 24px;
+}
+
+.admin-study-edit-container .admin-study-branches-header h2 {
+    margin: 6px 0 8px;
+    font-size: 20px;
+    color: #0f172a;
+}
+
+.admin-study-edit-container .admin-study-branches-header p {
+    margin: 0;
+    color: #64748b;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Campos */
+
+.admin-study-edit-container .booking-form-card .form-group {
+    margin-bottom: 20px;
+}
+
+.admin-study-edit-container .booking-form-card input,
+.admin-study-edit-container .booking-form-card select,
+.admin-study-edit-container .booking-form-card textarea {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.admin-study-edit-container .booking-form-card textarea {
+    min-height: 110px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+/* Botones */
+
+.admin-study-edit-container .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+}
+
+/* Sección de sedes */
+
+.admin-study-edit-container .admin-study-branches {
+    width: 100%;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 28px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    box-sizing: border-box;
+}
+
+/* Grilla de sedes */
+
+.admin-study-edit-container .admin-branches-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+
+/* Cada sede */
+
+.admin-study-edit-container .admin-branch-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    min-width: 0;
+    padding: 16px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.admin-study-edit-container .admin-branch-option:has(input:checked) {
+    background: #eff6ff;
+    border-color: #93c5fd;
+}
+
+.admin-study-edit-container .admin-branch-option input {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    margin: 3px 0 0;
+    accent-color: #2563eb;
+}
+
+.admin-study-edit-container .admin-branch-option-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+}
+
+.admin-study-edit-container .admin-branch-option-info strong {
+    font-size: 13px;
+    color: #0f172a;
+}
+
+.admin-study-edit-container .admin-branch-option-info span {
+    font-size: 12px;
+    color: #64748b;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+/* Responsive */
+
+@media (max-width: 700px) {
+    .admin-study-edit-container .booking-form-card,
+    .admin-study-edit-container .admin-study-branches {
+        padding: 20px 17px;
+    }
+
+    .admin-study-edit-container .admin-branches-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-study-edit-container .form-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .admin-study-edit-container .form-actions .btn-primary,
+    .admin-study-edit-container .form-actions .btn-secondary {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* ==========================================
+   ADMINISTRACIÓN - HORARIOS DE ESTUDIOS
+========================================== */
+
+.admin-schedule-card {
+    background: #ffffff;
+    border: 1px solid #e1e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 22px;
+}
+
+/* Encabezado de cada sede */
+
+.admin-schedule-header {
+    padding: 22px 26px;
+    background: #f8fafc;
+    border-bottom: 1px solid #e5ebf2;
+}
+
+.admin-schedule-header .section-label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.admin-schedule-header h2 {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0 0 6px;
+    color: #111827;
+}
+
+.admin-schedule-header p {
+    font-size: 13px;
+    color: #64748b;
+    margin: 0;
+}
+
+/* Filas de días */
+
+.admin-schedule-days {
+    padding: 6px 26px;
+}
+
+.admin-schedule-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 155px 155px;
+    align-items: center;
+    gap: 20px;
+    padding: 14px 0;
+    border-bottom: 1px solid #edf1f5;
+}
+
+.admin-schedule-row:last-child {
+    border-bottom: none;
+}
+
+/* Día y checkbox */
+
+.admin-schedule-day label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.admin-schedule-day strong {
+    font-size: 13px;
+    font-weight: 600;
+    color: #172033;
+}
+
+.admin-schedule-day input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    accent-color: #2563eb;
+    cursor: pointer;
+}
+
+/* Campos de horario */
+
+.admin-schedule-time {
+    min-width: 0;
+}
+
+.admin-schedule-time label {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 12px;
+    font-weight: 500;
+    color: #64748b;
+}
+
+.admin-schedule-time input[type="time"] {
+    width: 100%;
+    height: 40px;
+    box-sizing: border-box;
+    padding: 0 10px;
+    border: 1px solid #d5dce6;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #243247;
+    font-size: 13px;
+}
+
+.admin-schedule-time input[type="time"]:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.09);
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+    .admin-schedule-header {
+        padding: 20px;
+    }
+
+    .admin-schedule-days {
+        padding: 4px 20px;
+    }
+
+    .admin-schedule-row {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        padding: 17px 0;
+    }
+
+    .admin-schedule-day {
+        grid-column: 1 / -1;
+    }
+
+}
+
+@media (max-width: 420px) {
+
+    .admin-schedule-header,
+    .admin-schedule-days {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .admin-schedule-row {
+        column-gap: 10px;
+    }
+
+}
+
+/* ==========================================
+   ADMINISTRACIÓN - EDITAR SEDE
+========================================== */
+
+.admin-form {
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+.admin-form-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+@media (max-width: 600px) {
+    .admin-form-actions {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+    .admin-form-actions .btn-secondary,
+    .admin-form-actions .btn-primary {
+        width: 100%;
+        text-align: center;
+    }
+}
+.admin-edit-branch-card {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+
+/* =========================================================
+   MEDISCAN - MENÚ RESPONSIVE
+   ========================================================= */
+
+/* Escritorio: ocultar botón de menú */
+.nav-menu-toggle {
+    display: none;
+}
+
+@media (max-width: 700px) {
+
+    .site-header .navbar {
+        position: relative;
+        min-height: 68px;
+        padding: 12px 0;
+
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        gap: 0;
+    }
+
+    .site-header .logo {
+        font-size: 1.5rem;
+    }
+
+    .nav-menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 42px;
+        height: 42px;
+
+        border: 1px solid #dbe3ef;
+        border-radius: 10px;
+
+        background: #ffffff;
+        color: #1f2937;
+
+        font-size: 1.4rem;
+        line-height: 1;
+    }
+
+    .site-header .nav-links {
+        display: none;
+
+        width: 100%;
+        flex-basis: 100%;
+
+        flex-direction: column;
+        align-items: stretch;
+        flex-wrap: nowrap;
+
+        gap: 4px;
+
+        margin-top: 12px;
+        padding: 12px 0 4px;
+
+        border-top: 1px solid #e5e7eb;
+    }
+
+    .site-header .nav-links.is-open {
+        display: flex;
+    }
+
+    .site-header .nav-links a,
+    .site-header .nav-user {
+        display: block;
+
+        width: 100%;
+        padding: 11px 12px;
+
+        border-radius: 8px;
+
+        font-size: 0.95rem;
+    }
+
+    .site-header .nav-links a:hover {
+        background: #eff6ff;
+    }
+
+    .site-header .nav-register {
+        border: 1px solid #dbe3ef;
+        text-align: center;
+    }
+
+    .site-header .nav-user {
+        color: #64748b;
+    }
+}
+
+@media (max-width: 1000px) {
+
+    .admin-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+/* ==========================================
+   MEDISCAN - TABLAS RESPONSIVE
+   ========================================== */
+
+@media (max-width: 700px) {
+
+    .admin-table-wrapper {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior-x: contain;
+        scrollbar-width: thin;
+        scrollbar-color: #cbd5e1 transparent;
+    }
+
+    .admin-table-wrapper::-webkit-scrollbar {
+        height: 5px;
+    }
+
+    .admin-table-wrapper::-webkit-scrollbar-thumb {
+        background: #cbd5e1;
+        border-radius: 10px;
+    }
+
+    .admin-table-wrapper::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    .admin-table th,
+    .admin-table td {
+        white-space: nowrap;
+    }
+
+    .admin-table-wrapper:focus-visible {
+        outline: 2px solid #2563eb;
+        outline-offset: 3px;
+    }
+
+}
+
+/* ==========================================
+   AVISO DEMOSTRATIVO DEL FOOTER
+========================================== */
+
+.site-footer .footer-disclaimer {
+    margin-top: 8px;
+    font-size: 0.75rem;
+    line-height: 1.6;
+    opacity: 0.7;
+    text-align: center;
+}
+
+
+/* =========================================================
+   RESPONSIVE - MÓVIL
+   ========================================================= */
+
+@media (max-width: 700px)  { /* HOME */
+
+.hero-actions {
+    align-items: stretch;
+    flex-direction: column;
+}
+
+.hero-actions .primary-button,
+.hero-actions .secondary-button {
+    width: 100%;
+}
+
+
+.hero-features {
+    justify-content: space-between;
+
+    gap: 12px;
+}
+
+.hero-features > div {
+    flex: 1;
+}
+
+.hero-features > div:not(:last-child)::after {
+    display: none;
+}
+
+
+.about-section,
+.home-locations {
+    padding: 60px 0;
+}
+
+
+.about-section > .section-header,
+.home-locations > .section-header {
+    width: min(100% - 32px, 1200px);
+}
+
+
+.about-grid,
+.locations-grid {
+    width: min(100% - 32px, 1200px);
+
+    grid-template-columns: 1fr;
+}
+
+
+.about-card:last-child,
+.location-card:last-child {
+    grid-column: auto;
+}
+
+
+.about-card,
+.location-card {
+    min-height: auto;
+
+    padding: 25px 22px;
+}
+
+
+.home-cta {
+    width: min(100% - 32px, 1200px);
+
+    margin-top: 60px;
+}
+
+
+.home-cta-content {
+    padding: 30px 24px;
+}
+
+
+.home-cta .primary-button {
+    width: 100%;
+}
+
+
+.service-card-footer {
+    align-items: flex-start;
+}
+    .patient-profile-header {
+    align-items: stretch;
+    flex-direction: column;
+}
+
+.patient-profile-header .btn-secondary {
+    width: 100%;
+    text-align: center;
+}
+    
+    
+    .admin-branch-state-actions {
+    width: 100%;
+
+    align-items: stretch;
+    flex-direction: column;
+}
+
+.admin-branch-state-actions form,
+.admin-branch-state-actions button {
+    width: 100%;
+}
+    
+    
+    .admin-management-actions {
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.admin-management-actions .btn-secondary {
+    width: 100%;
+    text-align: center;
+}
+    
+    
+    .admin-schedule-days {
+    padding: 0 18px;
+}
+
+.admin-schedule-row {
+    grid-template-columns: 1fr;
+
+    gap: 12px;
+
+    padding: 18px 0;
+}
+
+.admin-schedule-header {
+    padding: 20px 18px;
+}
+    
+    .admin-page-header {
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.admin-page-header .btn-primary {
+    width: 100%;
+    text-align: center;
+}
+    
+    .admin-branches-grid {
+    grid-template-columns: 1fr;
+}
+
+.admin-study-branches {
+    padding: 20px;
+}
+    
+    .admin-study-actions {
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.admin-study-actions > *,
+.admin-study-actions form,
+.admin-study-actions button {
+    width: 100%;
+} 
+    .admin-patient-actions {
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.admin-patient-actions > *,
+.admin-patient-actions form,
+.admin-patient-actions button {
+    width: 100%;
+}
+    
+    .admin-patient-search {
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.admin-patient-search .admin-filter-actions {
+    width: 100%;
+}
+     .admin-timeline-top {
+    align-items: flex-start;
+    flex-direction: column;
+
+    gap: 4px;
+}
+    .admin-state-header {
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.admin-state-actions {
+    align-items: stretch;
+    flex-direction: column;
+}
+
+.admin-state-actions form {
+    width: 100%;
+}
+
+.admin-state-actions button {
+    width: 100%;
+}
+    .admin-detail-grid {
+    grid-template-columns: 1fr;
+}
+
+.admin-detail-header {
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.admin-detail-list > div {
+    flex-direction: column;
+    gap: 4px;
+}
+
+.admin-detail-list strong {
+    text-align: left;
+}
+
+    /* ADMIN */
+
+    .admin-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-section {
+        padding: 20px;
+    }
+
+    .admin-filters-form {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-filter-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .admin-filter-actions .btn-primary,
+    .admin-filter-actions .btn-secondary {
+        width: 100%;
+        text-align: center;
+    }
+
+
+    /* ESTRUCTURA GENERAL */
+
+    .container,
+    .navbar,
+    .navbar-container,
+    .hero,
+    .services,
+    .study-container {
+        width: min(100% - 32px, 1200px);
+    }
+
+
+    /* NAVBAR */
+
+    .navbar,
+    .navbar-container {
+        padding: 15px 0;
+
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 14px;
+    }
+
+    .nav-links,
+    .navbar nav {
+        width: 100%;
+
+        flex-wrap: wrap;
+
+        gap: 12px 18px;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        padding-top: 50px;
+        padding-bottom: 55px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+        letter-spacing: -1px;
+    }
+
+    .hero-card {
+        padding: 22px;
+    }
+
+
+    /* SERVICIOS */
+
+    .services {
+        padding-bottom: 60px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* PÁGINAS */
+
+    .page-section,
+    .study-page {
+        padding: 40px 0;
+    }
+
+    .study-header h1 {
+        font-size: 2rem;
+    }
+
+
+    /* FORMULARIOS */
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .branch-card {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .date-form {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .date-form input {
+        max-width: none;
+    }
+
+    .form-actions,
+    .confirmation-actions {
+        align-items: stretch;
+        flex-direction: column-reverse;
+    }
+
+    .form-actions > *,
+    .confirmation-actions > * {
+        width: 100%;
+    }
+
+
+    /* CONFIRMACIÓN */
+
+    .confirmation-card {
+        padding: 28px 20px;
+    }
+
+    .confirmation-card > .confirmation-details {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* HORARIOS */
+
+    .times-grid {
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr));
+    }
+}
+
+
+/* =========================================================
+   PANTALLAS MUY PEQUEÑAS
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+    .times-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .hero-content h1 {
+        font-size: 2.15rem;
+    }
+
+    .page-header h1 {
+        font-size: 1.85rem;
+    }
+}
+
+/* =========================================================
+   CORRECCIÓN - TABLA TODOS LOS TURNOS
+   ========================================================= */
+
+.admin-turnos-table-section {
+    display: block;
+    width: 100%;
+    max-width: none;
+}
+
+.admin-turnos-table-section .admin-table-wrapper {
+    display: block;
+    width: 100%;
+    max-width: none;
+    overflow-x: auto;
+}
+
+.admin-turnos-table-section .admin-table {
+    width: 100%;
+    min-width: 1050px;
+    border-collapse: collapse;
+    table-layout: auto;
+}
+
+.admin-turnos-table-section .admin-table th,
+.admin-turnos-table-section .admin-table td {
+    white-space: nowrap;
+    overflow-wrap: normal;
+    word-break: normal;
+}

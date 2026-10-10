@@ -1,0 +1,309 @@
+
+{% extends "base.html" %}
+
+{% block title %}
+Administración | Mediscan
+{% endblock %}
+
+{% block content %}
+
+<section class="page-section admin-dashboard-page">
+
+    <div class="container">
+
+        <!-- ENCABEZADO -->
+
+        <div class="page-header admin-dashboard-header">
+
+            <span class="section-label">
+                Administración
+            </span>
+
+            <h1>Panel de administración</h1>
+
+            <p>
+                Consultá la actividad del centro y gestioná
+                los turnos, pacientes, estudios y sedes.
+            </p>
+
+        </div>
+
+
+        <!-- ESTADÍSTICAS -->
+
+        <div class="admin-dashboard-stats">
+
+            <article class="admin-dashboard-stat">
+
+                <div class="admin-dashboard-stat-top">
+                    <span>Turnos de hoy</span>
+                    
+                </div>
+
+                <strong>{{ turnos_hoy }}</strong>
+
+                <p>Reservas programadas para hoy</p>
+
+            </article>
+
+
+            <article class="admin-dashboard-stat">
+
+                <div class="admin-dashboard-stat-top">
+                    <span>Turnos pendientes</span>
+                   
+                </div>
+
+                <strong>{{ total_pendientes }}</strong>
+
+                <p>Reservas pendientes de atención</p>
+
+            </article>
+
+
+            <article class="admin-dashboard-stat">
+
+                <div class="admin-dashboard-stat-top">
+                    <span>Pacientes registrados</span>
+                    
+                </div>
+
+                <strong>{{ total_pacientes }}</strong>
+
+                <p>Pacientes registrados en el sistema</p>
+
+            </article>
+
+
+            <article class="admin-dashboard-stat">
+
+                <div class="admin-dashboard-stat-top">
+                    <span>Estudios disponibles</span>
+                    
+                </div>
+
+                <strong>{{ total_estudios }}</strong>
+
+                <p>Estudios habilitados en Mediscan</p>
+
+            </article>
+
+        </div>
+
+
+        <!-- GESTIÓN -->
+
+        <section class="admin-dashboard-panel">
+
+            <div class="admin-dashboard-panel-heading">
+
+                <span class="section-label">
+                    Gestión
+                </span>
+
+                <h2>Administración del sistema</h2>
+
+                <p>
+                    Accedé a las principales herramientas
+                    de gestión del centro.
+                </p>
+
+            </div>
+
+
+            <div class="admin-dashboard-management-grid">
+
+                <a
+                    href="{{ url_for('admin_pacientes') }}"
+                    class="admin-dashboard-management-card"
+                >
+
+                    
+                    <div>
+                        <h3>Pacientes</h3>
+
+                        <p>
+                            Consultá y administrá los datos
+                            de los pacientes registrados.
+                        </p>
+                    </div>
+
+                    <span class="admin-dashboard-management-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="{{ url_for('admin_estudios') }}"
+                    class="admin-dashboard-management-card"
+                >
+
+                   
+
+                    <div>
+                        <h3>Estudios</h3>
+
+                        <p>
+                            Gestioná los estudios médicos
+                            y su disponibilidad.
+                        </p>
+                    </div>
+
+                    <span class="admin-dashboard-management-arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="{{ url_for('admin_sedes') }}"
+                    class="admin-dashboard-management-card"
+                >
+
+
+                    <div>
+                        <h3>Sedes</h3>
+
+                        <p>
+                            Consultá y administrá las sedes
+                            del centro de diagnóstico.
+                        </p>
+                    </div>
+
+                    <span class="admin-dashboard-management-arrow">
+                        →
+                    </span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- PRÓXIMOS TURNOS -->
+
+        <section class="admin-dashboard-panel">
+
+            <div class="admin-dashboard-agenda-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        Agenda
+                    </span>
+
+                    <h2>Próximos turnos</h2>
+
+                    <p>
+                        Consultá las próximas reservas registradas.
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="{{ url_for('admin_turnos') }}"
+                    class="btn-secondary"
+                >
+                    Ver todos los turnos
+                </a>
+
+            </div>
+
+
+            {% if proximos_turnos %}
+
+                <div class="admin-dashboard-table-scroll">
+
+                    <table class="admin-dashboard-table">
+
+                        <thead>
+
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Hora</th>
+                                <th>Paciente</th>
+                                <th>Estudio</th>
+                                <th>Sede</th>
+                                <th>Código</th>
+                                <th>Estado</th>
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            {% for turno in proximos_turnos %}
+
+                                <tr>
+
+                                    <td>
+                                        {{ turno["fecha"] }}
+                                    </td>
+
+                                    <td>
+                                        {{ turno["hora"] }}
+                                    </td>
+
+                                    <td>
+                                        {{ turno["nombre"] }}
+                                        {{ turno["apellido"] }}
+                                    </td>
+
+                                    <td>
+                                        {{ turno["estudio"] }}
+                                    </td>
+
+                                    <td>
+                                        {{ turno["sede"] }}
+                                    </td>
+
+                                    <td>
+                                        <strong class="admin-dashboard-code">
+                                            {{ turno["codigo"] }}
+                                        </strong>
+                                    </td>
+
+                                    <td>
+                                        <span class="admin-status">
+                                            {{ turno["estado"] }}
+                                        </span>
+                                    </td>
+
+                                </tr>
+
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            {% else %}
+
+                <div class="admin-dashboard-empty">
+
+                    <h3>No hay próximos turnos</h3>
+
+                    <p>
+                        Actualmente no hay próximas reservas
+                        para mostrar.
+                    </p>
+
+                </div>
+
+            {% endif %}
+
+        </section>
+
+    </div>
+
+</section>
+
+{% endblock %}

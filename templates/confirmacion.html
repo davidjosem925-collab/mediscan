@@ -1,0 +1,202 @@
+{% extends "base.html" %}
+
+
+{% block title %}
+Turno confirmado | Mediscan
+{% endblock %}
+
+
+{% block content %}
+
+<!-- ====================================================== -->
+<!-- TURNO CONFIRMADO -->
+<!-- ====================================================== -->
+
+<section class="page-section">
+
+    <div class="container">
+
+        <div class="confirmation-card">
+
+            <!-- ICONO -->
+
+            <div class="confirmation-icon">
+                ✓
+            </div>
+
+
+            <!-- ENCABEZADO -->
+
+            <span class="section-label">
+                Reserva confirmada
+            </span>
+
+            <h1>
+                Turno reservado correctamente
+            </h1>
+
+            <p class="confirmation-description">
+                Tu turno fue registrado exitosamente.
+                Podés consultarlo y administrarlo desde
+                Mis turnos.
+            </p>
+
+
+            <!-- CÓDIGO -->
+
+            <div class="confirmation-code">
+
+                <span>
+                    Código de turno
+                </span>
+
+                <strong>
+                    {{ turno["codigo"] }}
+                </strong>
+
+            </div>
+
+
+            <!-- ================================================== -->
+            <!-- DATOS DEL TURNO -->
+            <!-- ================================================== -->
+
+            <div class="confirmation-details">
+
+
+                <div class="confirmation-detail">
+
+                    <span>
+                        Paciente
+                    </span>
+
+                    <strong>
+                        {{ usuario["nombre"] }}
+                        {{ usuario["apellido"] }}
+                    </strong>
+
+                </div>
+
+
+                <div class="confirmation-detail">
+
+                    <span>
+                        Estudio
+                    </span>
+
+                    <strong>
+                        {{ estudio["nombre"] }}
+                    </strong>
+
+                </div>
+
+
+                <div class="confirmation-detail">
+
+                    <span>
+                        Sede
+                    </span>
+
+                    <strong>
+                        {{ sede["nombre"] }}
+                    </strong>
+
+                </div>
+
+
+                <div class="confirmation-detail">
+
+                    <span>
+                        Dirección
+                    </span>
+
+                    <strong>
+                        {{ sede["direccion"] }}
+                    </strong>
+
+                </div>
+
+
+                <div class="confirmation-detail">
+
+                    <span>
+                        Fecha
+                    </span>
+
+                    <strong>
+                        {{ turno["fecha"] }}
+                    </strong>
+
+                </div>
+
+
+                <div class="confirmation-detail">
+
+                    <span>
+                        Horario
+                    </span>
+
+                    <strong>
+                        {{ turno["hora"] }}
+                    </strong>
+
+                </div>
+
+
+                <div class="confirmation-detail">
+
+                    <span>
+                        Duración
+                    </span>
+
+                    <strong>
+                        {{ estudio["duracion_minutos"] }} minutos
+                    </strong>
+
+                </div>
+
+
+                <div class="confirmation-detail">
+
+                    <span>
+                        Estado
+                    </span>
+
+                    <strong>
+                        {{ turno["estado"] }}
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================================================== -->
+            <!-- ACCIONES -->
+            <!-- ================================================== -->
+
+            <div class="confirmation-actions">
+
+                <a
+                    href="{{ url_for('mi_cuenta') }}"
+                    class="btn-primary"
+                >
+                    Ver mis turnos
+                </a>
+
+                <a
+                    href="{{ url_for('inicio') }}"
+                    class="btn-secondary"
+                >
+                    Volver al inicio
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
