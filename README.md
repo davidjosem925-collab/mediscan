@@ -57,6 +57,23 @@ sistema de turnos/
 └── database/
 ```
 
+## Capturas de pantalla
+
+### Página principal
+![Página principal de Mediscan](docs/screenshots/inicio.png)
+
+### Catálogo de estudios
+![Estudios médicos disponibles](docs/screenshots/estudios.png)
+
+### Reserva de turnos
+![Selección de fecha y horario](docs/screenshots/reserva.png)
+
+### Confirmación de reserva
+![Turno reservado correctamente](docs/screenshots/confirmacion.png)
+
+### Panel de administración
+![Panel de administración de Mediscan](docs/screenshots/administracion.png)
+
 ## Instalación local
 
 ### 1. Clonar el repositorio
