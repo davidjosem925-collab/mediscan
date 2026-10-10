@@ -3,19 +3,20 @@
 
 Mediscan es una aplicación web desarrollada con Python, Flask y SQLite para gestionar turnos en un centro de diagnóstico médico.
 
+## Demo online
+
+🌐 **Probá Mediscan:** https://mediscanarg.pythonanywhere.com
+
+Aplicación web publicada en PythonAnywhere. Podés explorar los estudios, crear una cuenta de prueba y simular la reserva de turnos médicos.
+
+**Importante:** Mediscan es un proyecto demostrativo. No ingreses datos personales reales.
+  
 El sistema permite a los pacientes consultar estudios, seleccionar una sede, reservar turnos y administrar sus reservas. También incluye un panel de administración para gestionar estudios, sedes, horarios y turnos.
 
-## Aviso legal y uso demostrativo
+## Aviso legal
 
-**Mediscan es un proyecto ficticio desarrollado con fines educativos y de portfolio profesional.**
-
-No representa a un centro médico real ni ofrece servicios de salud.
-
-Las sedes, direcciones, teléfonos, pacientes y demás datos utilizados son ficticios o de demostración.
-
-El sistema permite simular la gestión y reserva de turnos médicos, pero no realiza reservas reales.
-
-
+Mediscan es un proyecto ficticio desarrollado con fines educativos y de portfolio profesional. No representa un centro médico real ni permite realizar reservas médicas reales. Las sedes y los datos de ejemplo son ficticios.
+  
 ## Funcionalidades
 
 ### Pacientes
@@ -149,9 +150,13 @@ No publicar contraseñas ni claves secretas en el repositorio.
 .\.venv\Scripts\python.exe app.py
 ```
 
-Abrir en el navegador:
+Abrir la aplicación localmente:
 
 http://127.0.0.1:5000
+
+Demo pública disponible en:
+
+https://mediscanarg.pythonanywhere.com
 
 ## Seguridad
 
