@@ -61,32 +61,38 @@ sistema de turnos/
 
 ### 1. Clonar el repositorio
 
-```bash
+```powershell
 git clone https://github.com/davidjosem925-collab/mediscan.git
 cd mediscan
 ```
 
 ### 2. Crear un entorno virtual
 
-```bash
+```powershell
 python -m venv .venv
 ```
 
 ### 3. Activar el entorno virtual
 
-En Windows (CMD):
+En Windows PowerShell:
 
-```cmd
-.venv\Scripts\activate.bat
+```powershell
+.\.venv\Scripts\Activate.ps1
 ```
+
+Si PowerShell bloquea la ejecución de scripts, se puede continuar utilizando directamente el ejecutable de Python del entorno virtual en los siguientes pasos, sin activarlo.
 
 ### 4. Instalar las dependencias
 
-```bash
-python -m pip install -r requirements.txt
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
 
+Verificar que Flask se haya instalado correctamente:
 
+```powershell
+.\.venv\Scripts\python.exe -m flask --version
+```
 
 ### 5. Configurar las variables de entorno
 
@@ -116,14 +122,14 @@ No publicar contraseñas ni claves secretas en el repositorio.
 
 ### 6. Preparar la base de datos
 
-```bash
-python crear_base.py
+```powershell
+.\.venv\Scripts\python.exe crear_base.py
 ```
 
 ### 7. Iniciar la aplicación
 
-```bash
-python app.py
+```powershell
+.\.venv\Scripts\python.exe app.py
 ```
 
 Abrir en el navegador:
